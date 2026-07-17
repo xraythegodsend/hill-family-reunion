@@ -1,0 +1,15 @@
+# Raw source materials (not needed for the live site)
+Assets/extracted_media/
+Assets/images/originals/
+Assets/images/Additional Accomplishments/
+Assets/images/rehillfamilyaccomplishments/
+Assets/images/rehillfamilyaccomplishments.zip
+Assets/*.docx
+Assets/*.pdf
+Assets/*.eml
+
+# Packaged distributable (rebuild from source instead of versioning the zip)
+Hill-Family-Reunion-Site.zip
+
+# Editor/project config
+.claude/
