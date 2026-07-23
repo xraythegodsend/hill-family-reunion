@@ -1,0 +1,2241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hill Family Reunion 2026 — Cruisin' Thru The Hills</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold:       #FF6B35;
+    --deep-gold:  #E04F1A;
+    --cream:      #FFFFFF;
+    --warm-white: #FFF8EE;
+    --brown:      #0A3D3A;
+    --dark-brown: #062828;
+    --sepia:      #1AA89A;
+    --light-sepia:#E8F8F5;
+    --green:      #085050;
+    --muted-green:#0E7070;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background-color: #062828;
+    color: #FFFFFF;
+    font-family: 'Libre Baskerville', serif;
+    overflow-x: hidden;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(150deg, #FF6B35 0%, #FFB830 28%, #00BFA5 62%, #005F73 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 20px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(ellipse at 20% 80%, rgba(255,255,255,0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 10%, rgba(255,255,255,0.12) 0%, transparent 45%);
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 80px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 80'%3E%3Cpath fill='%23062828' d='M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z'/%3E%3C/svg%3E") no-repeat bottom;
+    background-size: cover;
+    pointer-events: none;
+  }
+
+  .hero-ornament {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    letter-spacing: 0.4em;
+    color: rgba(255,255,255,0.95);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    opacity: 0;
+    animation: fadeUp 1s ease 0.3s forwards;
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3.5rem, 9vw, 7rem);
+    font-weight: 300;
+    color: #FFFFFF;
+    line-height: 1;
+    letter-spacing: 0.02em;
+    margin-bottom: 8px;
+    opacity: 0;
+    animation: fadeUp 1s ease 0.5s forwards;
+  }
+
+  .hero-title span {
+    color: var(--gold);
+    font-style: italic;
+  }
+
+  .hero-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-weight: 300;
+    font-style: italic;
+    color: rgba(255,255,255,0.92);
+    margin-bottom: 32px;
+    opacity: 0;
+    animation: fadeUp 1s ease 0.7s forwards;
+  }
+
+  .hero-divider {
+    width: 120px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.9), transparent);
+    margin: 0 auto 28px;
+    opacity: 0;
+    animation: fadeUp 1s ease 0.9s forwards;
+  }
+
+  .hero-tagline {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 8px;
+    opacity: 0;
+    animation: fadeUp 1s ease 1.1s forwards;
+  }
+
+  .hero-date {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    color: var(--gold);
+    opacity: 0;
+    animation: fadeUp 1s ease 1.2s forwards;
+  }
+
+  .hero-mission {
+    max-width: 600px;
+    margin: 32px auto 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    font-style: italic;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.88);
+    opacity: 0;
+    animation: fadeUp 1s ease 1.4s forwards;
+  }
+
+  .scroll-cue {
+    margin-top: 60px;
+    opacity: 0;
+    animation: fadeUp 1s ease 1.8s forwards;
+  }
+  .scroll-cue span {
+    display: block;
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+  .scroll-arrow {
+    width: 1px;
+    height: 50px;
+    background: linear-gradient(180deg, var(--gold), transparent);
+    margin: 0 auto;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  /* ===== NAV ===== */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(6,40,40,0.97);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid #FF6B35;
+    padding: 0 20px;
+  }
+  .nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    color: var(--gold);
+    letter-spacing: 0.05em;
+  }
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #E8F8F5;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  /* ===== SECTIONS ===== */
+  section {
+    padding: 90px 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-full {
+    max-width: 100%;
+    padding: 90px 0;
+  }
+
+  .section-label {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    max-width: 80px;
+    height: 1px;
+    background: var(--gold);
+    opacity: 0.4;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 300;
+    line-height: 1.1;
+    margin-bottom: 40px;
+    color: #FFFFFF;
+  }
+  .section-title em { color: var(--gold); font-style: italic; }
+
+  .divider {
+    width: 60px;
+    height: 1px;
+    background: var(--gold);
+    opacity: 0.5;
+    margin: 40px 0;
+  }
+
+  /* ===== STORY CARDS ===== */
+  .story-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    background: rgba(255,107,53,0.1);
+    border: 1px solid rgba(255,107,53,0.25);
+  }
+  @media (max-width: 700px) {
+    .story-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+  }
+
+  .story-card {
+    background: rgba(4,30,30,0.85);
+    padding: 48px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .story-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 60px;
+    background: var(--gold);
+  }
+  .story-card-year {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    font-weight: 300;
+    color: rgba(255,107,53,0.2);
+    position: absolute;
+    top: 20px; right: 28px;
+    line-height: 1;
+  }
+  .story-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--gold);
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+  .story-card p {
+    font-size: 0.95rem;
+    line-height: 1.85;
+    color: #E8F8F5;
+  }
+
+  /* ===== PATRIARCH SECTION ===== */
+  .patriarch-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+  @media (max-width: 700px) { .patriarch-block { grid-template-columns: 1fr; } }
+
+  .patriarch-text h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 300;
+    color: #FFFFFF;
+    margin-bottom: 8px;
+  }
+  .patriarch-text .years {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    margin-bottom: 28px;
+  }
+  .patriarch-text p {
+    font-size: 0.95rem;
+    line-height: 1.9;
+    color: #E8F8F5;
+    margin-bottom: 20px;
+  }
+  .patriarch-text .quote {
+    border-left: 2px solid var(--gold);
+    padding-left: 20px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    font-style: italic;
+    color: #FFFFFF;
+    margin: 28px 0;
+  }
+
+  .children-list {
+    background: rgba(0,168,150,0.07);
+    border: 1px solid rgba(0,168,150,0.25);
+    padding: 28px;
+    border-radius: 2px;
+  }
+  .children-list h4 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+  .children-list .cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 24px;
+  }
+  .children-list .child-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    color: #FFFFFF;
+    padding: 4px 0;
+    border-bottom: 1px solid rgba(0,168,150,0.15);
+  }
+  .child-tag {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.65rem;
+    color: #1AA89A;
+    letter-spacing: 0.1em;
+  }
+
+  /* ===== FAMILY TREE ===== */
+  .tree-section {
+    background: linear-gradient(180deg, #062828 0%, #041e1e 100%);
+    padding: 90px 20px;
+  }
+  .tree-inner { max-width: 1100px; margin: 0 auto; }
+
+  #familyTree {
+    width: 100%;
+    overflow-x: auto;
+    padding: 20px 0 40px;
+  }
+
+  .tree-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 800px;
+    padding: 0 20px;
+  }
+
+  .tree-generation {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    position: relative;
+    width: 100%;
+    margin-bottom: 0;
+  }
+
+  .tree-gen-label {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(72,202,228,0.6);
+    text-align: center;
+    margin: 10px 0 30px;
+  }
+
+  .tree-connector-wrap {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    height: 50px;
+    margin: 0;
+  }
+
+  .person-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding: 0 8px;
+    cursor: pointer;
+  }
+
+  .person-card {
+    background: rgba(0,80,100,0.55);
+    border: 1px solid rgba(72,202,228,0.3);
+    border-radius: 2px;
+    padding: 12px 16px;
+    text-align: center;
+    width: 130px;
+    transition: all 0.25s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .person-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 50%; transform: translateX(-50%);
+    width: 30px; height: 2px;
+    background: var(--gold);
+    opacity: 0;
+    transition: opacity 0.25s;
+  }
+  .person-card:hover {
+    border-color: var(--gold);
+    background: rgba(255,107,53,0.15);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+  }
+  .person-card:hover::before { opacity: 1; }
+
+  .person-card.patriarch {
+    width: 160px;
+    border-color: rgba(255,184,48,0.6);
+    background: rgba(0,80,100,0.8);
+  }
+  .person-card.patriarch .person-name { font-size: 1rem; }
+
+  .person-initial {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(72,202,228,0.15);
+    border: 1px solid rgba(72,202,228,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    color: var(--gold);
+    margin: 0 auto 8px;
+  }
+  .patriarch .person-initial {
+    width: 48px; height: 48px; font-size: 1.2rem;
+    background: rgba(255,184,48,0.2);
+    border-color: #FFB830;
+  }
+
+  .person-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.88rem;
+    color: #FFFFFF;
+    line-height: 1.2;
+    margin-bottom: 4px;
+  }
+
+  .person-dates {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.62rem;
+    color: #1AA89A;
+    letter-spacing: 0.1em;
+  }
+
+  .person-role {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.6rem;
+    color: var(--gold);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  /* SVG connectors */
+  .tree-svg {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    overflow: visible;
+  }
+
+  /* Tooltip */
+  .tooltip {
+    display: none;
+    position: fixed;
+    z-index: 200;
+    background: rgba(4,30,30,0.97);
+    border: 1px solid #00A896;
+    padding: 20px 24px;
+    max-width: 280px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+    pointer-events: none;
+  }
+  .tooltip.active { display: block; }
+  .tooltip h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    color: var(--gold);
+    margin-bottom: 4px;
+  }
+  .tooltip .t-dates {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.7rem;
+    color: #1AA89A;
+    letter-spacing: 0.2em;
+    margin-bottom: 12px;
+  }
+  .tooltip p {
+    font-size: 0.85rem;
+    line-height: 1.7;
+    color: #E8F8F5;
+  }
+
+  /* ===== JEKYLL ISLAND SECTION ===== */
+  .jekyll-band {
+    background: linear-gradient(135deg, #041e1e 0%, #0a3030 50%, #062020 100%);
+    padding: 90px 20px;
+    border-top: 2px solid #00A896;
+    border-bottom: 2px solid #00A896;
+  }
+  .jekyll-inner { max-width: 1100px; margin: 0 auto; }
+
+  .jekyll-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+    margin-top: 48px;
+  }
+  @media (max-width: 700px) { .jekyll-grid { grid-template-columns: 1fr; } }
+
+  .jekyll-card {
+    border: 1px solid rgba(72,202,228,0.2);
+    padding: 32px 28px;
+    background: rgba(0,168,150,0.07);
+    position: relative;
+  }
+  .jekyll-card .icon {
+    font-size: 1.8rem;
+    margin-bottom: 16px;
+  }
+  .jekyll-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+  .jekyll-card p {
+    font-size: 0.88rem;
+    line-height: 1.8;
+    color: #E8F8F5;
+  }
+
+  /* ===== LEGACY FIGURES ===== */
+  .figures-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2px;
+    background: rgba(255,107,53,0.08);
+    margin-top: 48px;
+  }
+
+  .figure-card {
+    background: #0A3D3A;
+    padding: 36px 32px;
+    border-top: 2px solid transparent;
+  }
+  .figure-card:hover { border-top-color: var(--gold); }
+  .figure-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    color: #FFFFFF;
+    margin-bottom: 4px;
+  }
+  .figure-card .fig-role {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+  .figure-card p {
+    font-size: 0.88rem;
+    line-height: 1.8;
+    color: #E8F8F5;
+  }
+
+  /* ===== MILITARY HONOR ===== */
+  .military-section {
+    background: rgba(0,0,0,0.35);
+    padding: 90px 20px;
+    border-top: 1px solid rgba(0,168,150,0.2);
+  }
+  .military-inner { max-width: 1100px; margin: 0 auto; }
+  .military-names {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 40px;
+  }
+  .military-tag {
+    border: 1px solid rgba(72,202,228,0.25);
+    padding: 10px 20px;
+    background: rgba(72,202,228,0.04);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.95rem;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .military-tag .branch {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  /* ===== IN MEMORIAM ===== */
+  .memoriam {
+    padding: 90px 20px;
+    text-align: center;
+    background: linear-gradient(180deg, #062828 0%, #031515 100%);
+  }
+  .memoriam-inner { max-width: 700px; margin: 0 auto; }
+  .memoriam-names {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .memoriam-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-style: italic;
+    color: #E8F8F5;
+    position: relative;
+    padding: 16px 0;
+    border-top: 1px solid rgba(72,202,228,0.12);
+  }
+  .memoriam-name:last-child { border-bottom: 1px solid rgba(72,202,228,0.12); }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: linear-gradient(135deg, #041e1e, #062828);
+    padding: 48px 20px;
+    text-align: center;
+    border-top: 3px solid #FF6B35;
+  }
+  footer .f-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+  footer p {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    color: #1AA89A;
+    margin-bottom: 4px;
+  }
+  footer .motto {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: #E8F8F5;
+    margin-top: 20px;
+  }
+
+  /* ===== ANIMATIONS ===== */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 0.4; transform: scaleY(1); }
+    50%       { opacity: 1;   transform: scaleY(1.1); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Connector lines in tree */
+  .v-line {
+    width: 1px;
+    background: rgba(72,202,228,0.35);
+    position: absolute;
+    left: 50%;
+  }
+  .h-line {
+    height: 1px;
+    background: rgba(72,202,228,0.35);
+    position: absolute;
+    top: 0;
+  }
+
+  /* ===== PHOTOS & GALLERIES ===== */
+  .photo-frame {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+    border: 1px solid rgba(255,107,53,0.3);
+    border-radius: 2px;
+    background: #04201f;
+  }
+  .photo-caption {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #1AA89A;
+    margin-top: 10px;
+    text-align: center;
+  }
+  .section-banner-img {
+    width: 100%;
+    max-height: 380px;
+    object-fit: cover;
+    border-top: 2px solid #FF6B35;
+    border-bottom: 2px solid #00A896;
+    display: block;
+  }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 18px;
+    margin-top: 40px;
+  }
+  .gallery-item img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    border: 1px solid rgba(72,202,228,0.25);
+    filter: grayscale(15%) sepia(8%);
+    transition: filter 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+  }
+  .gallery-item img:hover {
+    filter: grayscale(0%) sepia(0%);
+    transform: translateY(-4px);
+    border-color: var(--gold);
+  }
+  .flourish-divider {
+    display: block;
+    max-width: 220px;
+    margin: 48px auto;
+    opacity: 0.55;
+    filter: invert(70%) sepia(40%) saturate(400%) hue-rotate(130deg);
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-ornament">Est. 1838 · Brunswick, Georgia · Jekyll Island</div>
+  <h1 class="hero-title">The <span>Hill</span> Family</h1>
+  <p class="hero-subtitle">Reunion &amp; Legacy Celebration</p>
+  <div class="hero-divider"></div>
+  <p class="hero-tagline">Cruisin' Thru The Hills · 2026 Reunion</p>
+  <p class="hero-date">July 16th – 20th · St. Simon's Island, Georgia</p>
+  <p class="hero-mission">
+    "We stand on the shoulders of those who brought us forth.<br>
+    All Hill Family roots begin with Aaron and Mary Ann Hill."
+  </p>
+  <div class="scroll-cue">
+    <span>Explore Our Story</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">The Hill Family</div>
+    <ul class="nav-links">
+      <li><a href="#history">Our Roots</a></li>
+      <li><a href="#origins">Origins</a></li>
+      <li><a href="#tree">Family Tree</a></li>
+      <li><a href="#jekyll">Jekyll Island</a></li>
+      <li><a href="#stories">Stories</a></li>
+      <li><a href="#accomplishments">Milestones</a></li>
+      <li><a href="#legacy">Legacy</a></li>
+      <li><a href="#honor">Honor</a></li>
+      <li><a href="#jeopardy">🎮 Game</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ===== THE WANDERER & GULLAH GEECHEE ===== -->
+<div style="background:linear-gradient(135deg,#001a1a 0%,#003333 40%,#001a1a 100%); padding:100px 20px; border-top:3px solid #FF6B35; border-bottom:3px solid #00A896;" id="history">
+  <div style="max-width:1100px; margin:0 auto;">
+
+    <div class="section-label" style="color:#FF6B35;">Our Deeper Roots</div>
+    <h2 class="section-title reveal" style="margin-bottom:60px; color:#FFFFFF;">The <em style="color:#FFB830; font-style:italic;">Wanderer</em> &amp; Our Ancestral Story</h2>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; margin-bottom:80px;" class="reveal">
+      <div>
+        <h3 style="font-family:'Cormorant Garamond',serif; font-size:2rem; color:#FFFFFF; margin-bottom:8px;">The Last Illegal Slave Ship</h3>
+        <div style="font-family:'Raleway',sans-serif; font-size:0.72rem; letter-spacing:0.3em; color:#FF6B35; text-transform:uppercase; margin-bottom:20px;">1858 · Jekyll Island, Georgia</div>
+        <p style="font-size:0.95rem; line-height:1.95; color:#E8F8F5; margin-bottom:16px;">In 1858 — fifty years after the United States had banned the Atlantic slave trade — a vessel called <strong style="color:#FFB830;">The Wanderer</strong> arrived at Jekyll Island's waters carrying approximately 409 enslaved men, women, and children from the Kingdom of Kongo in West Central Africa.</p>
+        <p style="font-size:0.95rem; line-height:1.95; color:#E8F8F5; margin-bottom:16px;">This was an act of defiance against federal law, carried out on the very island where our Hill family ancestors would later build their lives and their legacy. The Federal Government prosecuted those responsible in 1860 — but in the Deep South, not a single person was convicted of the crime.</p>
+        <div style="border-left:3px solid #FF6B35; padding:16px 20px; background:rgba(255,107,53,0.08); font-family:'Cormorant Garamond',serif; font-size:1.15rem; font-style:italic; color:#FFFFFF; margin:24px 0; line-height:1.6;">"The same waters that carried enslaved souls to Jekyll Island's shores would later carry Charlie Hill's rowboat — ferrying the millionaires who would employ our family for generations."</div>
+        <p style="font-size:0.95rem; line-height:1.95; color:#E8F8F5;">The connection between The Wanderer and our Hill family story is profound. The land our ancestors worked, the beaches they walked — all of it was shaped by this dark and courageous history. Knowing it is part of knowing who we are.</p>
+      </div>
+      <div style="background:linear-gradient(135deg,#001a2e,#003355); border:2px solid rgba(0,168,150,0.3); border-radius:4px; padding:32px 32px 48px; text-align:center;">
+        <img src="Assets/images/wanderer-ship.jpg" alt="The Wanderer, a 19th-century sailing ship" class="photo-frame" style="margin-bottom:20px; max-height:220px;">
+        <h3 style="font-family:'Cormorant Garamond',serif; font-size:2rem; color:#FFB830; margin-bottom:8px;">The Wanderer</h3>
+        <p style="font-family:'Raleway',sans-serif; font-size:0.8rem; letter-spacing:0.15em; color:#E8F8F5; margin-bottom:24px;">The last ship to illegally carry enslaved people to American shores</p>
+        <div style="display:inline-block; background:rgba(255,184,48,0.15); border:1px solid rgba(255,184,48,0.4); padding:8px 20px; margin:6px 4px; font-family:'Cormorant Garamond',serif; font-size:1.1rem; color:#FFB830;">409 souls</div>
+        <div style="display:inline-block; background:rgba(255,184,48,0.15); border:1px solid rgba(255,184,48,0.4); padding:8px 20px; margin:6px 4px; font-family:'Cormorant Garamond',serif; font-size:1.1rem; color:#FFB830;">1858</div>
+        <div style="display:inline-block; background:rgba(255,184,48,0.15); border:1px solid rgba(255,184,48,0.4); padding:8px 20px; margin:6px 4px; font-family:'Cormorant Garamond',serif; font-size:1.1rem; color:#FFB830;">Jekyll Island</div>
+        <div style="display:inline-block; background:rgba(255,184,48,0.15); border:1px solid rgba(255,184,48,0.4); padding:8px 20px; margin:6px 4px; font-family:'Cormorant Garamond',serif; font-size:1.1rem; color:#FFB830;">Kingdom of Kongo</div>
+        <p style="margin-top:24px; font-size:0.82rem; color:rgba(255,255,255,0.45); font-style:italic;">Prohibited since 1808 — The Wanderer arrived 50 years later, in open defiance of the law.</p>
+      </div>
+    </div>
+
+    <div style="text-align:center; max-width:780px; margin:0 auto 56px;" class="reveal">
+      <div class="section-label" style="justify-content:center; color:#00A896;">Our Cultural Heritage</div>
+      <h2 style="font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,5vw,3.2rem); font-weight:300; color:#FFFFFF; margin-bottom:16px;">The <em style="color:#FFB830; font-style:italic;">Gullah Geechee</em> People</h2>
+      <p style="font-size:1rem; line-height:1.9; color:#E8F8F5;">The Hill family's roots are inseparable from one of America's most extraordinary cultural legacies. The Gullah Geechee Nation is a cultural and ethnic group of the Lowcountry — the coastal areas of South Carolina, Georgia, North Florida, and North Carolina. They are the descendants of enslaved Africans who maintained their traditions, language, and identity across centuries of oppression. <strong style="color:#E8F8F5;">They are our people.</strong></p>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; max-width:900px; margin:0 auto 56px;" class="reveal">
+      <div>
+        <img src="Assets/images/gullah-geechee-historic-1.jpg" alt="Historic photograph of a Gullah Geechee community, coastal Georgia" class="photo-frame" style="height:260px;">
+        <div class="photo-caption">Gullah Geechee community · Coastal Georgia</div>
+      </div>
+      <div>
+        <img src="Assets/images/gullah-geechee-historic-2.jpg" alt="Historic photograph, Georgia Sea Islands" class="photo-frame" style="height:260px;">
+        <div class="photo-caption">The Sea Islands · Early 1900s</div>
+      </div>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:3px; background:rgba(0,168,150,0.12); border:1px solid rgba(0,168,150,0.25); margin-bottom:56px;" class="reveal">
+      <div style="background:#001a1a; padding:36px 30px; border-top:3px solid transparent; transition:border-color 0.3s;" onmouseover="this.style.borderTopColor='#00A896'" onmouseout="this.style.borderTopColor='transparent'">
+        <span style="font-size:2rem; display:block; margin-bottom:14px;">🗣️</span>
+        <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.3rem; color:#FFB830; margin-bottom:10px;">A Living Language</h3>
+        <p style="font-size:0.88rem; line-height:1.85; color:#E8F8F5;">The Gullah Geechee people preserved a unique Creole language blending African languages with English — born from the transatlantic slave trade and kept alive through generations. It is one of the few African-based Creole languages in North America.</p>
+      </div>
+      <div style="background:#001a1a; padding:36px 30px; border-top:3px solid transparent; transition:border-color 0.3s;" onmouseover="this.style.borderTopColor='#00A896'" onmouseout="this.style.borderTopColor='transparent'">
+        <span style="font-size:2rem; display:block; margin-bottom:14px;">🧺</span>
+        <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.3rem; color:#FFB830; margin-bottom:10px;">Art, Craft &amp; Culture</h3>
+        <p style="font-size:0.88rem; line-height:1.85; color:#E8F8F5;">Sweetgrass basketry, woodcarving, and textile arts are among the gifts Gullah Geechee people gave to American culture — tracing directly to West African traditions brought to these shores through ships like The Wanderer.</p>
+      </div>
+      <div style="background:#001a1a; padding:36px 30px; border-top:3px solid transparent; transition:border-color 0.3s;" onmouseover="this.style.borderTopColor='#00A896'" onmouseout="this.style.borderTopColor='transparent'">
+        <span style="font-size:2rem; display:block; margin-bottom:14px;">🎵</span>
+        <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.3rem; color:#FFB830; margin-bottom:10px;">Roots of American Music</h3>
+        <p style="font-size:0.88rem; line-height:1.85; color:#E8F8F5;">The spiritual songs, rhythms, and musical traditions of the Gullah Geechee people laid the foundation for jazz, blues, and gospel music in America — genres that changed the world.</p>
+      </div>
+      <div style="background:#001a1a; padding:36px 30px; border-top:3px solid transparent; transition:border-color 0.3s;" onmouseover="this.style.borderTopColor='#00A896'" onmouseout="this.style.borderTopColor='transparent'">
+        <span style="font-size:2rem; display:block; margin-bottom:14px;">👑</span>
+        <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.3rem; color:#FFB830; margin-bottom:10px;">A Nation with Leadership</h3>
+        <p style="font-size:0.88rem; line-height:1.85; color:#E8F8F5;">The Gullah Geechee Nation is recognized by the U.S. government as a national ethnic group, with its own Council of Leaders led by Queen Quet, the Chieftess of the Gullah Geechee Nation.</p>
+      </div>
+      <div style="background:#001a1a; padding:36px 30px; border-top:3px solid transparent; transition:border-color 0.3s;" onmouseover="this.style.borderTopColor='#00A896'" onmouseout="this.style.borderTopColor='transparent'">
+        <span style="font-size:2rem; display:block; margin-bottom:14px;">🌊</span>
+        <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.3rem; color:#FFB830; margin-bottom:10px;">Resilience Along the Coast</h3>
+        <p style="font-size:0.88rem; line-height:1.85; color:#E8F8F5;">Despite centuries of slavery, segregation, and displacement, the Gullah Geechee Nation continues to thrive with a strong focus on cultural preservation, education, and community development.</p>
+      </div>
+      <div style="background:#001a1a; padding:36px 30px; border-top:3px solid transparent; transition:border-color 0.3s;" onmouseover="this.style.borderTopColor='#00A896'" onmouseout="this.style.borderTopColor='transparent'">
+        <span style="font-size:2rem; display:block; margin-bottom:14px;">🏝️</span>
+        <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.3rem; color:#FFB830; margin-bottom:10px;">The Sea Islands</h3>
+        <p style="font-size:0.88rem; line-height:1.85; color:#E8F8F5;">Jekyll Island, St. Simon's Island, and the surrounding Sea Islands were the heart of Gullah Geechee country. The isolation of these islands allowed African cultural practices to survive nearly intact.</p>
+      </div>
+    </div>
+
+    <div style="background:linear-gradient(90deg,rgba(255,107,53,0.1),rgba(0,168,150,0.1)); border:1px solid rgba(255,184,48,0.3); padding:40px 48px; text-align:center;" class="reveal">
+      <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.8rem; color:#FFB830; margin-bottom:16px;">🌿 Our Family, Our Heritage</h3>
+      <p style="font-size:0.96rem; line-height:1.9; color:#E8F8F5; max-width:720px; margin:0 auto;">Aaron Hill was a Raftsman, Boatsman, and Fisherman — trades as old as the Gullah Geechee people themselves. Mary Ann Pickney Hill grew rice, made butter and molasses from sugar cane, raised chickens and cows, and sewed every piece of clothing her children wore. These are not simply personal details — they are the living practices of a Gullah Geechee family holding onto their culture, their skills, and their humanity. When we gather as a family, we carry all of that forward.</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- ORIGINS -->
+<section id="origins">
+  <div class="section-label">Chapter One</div>
+  <h2 class="section-title">Our <em>Origins</em></h2>
+
+  <div class="patriarch-block reveal">
+    <div class="patriarch-text">
+      <h2>Aaron Hill</h2>
+      <div class="years">Born 1838 · Myers Plantation, Georgia</div>
+      <p>Aaron Hill was a man of remarkable character and quiet power. Tall in stature, he was known throughout the community as "The Community Counselor" — whenever there was a dispute or a neighbor needed guidance, people would send for Aaron.</p>
+      <p>A skilled Raftsman, Boatsman, and Fisherman, Aaron taught these trades to his sons, ensuring the family always had fresh seafood and a steady income. His reputation grew so great that in 1876, the First Lady of the Myers property, Harriet Myers, asked Aaron to be one of the witnesses to sign her Will.</p>
+      <div class="quote">"If there was a disturbance or someone needed advice, the people would send for Aaron."</div>
+      <p>Aaron and Mary Ann were married in 1863 — the same year slavery ended — and together built a family that would span generations and shape the history of the Georgia coast.</p>
+    </div>
+    <div>
+      <div class="children-list">
+        <h4>Children of Aaron &amp; Mary Ann Hill</h4>
+        <div class="cols">
+          <div>
+            <div class="child-name">Charlie <span class="child-tag">Son</span></div>
+            <div class="child-name">Arnold <span class="child-tag">Son</span></div>
+            <div class="child-name">Willie <span class="child-tag">Son</span></div>
+            <div class="child-name">Wesley <span class="child-tag">Son</span></div>
+            <div class="child-name">Bubba <span class="child-tag">Son</span></div>
+            <div class="child-name">Boise <span class="child-tag">Son</span></div>
+            <div class="child-name">Myers <span class="child-tag">Son</span></div>
+            <div class="child-name">Earl <span class="child-tag">Son</span></div>
+          </div>
+          <div>
+            <div class="child-name">Sarah <span class="child-tag">Daughter</span></div>
+            <div class="child-name">Anni <span class="child-tag">Daughter</span></div>
+            <div class="child-name">Ardina <span class="child-tag">Daughter</span></div>
+            <div class="child-name">Isabell <span class="child-tag">Daughter</span></div>
+            <div class="child-name">Mary <span class="child-tag">Daughter</span></div>
+            <div class="child-name">Lillie <span class="child-tag">Daughter</span></div>
+            <div class="child-name">Rosa <span class="child-tag">Daughter</span></div>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top: 24px;" class="children-list">
+        <h4>Mary Ann Pickney Hill</h4>
+        <p style="font-size: 0.9rem; line-height: 1.8; color: #E8F8F5; margin-top: 12px;">Born 1848. A Housewife, skilled seamstress, and devoted mother who made all her children's clothes. She took her children to church regularly and kept the family fed through their large garden, chickens, cows, and homemade butter and molasses. When the children fell ill, she made her own healing teas.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="story-grid reveal">
+    <div class="story-card">
+      <div class="story-card-year">1863</div>
+      <h3>Marriage &amp; Freedom</h3>
+      <p>Aaron and Mary Ann Hill were married in 1863 — the very year slavery ended in America. Their union marked the beginning of a remarkable family legacy rooted in resilience, faith, and self-sufficiency on the Georgia coast.</p>
+    </div>
+    <div class="story-card">
+      <div class="story-card-year">1866</div>
+      <h3>A Family Begins</h3>
+      <p>In 1866, Aaron and Mary Ann began building their family — ultimately raising fourteen children: seven sons and seven daughters. Each child carried forward the values of hard work, education, and community that their parents instilled.</p>
+    </div>
+    <div class="story-card">
+      <div class="story-card-year">1876</div>
+      <h3>Aaron Signs the Will</h3>
+      <p>Such was Aaron Hill's standing in the community that Harriet Myers, First Lady of the Myers plantation, chose him as one of three witnesses to sign her Will before her death — a testament to the deep respect he commanded.</p>
+    </div>
+    <div class="story-card">
+      <div class="story-card-year">1992</div>
+      <h3>Reunion Founded</h3>
+      <p>Barbara Hill Floyd, with cousins Janie Bell Parland and Clinton Tucker, organized the very first Hill Family Reunion in Brunswick, Georgia on August 7–9, 1992. Their goal: to celebrate the descendants of Aaron and Mary Ann Hill for generations to come.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAMILY TREE -->
+<div class="tree-section section-full" id="tree">
+  <div class="tree-inner">
+    <div style="padding: 0 20px;">
+      <div class="section-label">Family Tree</div>
+      <h2 class="section-title">Roots &amp; <em>Branches</em></h2>
+      <p style="color: #E8F8F5; font-size: 0.95rem; line-height: 1.8; max-width: 600px; margin-bottom: 40px;">Hover over any family member to learn more about their story. All branches of the Hill Family trace back to Aaron and Mary Ann Pickney Hill, married 1863.</p>
+      <img src="Assets/images/family-tree-sketch.png" alt="Sketch of a tree, symbolizing the Hill family tree" style="max-width:280px; width:100%; display:block; margin:0 auto 20px; opacity:0.9;">
+    </div>
+
+    <div id="familyTree">
+      <div class="tree-container">
+
+        <!-- Gen 0: Founders -->
+        <div class="tree-gen-label">Founders · Generation I</div>
+        <div class="tree-generation" id="gen0">
+          <div class="person-node"
+               data-name="Aaron Hill"
+               data-dates="Born 1838"
+               data-info="Raftsman, Boatsman, Fisherman. Known as 'The Community Counselor.' Witness to Harriet Myers' Will in 1876. Taught his sons the river trades. Tall in stature, deeply respected.">
+            <div class="person-card patriarch">
+              <div class="person-initial">AH</div>
+              <div class="person-name">Aaron Hill</div>
+              <div class="person-dates">b. 1838</div>
+              <div class="person-role">Patriarch</div>
+            </div>
+          </div>
+          <div style="width: 60px; display: flex; align-items: center; justify-content: center; padding-bottom: 30px;">
+            <div style="font-family: 'Cormorant Garamond', serif; color: var(--gold); font-size: 1.5rem;">∞</div>
+          </div>
+          <div class="person-node"
+               data-name="Mary Ann Pickney Hill"
+               data-dates="Born 1848"
+               data-info="Housewife, Seamstress, devoted Mother. Made all her children's clothes. Raised chickens and cows. Grew rice and made butter and molasses from sugar cane. Took her children to church regularly. Made her own healing teas.">
+            <div class="person-card patriarch">
+              <div class="person-initial">MP</div>
+              <div class="person-name">Mary Ann Pickney Hill</div>
+              <div class="person-dates">b. 1848</div>
+              <div class="person-role">Matriarch</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Connector -->
+        <div style="width: 1px; height: 40px; background: rgba(72,202,228,0.4); margin: 0 auto;"></div>
+        <div style="width: 80%; height: 1px; background: rgba(72,202,228,0.2);"></div>
+
+        <!-- Gen 1: Sons -->
+        <div class="tree-gen-label" style="margin-top: 20px;">Sons · Generation II</div>
+        <div class="tree-generation" style="gap: 0; flex-wrap: wrap; justify-content: center;">
+          <div class="person-node" data-name="Charlie Fisher Hill" data-dates="Born July 1871" data-info="Patriarch of Jekyll Island employees. Worked for the Maurice family at Hollybourne Cottage for 51 years as Coachman and Caretaker. Took millionaires to Jekyll Island by rowboat in 1886. Responsible for 77% of island employees who were connected to him. Beloved by the Maurice family. Moved back to Brunswick in 1942.">
+            <div class="person-card">
+              <div class="person-initial">CH</div>
+              <div class="person-name">Charlie F. Hill</div>
+              <div class="person-dates">b. July 1871</div>
+              <div class="person-role">Jekyll Pioneer</div>
+            </div>
+          </div>
+          <div class="person-node" data-name="Earl Hill" data-dates="c. 1870s" data-info="Started as a caddie on Jekyll Island at age 9. Became a renowned caddie and bag carrier among the millionaires in the 1920s. Used his connections to desegregate golf in Georgia. Created the Southeastern Golf Tournament. Hosted the first desegregated concert at Jekyll Island's Convention Center. Gave tours of Jekyll Island in his later years.">
+            <div class="person-card">
+              <div class="person-initial">EH</div>
+              <div class="person-name">Earl Hill</div>
+              <div class="person-dates">c. 1870s</div>
+              <div class="person-role">Civil Rights Pioneer</div>
+            </div>
+          </div>
+          <div class="person-node" data-name="Myers Hill" data-dates="c. 1870s" data-info="Father of W. Ray Hill and Barbara Hill Floyd. Cleared forest roads on Jekyll Island — a road in Brunswick, Georgia was named after him. Was a great trainer of hunting dogs for the millionaire club members and served as a hunting guide.">
+            <div class="person-card">
+              <div class="person-initial">MH</div>
+              <div class="person-name">Myers Hill</div>
+              <div class="person-dates">c. 1870s</div>
+              <div class="person-role">Road Builder</div>
+            </div>
+          </div>
+          <div class="person-node" data-name="Arnold Hill" data-dates="c. 1870s" data-info="Son of Aaron and Mary Ann Hill. One of seven brothers raised on the Georgia coast.">
+            <div class="person-card">
+              <div class="person-initial">ArH</div>
+              <div class="person-name">Arnold Hill</div>
+              <div class="person-dates">c. 1870s</div>
+            </div>
+          </div>
+          <div class="person-node" data-name="Willie Hill" data-dates="c. 1870s" data-info="Son of Aaron and Mary Ann Hill. Learned boating and fishing from his father.">
+            <div class="person-card">
+              <div class="person-initial">WH</div>
+              <div class="person-name">Willie Hill</div>
+              <div class="person-dates">c. 1870s</div>
+            </div>
+          </div>
+          <div class="person-node" data-name="Wesley Hill" data-dates="c. 1870s" data-info="Son of Aaron and Mary Ann Hill.">
+            <div class="person-card">
+              <div class="person-initial">WeH</div>
+              <div class="person-name">Wesley Hill</div>
+              <div class="person-dates">c. 1870s</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Daughters row -->
+        <div style="width: 80%; height: 1px; background: rgba(72,202,228,0.12); margin-top: 16px;"></div>
+        <div class="tree-gen-label" style="margin-top: 20px;">Daughters · Generation II</div>
+        <div class="tree-generation" style="gap: 0; flex-wrap: wrap; justify-content: center;">
+          <div class="person-node" data-name="Sarah Hill" data-dates="c. 1870s" data-info="Daughter of Aaron and Mary Ann Hill.">
+            <div class="person-card"><div class="person-initial">SH</div><div class="person-name">Sarah Hill</div><div class="person-dates">c. 1870s</div></div>
+          </div>
+          <div class="person-node" data-name="Anni Hill" data-dates="c. 1870s" data-info="Daughter of Aaron and Mary Ann Hill.">
+            <div class="person-card"><div class="person-initial">AnH</div><div class="person-name">Anni Hill</div><div class="person-dates">c. 1870s</div></div>
+          </div>
+          <div class="person-node" data-name="Ardina Hill" data-dates="c. 1870s" data-info="Daughter of Aaron and Mary Ann Hill.">
+            <div class="person-card"><div class="person-initial">AdH</div><div class="person-name">Ardina Hill</div><div class="person-dates">c. 1870s</div></div>
+          </div>
+          <div class="person-node" data-name="Isabell Hill" data-dates="c. 1870s" data-info="Daughter of Aaron and Mary Ann Hill.">
+            <div class="person-card"><div class="person-initial">IH</div><div class="person-name">Isabell Hill Maxwell</div><div class="person-dates">c. 1870s</div></div>
+          </div>
+          <div class="person-node" data-name="Mary Hill" data-dates="c. 1870s" data-info="Daughter of Aaron and Mary Ann Hill.">
+            <div class="person-card"><div class="person-initial">MaH</div><div class="person-name">Mary Hill</div><div class="person-dates">c. 1870s</div></div>
+          </div>
+          <div class="person-node" data-name="Lillie Hill" data-dates="c. 1870s" data-info="Daughter of Aaron and Mary Ann Hill. Charlie Hill would regularly visit his sister Lillie Way Mitchell to check in on her and make sure she was doing well.">
+            <div class="person-card"><div class="person-initial">LH</div><div class="person-name">Lillie Hill Mitchell</div><div class="person-dates">c. 1870s</div></div>
+          </div>
+          <div class="person-node" data-name="Rosa Hill" data-dates="c. 1870s" data-info="Daughter of Aaron and Mary Ann Hill.">
+            <div class="person-card"><div class="person-initial">RH</div><div class="person-name">Rosa Hill</div><div class="person-dates">c. 1870s</div></div>
+          </div>
+        </div>
+
+        <!-- Connector to Gen 3 -->
+        <div style="width: 1px; height: 40px; background: rgba(72,202,228,0.4); margin: 20px auto 0;"></div>
+        <div style="width: 70%; height: 1px; background: rgba(72,202,228,0.18);"></div>
+
+        <!-- Gen 3: Notable grandchildren -->
+        <div class="tree-gen-label" style="margin-top: 20px;">Notable Grandchildren · Generation III</div>
+        <div class="tree-generation" style="gap: 0; flex-wrap: wrap; justify-content: center;">
+          <div class="person-node" data-name="Anna Hill" data-dates="c. 1900s" data-info="Daughter of Charlie Hill. Grew up on Jekyll Island. Moved to Brunswick then Atlanta for college. Returned to Jekyll Island in the 1930s to teach African American children at the Jekyll Island Schoolhouse. Also worked at the Club Laundry for extra income. Provided a thorough and advanced education requiring students to know every state, capital, river, mountain, and valley.">
+            <div class="person-card">
+              <div class="person-initial">AnH</div>
+              <div class="person-name">Anna Hill</div>
+              <div class="person-dates">c. 1900s</div>
+              <div class="person-role">Educator</div>
+            </div>
+          </div>
+          <div class="person-node" data-name="W. Ray (Walter) Hill" data-dates="Aug 28, 1925" data-info="Son of Myers Hill and Onnie Miller Hill. Served in the US Army (1941-1945) on the Alcan Highway in Alaska. Attended Morris Brown College, then City College of New York. Personal manager for Redd Foxx. Careers spanning Mortuary Science, Private Investigations, College Administration, and Pastoral Ministry. Author of 'God's Grace and Mercy Throughout My Life' (2016). AME Church Itinerant Elder.">
+            <div class="person-card">
+              <div class="person-initial">WR</div>
+              <div class="person-name">W. Ray Hill</div>
+              <div class="person-dates">b. Aug 28, 1925</div>
+              <div class="person-role">Army · Author · Pastor</div>
+            </div>
+          </div>
+          <div class="person-node" data-name="Barbara Hill Floyd" data-dates="Born December 1935" data-info="Daughter of Myers Hill and Matilda Denegal Hill. Lived on Jekyll Island as a young child; returned 1959–1962, becoming the first maid at the Wanderer Hotel. Founded the Hill Family Reunion in 1992. Started the Women's Golf Auxiliary Tournaments, held for 25 years. Author of the Hill Family poem 'We Are The Hill Family.'">
+            <div class="person-card">
+              <div class="person-initial">BH</div>
+              <div class="person-name">Barbara Hill Floyd</div>
+              <div class="person-dates">b. December 1935</div>
+              <div class="person-role">Reunion Founder</div>
+            </div>
+          </div>
+          <div class="person-node" data-name="Matilda Denegal Hill" data-dates="c. 1900s" data-info="Daughter of Sam Denegal, Foreman of the Forest on Jekyll Island. Married Earl Hill. Lived on Jekyll Island as a child. Worked for a Rockefeller Cottage resident as a housekeeper for many years after the resident's car broke down in front of the family store.">
+            <div class="person-card">
+              <div class="person-initial">MD</div>
+              <div class="person-name">Matilda Denegal Hill</div>
+              <div class="person-dates">c. 1900s</div>
+              <div class="person-role">Wife of Earl Hill</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TOOLTIP -->
+<div class="tooltip" id="tooltip">
+  <h4 id="t-name"></h4>
+  <div class="t-dates" id="t-dates"></div>
+  <p id="t-info"></p>
+</div>
+
+<!-- JEKYLL ISLAND -->
+<div class="jekyll-band" id="jekyll">
+  <div class="jekyll-inner">
+    <div class="section-label">Our Connection</div>
+    <h2 class="section-title reveal">Jekyll Island &amp; <em>The Hill Legacy</em></h2>
+    <p class="reveal" style="max-width: 700px; font-size: 0.95rem; line-height: 1.9; color: #E8F8F5;">
+      The Jekyll Island Club was a private millionaires' retreat founded in 1886 — purchased for $125,000 by families including the Morgans, Rockefellers, Vanderbilts, and Goulds. Our Hill family were the employees who made that island run. Charlie Hill even rowed the first millionaires to the island before it was purchased. 77% of all island employees were connected to him in some way.
+    </p>
+    <img src="Assets/images/jekyll-island-club-hotel.png" alt="The Jekyll Island Club clubhouse" class="section-banner-img reveal" style="margin:40px 0;">
+    <div class="jekyll-grid reveal">
+      <div class="jekyll-card">
+        <img src="Assets/images/hollybourne-cottage.jpeg" alt="Hollybourne Cottage on Jekyll Island" class="photo-frame" style="height:170px; margin-bottom:16px;">
+        <div class="icon">⚓</div>
+        <h3>Charlie's Row</h3>
+        <p>In 1886, Charlie Hill rowed a group of millionaires to Jekyll Island so they could survey it. Shortly after, they purchased the island for $125,000. Charlie became Coachman and Caretaker for the Maurice family — and his call "The wheels are rolling at 4!" became legend.</p>
+      </div>
+      <div class="jekyll-card">
+        <img src="Assets/images/jekyll-caddie-golf.jpeg" alt="A Jekyll Island Club caddie with golf clubs, early 1900s" class="photo-frame" style="height:320px; object-fit:contain; margin-bottom:16px;">
+        <div class="icon">⛳</div>
+        <h3>Earl Breaks Barriers</h3>
+        <p>Earl Hill used his connections with sports figures and Atlanta preachers to desegregate golf in Georgia. In 1964, Jekyll Island was desegregated. Earl founded the Southeastern Golf Tournament, bringing greats like Lee Elder and Calvin Peete, and hosted the island's first desegregated concert.</p>
+      </div>
+      <div class="jekyll-card">
+        <div class="icon">📚</div>
+        <h3>Anna Educates</h3>
+        <p>Anna Hill returned from college in Atlanta to teach the island's African American children in the 1930s. Her students had to know every state, capital, river, and mountain — an extraordinary standard of education for children of island laborers.</p>
+      </div>
+      <div class="jekyll-card">
+        <img src="Assets/images/red-row-house.jpeg" alt="A Red Row house, Jekyll Island employee housing" class="photo-frame" style="height:170px; margin-bottom:16px;">
+        <div class="icon">🏡</div>
+        <h3>Red Row Houses</h3>
+        <p>The millionaires built fully furnished, rent-free single-family homes for Black employees — white with green trim, red tin roofs, giving them the name "Red Row." Nearby stood a church, dairy barn, school, and the Picallo House for socializing.</p>
+      </div>
+      <div class="jekyll-card">
+        <div class="icon">🤝</div>
+        <h3>A Unique Relationship</h3>
+        <p>The Maurice family invited Charlie and his family to dinners and parties, even leaving them the run of their estate. Sam Denegal, Foreman of the Forest, was so trusted that the millionaires named a road after him and tipped him $500 per year — equivalent to $7,840 today.</p>
+      </div>
+      <div class="jekyll-card">
+        <div class="icon">🏛️</div>
+        <h3>The 2024 VIP Tour</h3>
+        <p>Barbara Hill Floyd's lifelong wish was to visit Hollybourne Cottage — where her Uncle Charlie worked for 51 years. At the 2024 Reunion, that wish came true: a VIP trolley tour of Jekyll Island was arranged specially for Hill Family employee descendants by the Jekyll Island Museum.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== STORIES FROM JEKYLL ISLAND ===== -->
+<div style="background:linear-gradient(180deg,#041e1e 0%,#062828 100%); padding:90px 20px; border-top:1px solid rgba(72,202,228,0.2);" id="stories">
+  <div style="max-width:1100px; margin:0 auto;">
+    <div class="section-label" style="color:#FF6B35;">Stories From The Island</div>
+    <h2 class="section-title reveal" style="color:#FFFFFF;">The People Who <em>Lived It</em></h2>
+
+    <!-- Charlie Hill & Anna Hill -->
+    <div class="reveal" style="margin-bottom:72px;">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:start;">
+        <div>
+          <h3 style="font-family:'Cormorant Garamond',serif; font-size:2rem; color:#FFB830; margin-bottom:6px;">Charlie Fisher Hill</h3>
+          <div style="font-family:'Raleway',sans-serif; font-size:0.72rem; letter-spacing:0.3em; color:#FF6B35; text-transform:uppercase; margin-bottom:20px;">Born July 1871 · Patriarch of Jekyll Island Employees</div>
+          <img src="Assets/images/vintage-carriage.jpeg" alt="A vintage carriage, evoking Charlie Hill's years as Coachman" class="photo-frame" style="height:340px; object-fit:contain; margin-bottom:20px;">
+          <p style="font-size:0.95rem; line-height:1.9; color:#E8F8F5; margin-bottom:16px;">Charlie Fisher Hill was born in July 1871 and became the Patriarch of Jekyll Island Employees. Like his father Aaron Hill, Charlie knew about boating and fishing up and down the Golden Isles. One day in 1886, he was approached by a couple of millionaires to take them to Jekyll Island so they could check it out. He took them by rowboat. Shortly after, they purchased the island — completed in 1888.</p>
+          <p style="font-size:0.95rem; line-height:1.9; color:#E8F8F5; margin-bottom:16px;">In 1891 the Maurice Family of Hollybourne Cottage hired Charlie as Coachman and Caretaker of their home. They built Charlie, his wife Angie Parland Hill, and their daughter Anna a house on the Island near their home. Being the first local employee, Charlie got jobs for most of his family, in-laws, and friends. Amazingly, 77% of the employees on the island were connected to him in some way.</p>
+          <div style="border-left:3px solid #FF6B35; padding:14px 20px; background:rgba(255,107,53,0.08); font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-style:italic; color:#FFFFFF; margin:20px 0;">"The Wheels are rolling at 4!" — Charlie's famous call. If they weren't ready, he would leave without them. Mr. Maurice allowed it.</div>
+          <p style="font-size:0.95rem; line-height:1.9; color:#E8F8F5;">Charlie was so respected amongst the millionaires that he was allowed to attend their church and sit wherever he liked. When the state of Georgia took over the island, Charlie and Angie helped the Maurice daughters pack up for their final winter. The Maurice daughters gave many precious items to Charlie and friends — and vowed to NEVER return to Georgia, not even to fly over the airspace. Charlie Hill and his family moved back to Brunswick in 1942, having served with dignity for 51 years.</p>
+        </div>
+        <div>
+          <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.8rem; color:#48CAE4; margin-bottom:6px;">Anna Hill — The Educator</h3>
+          <div style="font-family:'Raleway',sans-serif; font-size:0.72rem; letter-spacing:0.3em; color:#00A896; text-transform:uppercase; margin-bottom:20px;">Daughter of Charlie Hill · Jekyll Island Schoolhouse, 1930s</div>
+          <p style="font-size:0.95rem; line-height:1.9; color:#E8F8F5; margin-bottom:16px;">Anna Hill grew up on Jekyll Island. When old enough, she moved to Brunswick to pursue her education and eventually attended college in Atlanta. She returned to Jekyll Island in the 1930s to teach the island's African American children, and also worked part time at the Club Laundry for extra money.</p>
+          <p style="font-size:0.95rem; line-height:1.9; color:#E8F8F5; margin-bottom:16px;">By the 1920s, the last home on Red Row had been converted into a schoolhouse serving 10–15 pupils on average. School grades went up to sixth grade, after which children attended boarding school in Brunswick. Anna and other educators provided a thorough and advanced education. One student remembered:</p>
+          <div style="border-left:3px solid #00A896; padding:14px 20px; background:rgba(0,168,150,0.07); font-family:'Cormorant Garamond',serif; font-size:1.05rem; font-style:italic; color:#FFFFFF; margin:20px 0; line-height:1.6;">"We would have to know every state, its capital, and every mountain in it. Every river, how it flows, where it flows into what ocean — everything. Like Georgia, we had to know Georgia from A to Z."</div>
+          <p style="font-size:0.95rem; line-height:1.9; color:#E8F8F5;">When not in school, many students worked odd jobs — serving as caddies, boat launch staff, elevator operators, and more for the millionaire members of the Jekyll Island Club.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Earl Hill -->
+    <div class="reveal" style="margin-bottom:72px; padding:48px; background:rgba(255,184,48,0.05); border:1px solid rgba(255,184,48,0.2);">
+      <h3 style="font-family:'Cormorant Garamond',serif; font-size:2rem; color:#FFB830; margin-bottom:6px;">Earl Hill — Agent of Change</h3>
+      <div style="font-family:'Raleway',sans-serif; font-size:0.72rem; letter-spacing:0.3em; color:#FF6B35; text-transform:uppercase; margin-bottom:24px;">Brother of Charlie Hill · Civil Rights Pioneer</div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:40px;">
+        <div>
+          <p style="font-size:0.95rem; line-height:1.9; color:#E8F8F5; margin-bottom:16px;">Earl Hill started as a caddie on Jekyll Island at the age of 9. Over the years, he became a well-known Caddie and Bag Carrier amongst the millionaires at the Jekyll Island Club in the 1920s. He knew the game of golf inside and out — and knew how to use all he had learned. Earl took his knowledge of the sport, his musical resources, and his connections (like NFL legend Jim Brown) to work with Atlanta preachers to desegregate golf in the state of Georgia.</p>
+          <p style="font-size:0.95rem; line-height:1.9; color:#E8F8F5;">In 1964, the court ruled Jekyll Island be desegregated. Earl Hill created The Southeastern Golf Tournament (also called The Classic), bringing legends like Lee Elder, Calvin Peete, and Jim Thorpe.</p>
+        </div>
+        <div>
+          <p style="font-size:0.95rem; line-height:1.9; color:#E8F8F5; margin-bottom:16px;">Earl also had the first desegregated concert in Jekyll Island's Convention Center — Jerry Butler sang during the Award Ceremony. Later concerts included Wilson Pickett, Otis Redding, Percy Sledge, and many others.</p>
+          <p style="font-size:0.95rem; line-height:1.9; color:#E8F8F5;">Earl Hill is known as one of the most impactful agents of change during a time when change wasn't easy in the South. His experiences on Jekyll Island as a private millionaires club gave him the know-how to make a lasting difference for African Americans. In his later years, he took guests on night tours of the island, sharing its remarkable stories.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Matilda & Sam Denegal / Janie Bell Parland -->
+    <div class="reveal" style="margin-bottom:72px;">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:56px;">
+        <div>
+          <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.8rem; color:#FFB830; margin-bottom:6px;">Matilda Denegal Hill &amp; Sam Denegal</h3>
+          <div style="font-family:'Raleway',sans-serif; font-size:0.72rem; letter-spacing:0.3em; color:#FF6B35; text-transform:uppercase; margin-bottom:20px;">Wife of Earl Hill · Foreman of the Forest</div>
+          <p style="font-size:0.95rem; line-height:1.9; color:#E8F8F5; margin-bottom:16px;">Matilda Denegal Hill married Earl Hill. Her father Sam Denegal was known as the Foreman of The Forest — overseeing 25 men in summer and more in winter. Sam was so trusted by the millionaires they named a road after him. He received $500.00 in annual tips (equal to $7,840.00 today), and also owned the only grocery store on the island.</p>
+          <p style="font-size:0.95rem; line-height:1.9; color:#E8F8F5; margin-bottom:16px;">One day a woman from the Rockefeller Cottage's car broke down in front of the store. She saw Matilda and asked if she'd be her housekeeper — Matilda said yes, and worked for her for many years.</p>
+          <p style="font-size:0.95rem; line-height:1.9; color:#E8F8F5;">When the employee church had a special preacher, the millionaires and their chauffeurs would come and enjoy the service so much they'd put as much as $400 in the offering plate (equal to $6,275.00 today) — far more than preachers on the mainland received.</p>
+        </div>
+        <div>
+          <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.8rem; color:#48CAE4; margin-bottom:6px;">Janie Bell Maxwell Parland</h3>
+          <div style="font-family:'Raleway',sans-serif; font-size:0.72rem; letter-spacing:0.3em; color:#00A896; text-transform:uppercase; margin-bottom:20px;">Interview, 1991</div>
+          <p style="font-size:0.95rem; line-height:1.9; color:#E8F8F5; margin-bottom:16px;">Janie Bell Maxwell remembers Jekyll Island before the millionaires, because her father Shepard Maxwell was born and raised on the island. Her husband Charles Parland was a Jekyll Island Club Employee from 1937–1938, cleaning the home of Frank M. Gould. His Uncle Page Parland had worked for the Goulds before Charles. The Gould home was called Chichota Cottage — now called The Villa Marianna, which houses the Jekyll Island Archives.</p>
+          <p style="font-size:0.95rem; line-height:1.9; color:#E8F8F5; margin-bottom:16px;">Janie Bell lived on the island in 1940, and in 1941 she and Charles had twins: Kenneth and Louise Parland. She remembers the Red Row Houses — built by the millionaires so families wouldn't have to travel back and forth to the mainland.</p>
+          <p style="font-size:0.95rem; line-height:1.9; color:#E8F8F5;">Janie Bell had a Degree in Education and continued her career as a teacher in Fancy Bluff, Georgia. Her son Kenneth Parland still owns the tools his ancestor Page Parland used on Jekyll Island in the early 1900s.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Page Parland -->
+    <div class="reveal" style="margin-bottom:72px; padding:40px 48px; background:rgba(72,202,228,0.05); border:1px solid rgba(72,202,228,0.15);">
+      <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.8rem; color:#48CAE4; margin-bottom:6px;">Page Parland</h3>
+      <div style="font-family:'Raleway',sans-serif; font-size:0.72rem; letter-spacing:0.3em; color:#00A896; text-transform:uppercase; margin-bottom:20px;">Caretaker &amp; Landscaper · Gould Family Estate</div>
+      <p style="font-size:0.95rem; line-height:1.9; color:#E8F8F5; max-width:800px;">Page Parland worked for Edwin Gould as Caretaker and Landscaper for Chichota Cottage, Shrady Cottage, and the Gould's Playhouse. Page was highly respected among the Gould Family and the millionaires. His wife Aleatha was employed by several island members to air out their cottages during summer. The Gould family built Page and Aleatha a home on the island, and when the island closed, built Page a nice home in Fancy Bluff, Georgia.</p>
+    </div>
+
+    <!-- Carrie Maxwell Robinson -->
+    <div class="reveal" style="margin-bottom:72px;">
+      <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.8rem; color:#FFB830; margin-bottom:6px;">Carrie Maxwell Roberts Robinson</h3>
+      <div style="font-family:'Raleway',sans-serif; font-size:0.72rem; letter-spacing:0.3em; color:#FF6B35; text-transform:uppercase; margin-bottom:24px;">Interview, 1991</div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:40px;">
+        <div>
+          <p style="font-size:0.95rem; line-height:1.9; color:#E8F8F5; margin-bottom:16px;">Carrie Maxwell Robinson remembers the jobs her family had on Jekyll Island: Housekeepers, Golf Caddies, Grounds Keepers, and Common Laborers. At age 16, after her family home burned down, Carrie quit high school to go to Jekyll Island to get a job — against her Father Shepard Maxwell's wishes.</p>
+          <p style="font-size:0.95rem; line-height:1.9; color:#E8F8F5; margin-bottom:16px;">Carrie's first job was Housekeeping and Maintenance for J.P. Morgan and the Hotel. Most of her Hill family relatives were already working on Jekyll Island. The money she made on the island was far more than Black or white people would make in town, so she worked there until she was 24. In October or November, the millionaires would send someone to Jacksonville to buy gifts for the employees' children — bicycles, clothes, toys — then hold a dance contest with a $50 prize (equal to $812.00 today).</p>
+        </div>
+        <div>
+          <p style="font-size:0.95rem; line-height:1.9; color:#E8F8F5; margin-bottom:16px;">When Carrie was 17, she met her first husband Herbert Roberts, Manager of the Jekyll Island Golf Course. A millionaire gave them a record player with a radio — and when the Joe Louis fights came on, everyone came to their house to listen, as they were the only family with a radio.</p>
+          <p style="font-size:0.95rem; line-height:1.9; color:#E8F8F5;">When Carrie was 24, Herbert died of a heat stroke. The President of the Jekyll Island Club pleaded with her to return to help with his niece. She formed a fast friendship with the niece and they would ride red Go-Carts around Millionaires Village. Carrie left the island in 1940, just before WWII.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Barbara Hill Floyd Interview -->
+    <div class="reveal" style="margin-bottom:72px; padding:48px; background:rgba(255,107,53,0.05); border:1px solid rgba(255,107,53,0.2);">
+      <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.8rem; color:#FFB830; margin-bottom:6px;">Barbara Hill Floyd</h3>
+      <div style="font-family:'Raleway',sans-serif; font-size:0.72rem; letter-spacing:0.3em; color:#FF6B35; text-transform:uppercase; margin-bottom:24px;">Born December 1935 · Interview, 1991</div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:40px;">
+        <div>
+          <p style="font-size:0.95rem; line-height:1.9; color:#E8F8F5; margin-bottom:16px;">Barbara Hill Floyd was born December 1935. Her parents were Myers Hill and Matilda Denegal Hill. She lived on Jekyll Island at a very young age and returned in 1959–1962. Barbara remembers the housing for Black employees was called Red Row housing — built by the millionaires, white trimmed in green, fully furnished, single family homes, and rent free. Near that area was a church, dairy barn, school, and a Picallo House where employees would socialize and have parties.</p>
+          <p style="font-size:0.95rem; line-height:1.9; color:#E8F8F5; margin-bottom:16px;">Her grandfather Myers Hill cleared the forest for the roads — and a road in Brunswick, Georgia was named after him. At Christmastime, JP Morgan once gave Barbara a pedal truck that used to belong to his son — one of her favorite Christmas gifts ever.</p>
+          <p style="font-size:0.95rem; line-height:1.9; color:#E8F8F5;">During the Depression, the millionaires paid employees so well that the Hill family didn't experience the hardships happening on the mainland.</p>
+        </div>
+        <div>
+          <p style="font-size:0.95rem; line-height:1.9; color:#E8F8F5; margin-bottom:16px;">Millionaires and employees had an arrangement: Tuesdays and Fridays, employees could go to the beach at night to gather turtle eggs. The rest of the week, millionaires would shoot wild hogs on the beach at night.</p>
+          <div style="border-left:3px solid #FF6B35; padding:14px 20px; background:rgba(255,107,53,0.08); font-family:'Cormorant Garamond',serif; font-size:1.05rem; font-style:italic; color:#FFFFFF; margin:20px 0; line-height:1.6;">One fateful night in the late 1920s, her Uncle Walter went to the beach on the wrong day. He was bent down digging up turtle eggs when a millionaire named Clark accidentally shot and killed him, mistaking him for a hog. Clark felt very bad about it. This happened before Barbara was born.</div>
+          <p style="font-size:0.95rem; line-height:1.9; color:#E8F8F5;">When Barbara returned to Jekyll Island in 1959, she worked for the Wanderer Hotel (now the Comfort Inn) — the first person employed as a maid there. She also started the Women's Golf Auxiliary Tournaments, held for 25 consecutive years. When she founded the Hill Family Reunion in 1992, her lifelong wish was for the family to visit Hollybourne Cottage — where her Uncle Charlie worked for 51 years.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- W. Ray Hill Testimony -->
+    <div class="reveal" style="margin-bottom:24px; padding:48px; background:rgba(0,95,115,0.15); border:1px solid rgba(72,202,228,0.2);">
+      <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.8rem; color:#48CAE4; margin-bottom:6px;">W. Ray (Walter) Hill</h3>
+      <div style="font-family:'Raleway',sans-serif; font-size:0.72rem; letter-spacing:0.3em; color:#00A896; text-transform:uppercase; margin-bottom:8px;">August 28, 1925 —</div>
+      <div style="font-family:'Raleway',sans-serif; font-size:0.72rem; letter-spacing:0.2em; color:rgba(72,202,228,0.6); margin-bottom:24px;">From his testimony to the Hill Family Reunion</div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:40px;">
+        <div>
+          <p style="font-size:0.95rem; line-height:1.9; color:#E8F8F5; margin-bottom:16px;">I entered the world as the son of Mrs. Onnie Miller Hill and Myers Hill, residing in Brunswick, Georgia. My childhood was shared with siblings Earl, Arthur, Charles, and Sister Evelyn. We were reared in a home where both parents instilled the knowledge and Love of God at an early age.</p>
+          <p style="font-size:0.95rem; line-height:1.9; color:#E8F8F5; margin-bottom:16px;">Many family members were employed by the Jekyll Island Club. My father Myers Hill trained hunting dogs and served as a hunting guide. Uncle Charlie Hill was caretaker and superintendent for the Maurice Family Estate. Mr. Page Parland and his wife were caretakers for the Gould Family. My Cousin Anna Hill was the teacher at the Club's private elementary school. The Jekyll Island Club provided a health care plan for all permanent employees and their families.</p>
+          <p style="font-size:0.95rem; line-height:1.9; color:#E8F8F5;">Although family members worked as servants to the millionaires, seeing them live and enjoy leisure shaped our future lives. I learned to communicate with the rich and famous, to understand their conversations about the stock market, securities, and investments. I learned to read the Wall Street Journal. I finally gained the courage to ask questions — and some of them were very courteous and took time to explain.</p>
+        </div>
+        <div>
+          <p style="font-size:0.95rem; line-height:1.9; color:#E8F8F5; margin-bottom:12px;"><strong style="color:#48CAE4;">1941–1945:</strong> Enlisted US Army, serving in Valdez, Alaska with the 97th Engineers Regiment — surveying and constructing the Alcan Highway from Alaska to the borders of Canada. Then on to New Guinea at Oro Bay with the 97th Engineers Medical Infirmary. Honorably discharged December 26, 1945.</p>
+          <p style="font-size:0.95rem; line-height:1.9; color:#E8F8F5; margin-bottom:12px;">Enrolled at Morris Brown College, Atlanta, then City College of New York. After graduation, retained as personal manager for the late Redd Foxx.</p>
+          <p style="font-size:0.95rem; line-height:1.9; color:#E8F8F5; margin-bottom:12px;"><strong style="color:#48CAE4;">1946–2003:</strong> Diverse careers including Mortuary Science, Private Investigations, College Administration, Spiritual Counseling, Affordable Homes Development, and Pastoral Ministry.</p>
+          <p style="font-size:0.95rem; line-height:1.9; color:#E8F8F5;">Author of <em>"God's Grace and Mercy Throughout My Life"</em> (Hill, 2016). AME Church Itinerant Elder and Pastor.</p>
+          <div style="margin-top:20px; font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-style:italic; color:#FFB830;">To God Be The Glory! — Affectionately, Uncle Ray</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===== CURRENT FAMILY MEMBERS ===== -->
+<div style="background:#0A3D3A; padding:90px 20px; border-top:1px solid rgba(255,107,53,0.2);">
+  <div style="max-width:1100px; margin:0 auto;">
+    <div class="section-label" style="color:#FF6B35;">Still Making History</div>
+    <h2 class="section-title reveal" style="color:#FFFFFF;">Current Family Members Who <em>Lived It</em></h2>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:3px; background:rgba(255,107,53,0.08); margin-top:8px;" class="reveal">
+      <div class="figure-card"><h3 style="color:#FFFFFF;">Carolyn Hill</h3><div class="fig-role">Personal Assistant to Wilson Pickett</div><p>At age 21, Carolyn was the Personal Assistant to Wilson Pickett. She traveled with him to a concert at Jekyll Island hosted by Earl Hill — bringing the family's legacy full circle.</p></div>
+      <div class="figure-card"><h3 style="color:#FFFFFF;">Charleszetta Parland</h3><div class="fig-role">Keeper of Uncle Charlie's Legacy</div><p>Our Uncle Charlie was 100 years old when he died. When he walked the streets of Brunswick he was always spotted wearing a suit, tie, hat, carrying a walking umbrella and sporting a long cigar. His work at the Jekyll Island Club was the lifestyle he showed throughout his entire life.</p></div>
+      <div class="figure-card"><h3 style="color:#FFFFFF;">Carrie Perry</h3><div class="fig-role">Jekyll Island, Age 12</div><p>Earl Hill got Carrie her first job babysitting at the age of 12 on Jekyll Island. During high school summer vacations she worked for General Walter B. Yeager doing domestic work in his home until she was 18.</p></div>
+      <div class="figure-card"><h3 style="color:#FFFFFF;">Kenneth Parland</h3><div class="fig-role">First African American Police Lieutenant, West Long Branch, NJ</div><p>Currently owns the tools Page Parland used on Jekyll Island in the early 1900s. He was the first African American Police Lieutenant in West Long Branch, New Jersey.</p></div>
+      <div class="figure-card"><h3 style="color:#FFFFFF;">Gertrude Maxwell</h3><div class="fig-role">Jekyll Island, 27 Years at the Toll Booth</div><p>Worked at Crane Cottage at the Millionaire Village during high school. Later became Maid then Lunch Room Supervisor at the Jekyll Island Country Club House. Worked at the toll booth for 27 years.</p></div>
+      <div class="figure-card"><h3 style="color:#FFFFFF;">Regina Wilson</h3><div class="fig-role">Remembers Charlie Hill</div><p>Regina remembers Charlie Hill visiting her Grandmother — his sister Lillie Way Mitchell — often. He cared about his family and always checked in on them to make sure they were OK.</p></div>
+      <div class="figure-card"><h3 style="color:#FFFFFF;">Martha Jane Parland Burns</h3><div class="fig-role">Wanderer Hotel, Jekyll Island</div><p>During a high school summer break, Earl Hill got her a job at the Wanderer Hotel doing Housekeeping. Martha Jane remembers staying with Earl Hill and his wife Matilda at their house cottage on the island.</p></div>
+      <div class="figure-card"><h3 style="color:#FFFFFF;">Howard Waye</h3><div class="fig-role">Café in the Golfing Club</div><p>After graduating High School, he worked for Earl Hill at the Café in the Golfing Club on Jekyll Island and delivered meals to the Dolphin Club. He played golf with Barbara Hill and stayed at the African American Hotel on the Island for 2–3 weeks.</p></div>
+      <div class="figure-card"><h3 style="color:#FFFFFF;">Calvin Waye</h3><div class="fig-role">First African American Police Officer, Brunswick, GA</div><p>Remembers golfing on Jekyll Island. As a Jail Administrator, he fought for better living conditions for inmates and was part of the team that changed "Jailer" to "Correctional Officer" — a term used in all prisons today.</p></div>
+      <div class="figure-card"><h3 style="color:#FFFFFF;">Dr. Joseph V. Royal, PhD</h3><div class="fig-role">Professor · Wayne State University, 1971</div><p>One of only 2 African American students in his doctoral graduating class. Became a Professor at Temple University (PA), Prairie View College (TX), and Rowan University (NJ). Known by many as a great writer.</p></div>
+      <div class="figure-card"><h3 style="color:#FFFFFF;">Sheree Atkinson</h3><div class="fig-role">First Down Club, Jekyll Island</div><p>Remembers the First Down Club sponsored an annual picnic on Jekyll Island in June for the patients of Milledgeville Hospital. Earl Hill would always attend and bring some of his golf buddies.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== FAMILY MILESTONES & ACHIEVEMENTS ===== -->
+<div style="background:linear-gradient(180deg,#062828 0%,#041e1e 100%); padding:90px 20px; border-top:1px solid rgba(72,202,228,0.2);" id="accomplishments">
+  <div style="max-width:1100px; margin:0 auto;">
+    <div class="section-label" style="color:#FF6B35;">Sharing Our Joy</div>
+    <h2 class="section-title reveal" style="color:#FFFFFF;">Celebrating Our Family · <em>2024–2026</em></h2>
+    <p class="reveal" style="max-width:700px; font-size:0.95rem; line-height:1.9; color:#E8F8F5; margin-bottom:56px;">From graduations to new babies, new callings to retirements — here's what the Hill Family has been celebrating these past two years.</p>
+
+    <!-- Everleigh Joyce Williams -->
+    <div class="reveal" style="margin-bottom:48px; display:grid; grid-template-columns:220px 1fr; gap:40px; align-items:center; background:rgba(255,107,53,0.06); border:1px solid rgba(255,107,53,0.2); padding:32px;">
+      <img src="Assets/images/WhatsApp Image 2026-07-10 at 10.16.52 AM.jpeg" alt="Everleigh Joyce Williams" class="photo-frame" style="height:220px;">
+      <div>
+        <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.8rem; color:#FFB830; margin-bottom:6px;">Welcome, Everleigh Joyce Williams! 🎉</h3>
+        <div style="font-family:'Raleway',sans-serif; font-size:0.72rem; letter-spacing:0.3em; color:#FF6B35; text-transform:uppercase; margin-bottom:16px;">Born November 8, 2024</div>
+        <p style="font-size:0.95rem; line-height:1.9; color:#E8F8F5;">Daughter of Michael Williams Jr. Granddaughter of Rev. Leslie Williams and Rev. Michael Williams Sr.</p>
+      </div>
+    </div>
+
+    <!-- Keyera & Trevon Barnes -->
+    <div class="reveal" style="margin-bottom:48px; padding:40px 44px; background:rgba(255,107,53,0.06); border:1px solid rgba(255,107,53,0.2);">
+      <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.8rem; color:#FFB830; margin-bottom:6px;">Keyera &amp; Trevon Barnes</h3>
+      <div style="font-family:'Raleway',sans-serif; font-size:0.72rem; letter-spacing:0.3em; color:#FF6B35; text-transform:uppercase; margin-bottom:20px;">Isabell Maxwell Branch</div>
+      <p style="font-size:0.95rem; line-height:1.9; color:#E8F8F5; margin-bottom:20px;">Keyera is the granddaughter of Alberta McEachin and the great-granddaughter of the late Morris Cash, Jr.</p>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:32px; align-items:start;">
+        <div>
+          <img src="Assets/images/keyera-trevon-barnes.jpg" alt="Keyera and Trevon Barnes" class="photo-frame" style="height:520px; object-fit:contain;">
+          <div class="photo-caption">Married July 20, 2024</div>
+        </div>
+        <div>
+          <img src="Assets/images/akira-yvonne-barnes.jpg" alt="Akira Yvonne Barnes" class="photo-frame" style="height:520px; object-fit:contain;">
+          <div class="photo-caption">Akira Yvonne Barnes · Born June 12, 2025</div>
+        </div>
+      </div>
+      <p style="font-size:0.95rem; line-height:1.9; color:#E8F8F5; margin-top:20px;">Akira Yvonne Barnes, daughter of Keyera and Trevon, is the great-granddaughter of Alberta McEachin and the great-great-granddaughter of the late Morris Cash, Jr.</p>
+    </div>
+
+    <!-- Class of 2024-2026 -->
+    <div class="reveal" style="margin-bottom:48px; padding:40px 44px; background:rgba(255,184,48,0.06); border:1px solid rgba(255,184,48,0.2);">
+      <div style="display:flex; align-items:center; gap:16px; margin-bottom:28px;">
+        <img src="Assets/images/graduation-cap-icon.png" alt="Graduation cap and diploma" style="width:52px; height:52px; object-fit:contain;">
+        <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.8rem; color:#FFB830; margin:0;">Congratulations to All Graduates &amp; Achievers</h3>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:24px;">
+        <div style="background:rgba(255,184,48,0.07); border:1px solid rgba(255,184,48,0.2); padding:28px;">
+          <div style="font-family:'Raleway',sans-serif; font-size:0.68rem; letter-spacing:0.3em; text-transform:uppercase; color:#FFB830; margin-bottom:14px;">🎓 Elementary School</div>
+          <p style="font-family:'Cormorant Garamond',serif; font-size:1rem; color:#FFFFFF; line-height:1.8;">Jhe'Nisis Juliana Ta'Niya Diaz — Kindergarten 2024<br>Salia Googe — Newman International Academy<br>Janelle Hudkins — The Main St. Academy School<br>Major Bradley — Cardinal Elementary School Kindergarten</p>
+        </div>
+        <div style="background:rgba(255,184,48,0.07); border:1px solid rgba(255,184,48,0.2); padding:28px;">
+          <div style="font-family:'Raleway',sans-serif; font-size:0.68rem; letter-spacing:0.3em; text-transform:uppercase; color:#FFB830; margin-bottom:14px;">🎓 Middle &amp; High School</div>
+          <p style="font-family:'Cormorant Garamond',serif; font-size:1rem; color:#FFFFFF; line-height:1.8;">Morgan Hill — West Hempstead Middle School 2022<br>Samyia Googe — Fayetteville H.S.<br>Shakara Googe — Attending Southern University<br>Jalen Googe — Attending Hendrix College<br>Taylor Dorsett Hill — H.S., Attending Auburn University<br>Akari Zyell McEachin — Graduated Western Harnett High School, May 2026</p>
+          <div style="margin-top:20px;">
+            <img src="Assets/images/akari-zyell-mceachin.png" alt="Akari Zyell McEachin at her high school graduation" class="photo-frame" style="height:280px; object-fit:contain; margin:0 auto; display:block;">
+            <div class="photo-caption">Akari Zyell McEachin</div>
+          </div>
+        </div>
+        <div style="background:rgba(255,184,48,0.07); border:1px solid rgba(255,184,48,0.2); padding:28px;">
+          <div style="font-family:'Raleway',sans-serif; font-size:0.68rem; letter-spacing:0.3em; text-transform:uppercase; color:#FFB830; margin-bottom:14px;">🎓 College &amp; Certifications</div>
+          <p style="font-family:'Cormorant Garamond',serif; font-size:1rem; color:#FFFFFF; line-height:1.8;">Irene Hudkins — Atlanta Metropolitan State College, Religious Studies<br>Danielle Bryant — Master's Degree, Mercer University<br>Karen Currin — Georgia State University<br>Michael Williams — Heritage Christian University Graduate School of Theology<br>Calvin Currin — White Coat Ceremony, Physician Assistant<br>Mary Allen — Quilt of Valor for Military Service</p>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:20px;">
+            <div>
+              <img src="Assets/images/calvin-currin-whitecoat.jpeg" alt="Calvin Currin at his White Coat Ceremony" class="photo-frame" style="height:220px; object-fit:contain;">
+              <div class="photo-caption">Calvin Currin</div>
+            </div>
+            <div>
+              <img src="Assets/images/mary-allen-quilt.jpg" alt="Mary Allen receiving a Quilt of Valor" class="photo-frame" style="height:220px; object-fit:contain;">
+              <div class="photo-caption">Mary Allen</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gallery-item"><img src="Assets/images/grad-1.jpeg" alt="Family graduate" style="height:260px; object-fit:contain; background:#04201f;"></div>
+        <div class="gallery-item"><img src="Assets/images/grad-2.jpeg" alt="Family graduate" style="height:260px; object-fit:contain; background:#04201f;"></div>
+        <div class="gallery-item"><img src="Assets/images/grad-3.jpeg" alt="Family graduate" style="height:260px; object-fit:contain; background:#04201f;"></div>
+        <div class="gallery-item"><img src="Assets/images/grad-4.jpeg" alt="Family graduate" style="height:260px; object-fit:contain; background:#04201f;"></div>
+        <div class="gallery-item"><img src="Assets/images/grad-5.jpg" alt="Family graduate" style="height:260px; object-fit:contain; background:#04201f;"></div>
+        <div class="gallery-item"><img src="Assets/images/grad-6.jpg" alt="Family graduate" style="height:260px; object-fit:contain; background:#04201f;"></div>
+        <div class="gallery-item"><img src="Assets/images/grad-7.jpg" alt="Family graduate" style="height:260px; object-fit:contain; background:#04201f;"></div>
+        <div class="gallery-item"><img src="Assets/images/grad-8.jpeg" alt="Family graduate" style="height:260px; object-fit:contain; background:#04201f;"></div>
+      </div>
+    </div>
+
+    <!-- Steven Goings -->
+    <div class="reveal" style="margin-bottom:48px; padding:40px 44px; background:rgba(0,168,150,0.05); border:1px solid rgba(0,168,150,0.15);">
+      <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.8rem; color:#FFB830; margin-bottom:6px;">Steven Goings</h3>
+      <div style="font-family:'Raleway',sans-serif; font-size:0.72rem; letter-spacing:0.3em; color:#00A896; text-transform:uppercase; margin-bottom:20px;">Age 62 · Seaside, California</div>
+      <p style="font-size:0.95rem; line-height:1.9; color:#E8F8F5; margin-bottom:20px;">Steven's mother is Yvonne Kirland (maiden name Scott), daughter of Yvonne Scott (maiden name Evelyn Hill), who was raised as the loving sister of patriarch Uncle Ray Hill.</p>
+      <p style="font-size:0.95rem; line-height:2; color:#E8F8F5;">
+        <strong style="color:#FFB830;">Feb 2024:</strong> Received California State University Monterey Bay (CSUMB) All Black Gala "Alumni Award"<br>
+        <strong style="color:#FFB830;">June 2024:</strong> Named Grand Marshal of Monterey Peninsula Pride, an organization he helped found in 2017<br>
+        <strong style="color:#FFB830;">Aug 2024:</strong> Began private practice as a Licensed Clinical Social Worker<br>
+        <strong style="color:#FFB830;">Feb 2025:</strong> The "CSUMB Steven Goings Perseverance Award" was established in his honor, given annually to a graduating senior at the African Heritage Affinity Group Graduation Celebration<br>
+        <strong style="color:#FFB830;">Feb 2026:</strong> Received the CSUMB Recognition of Service Award at the Students with Disabilities Affinity Group Graduation Celebration<br>
+        <strong style="color:#FFB830;">Aug 2026:</strong> Will teach his first graduate course, <em>Diversity and Social Justice</em>, for CSUMB's Master of Social Work Department
+      </p>
+    </div>
+
+    <!-- Rev. Leslie Williams -->
+    <div class="reveal" style="margin-bottom:48px; padding:40px 44px; background:rgba(72,202,228,0.05); border:1px solid rgba(72,202,228,0.15);">
+      <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.8rem; color:#48CAE4; margin-bottom:6px;">Rev. Leslie Williams</h3>
+      <div style="font-family:'Raleway',sans-serif; font-size:0.72rem; letter-spacing:0.3em; color:#00A896; text-transform:uppercase; margin-bottom:20px;">Ordained June 28 · Abundant Life Fellowship Church, Edgewater Park, NJ</div>
+      <div style="display:grid; grid-template-columns:220px 1fr; gap:32px; align-items:start;">
+        <div>
+          <img src="Assets/images/leslie-williams-ordination.png" alt="Rev. Leslie Williams at her ordination, with family" class="photo-frame" style="height:260px;">
+          <div class="photo-caption">Ordination Day</div>
+        </div>
+        <p style="font-size:0.95rem; line-height:1.9; color:#E8F8F5;">A devoted member of Abundant Life Fellowship Church for nearly 31 years, Rev. Williams has served in numerous ministry leadership roles, including Youth Leader, Missionettes Ministry Co-Leader, Women's Ministry Co-Leader, and Couples' Life Group Leader. On her birthday, June 28, she reached another remarkable milestone by answering God's call through ordination. We thank God for her faithful service and pray He continues to bless, strengthen, and use her for His glory.</p>
+      </div>
+    </div>
+
+    <!-- Rhonda Fowler -->
+    <div class="reveal" style="margin-bottom:48px; padding:40px 44px; background:rgba(255,184,48,0.05); border:1px solid rgba(255,184,48,0.15);">
+      <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.8rem; color:#FFB830; margin-bottom:6px;">Rhonda M. Fowler (Walker)</h3>
+      <div style="font-family:'Raleway',sans-serif; font-size:0.72rem; letter-spacing:0.3em; color:#FF6B35; text-transform:uppercase; margin-bottom:20px;">Great-Granddaughter of Rosa Hill Everett</div>
+      <p style="font-size:0.95rem; line-height:2; color:#E8F8F5;">
+        <strong style="color:#FFB830;">March 2025:</strong> Husband Sydney retired again (previously military-retired), this time as a civilian after 19 years with the Air Force<br>
+        <strong style="color:#FFB830;">Oct 27, 2025:</strong> Rhonda turned 60<br>
+        <strong style="color:#FFB830;">Oct 28, 2025:</strong> Rhonda retired as a civilian after 28 years with the Air Force<br>
+        <strong style="color:#FFB830;">Oct 29, 2025:</strong> The couple flew to the Republic of Panama for five months<br>
+        <strong style="color:#FFB830;">June 22, 2026:</strong> Left San Antonio; will return in March 2027
+      </p>
+    </div>
+
+    <!-- Eloise Morris & Siblings -->
+    <div class="reveal" style="padding:40px 44px; background:rgba(255,107,53,0.05); border:1px solid rgba(255,107,53,0.2);">
+      <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.8rem; color:#FFB830; margin-bottom:6px;">Eloise Morris &amp; Siblings</h3>
+      <div style="font-family:'Raleway',sans-serif; font-size:0.72rem; letter-spacing:0.3em; color:#FF6B35; text-transform:uppercase; margin-bottom:24px;">Children of Kenneth David Parland</div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:40px;">
+        <div>
+          <div style="display:grid; grid-template-columns:150px 1fr; gap:20px; margin-bottom:20px;">
+            <div>
+              <img src="Assets/images/aziza-bryd-family.jpeg" alt="Aziza Bryd and family" class="photo-frame" style="height:150px;">
+            </div>
+            <p style="font-size:0.95rem; line-height:1.9; color:#E8F8F5; margin:0;"><strong style="color:#FFB830;">Aziza Bryd (34)</strong>, oldest sibling — she and her husband Ravon co-own Blow It Up Productions (bounce houses, balloon twisting, face painting) and are busy raising son Ravon Jr. Aziza is representing this branch of the family at the 2026 reunion.</p>
+          </div>
+          <div style="display:grid; grid-template-columns:150px 1fr; gap:20px;">
+            <div>
+              <img src="Assets/images/eloise-morris-family.jpeg" alt="Eloise Morris and family" class="photo-frame" style="height:150px;">
+            </div>
+            <p style="font-size:0.95rem; line-height:1.9; color:#E8F8F5; margin:0;"><strong style="color:#FFB830;">Eloise Morris (31)</strong> — married to Rashawn Morris; three kids, Rashawn Jr., Eliana, and Amir, who joined the family last year. Both Eloise and Rashawn are in college — she's studying Criminal Justice with hopes of becoming a police officer, and he's studying Sports Management. Together they own Boss Bounce Party Rentals.</p>
+          </div>
+        </div>
+        <div>
+          <div style="display:grid; grid-template-columns:150px 1fr; gap:20px; margin-bottom:20px;">
+            <div>
+              <img src="Assets/images/arielle-parland-family.jpeg" alt="Arielle Parland and family" class="photo-frame" style="height:150px;">
+            </div>
+            <p style="font-size:0.95rem; line-height:1.9; color:#E8F8F5; margin:0;"><strong style="color:#FFB830;">Arielle Parland (30)</strong> — engaged to Jonathan Coley; recently welcomed newest baby Jonathan Jr., joining siblings Amelia, Kamden, and Braden. Arielle is starting a new career in the insurance industry.</p>
+          </div>
+          <div style="display:grid; grid-template-columns:150px 1fr; gap:20px; margin-bottom:20px;">
+            <div>
+              <img src="Assets/images/asmahani-parland.jpeg" alt="Asmahani Parland" class="photo-frame" style="height:150px;">
+            </div>
+            <p style="font-size:0.95rem; line-height:1.9; color:#E8F8F5; margin:0;"><strong style="color:#FFB830;">Asmahani Parland (29)</strong> — engaged to Isaac; built a successful beauty business, Kiya Styles.</p>
+          </div>
+          <div style="display:grid; grid-template-columns:150px 1fr; gap:20px;">
+            <div>
+              <img src="Assets/images/andre-kenneth-parland.jpeg" alt="Andre 'Kenneth II' Parland" class="photo-frame" style="height:150px;">
+            </div>
+            <p style="font-size:0.95rem; line-height:1.9; color:#E8F8F5; margin:0;"><strong style="color:#FFB830;">Andre "Kenneth II" Parland (26)</strong>, youngest sibling — has built a successful career in automotive sales.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Irene Parland Hudgins & Family -->
+    <div class="reveal" style="margin-top:48px; padding:40px 44px; background:rgba(72,202,228,0.05); border:1px solid rgba(72,202,228,0.15);">
+      <div style="display:grid; grid-template-columns:180px 1fr; gap:32px; align-items:start; margin-bottom:32px;">
+        <div>
+          <img src="Assets/images/irene-parland-hudgins.jpg" alt="Irene Parland Hudgins" class="photo-frame" style="height:200px;">
+        </div>
+        <div>
+          <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.8rem; color:#48CAE4; margin-bottom:6px;">Irene Parland Hudgins &amp; Family</h3>
+          <div style="font-family:'Raleway',sans-serif; font-size:0.72rem; letter-spacing:0.3em; color:#00A896; text-transform:uppercase; margin-bottom:16px;">Retired Corporate Manager · East Point, GA</div>
+          <p style="font-size:0.95rem; line-height:1.9; color:#E8F8F5;">Daughter of Charles and Janie Bell Maxwell Parland, and granddaughter of Isabell Hill Maxwell. Married to Robert Hudgins. Irene and Robert are the proud parents of Danielle Hudgins Bryant, and proud grandparents of Janelle (16), Jayden (15), and Nevaeh (12). Her grandmother's children were first cousins to Dr. W. Ray Hill, our family patriarch.</p>
+        </div>
+      </div>
+      <p style="font-size:0.95rem; line-height:2; color:#E8F8F5; margin-bottom:36px;">
+        During the past two years, Irene served as <strong style="color:#48CAE4;">Chairman of the Atlanta Area Council (AAC) of the American Business Women's Association (ABWA)</strong>. She represented the council at the annual National Women's Leadership Conference in Denver, Colorado; Kansas City, Kansas; and Portland, Maine. In September, she plans to attend the national conference in Sugar Land, Texas.
+      </p>
+      <div style="font-family:'Raleway',sans-serif; font-size:0.68rem; letter-spacing:0.3em; text-transform:uppercase; color:var(--gold); margin-bottom:20px;">Three Generations of Achievement</div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:20px;">
+        <div>
+          <img src="Assets/images/danielle-bryant-accomplishments.png" alt="Danielle Bryant accomplishments: Phi Kappa Phi Honor Society, Masters of Arts in Teaching, Teach for America Alumni, International Baccalaureate Teacher of the Month, Education Specialist and Reading Endorsement, published children's coloring book" class="photo-frame" style="height:340px;">
+          <div class="photo-caption">Danielle Bryant · Daughter of Irene</div>
+        </div>
+        <div>
+          <img src="Assets/images/janelle-hudgins-accomplishments.png" alt="Janelle Hudgins accomplishments: Girl Scouts Silver Award, National Junior Honor Society, A/B Honor Roll, Clemson University C-ATS Program, Marching Band Award, first job at Quik Trip, dual enrollment at Atlanta Metropolitan College" class="photo-frame" style="height:340px;">
+          <div class="photo-caption">Janelle Hudgins (16) · Granddaughter</div>
+        </div>
+        <div>
+          <img src="Assets/images/jayden-hudgins-accomplishments.png" alt="Jayden Hudgins accomplishments: National Junior Honor Society, A/B Honor Roll, Math Award, Drumline Award, graduated middle school, driver's learner's permit, Shark Tank Award for Breakthrough Atlanta Program" class="photo-frame" style="height:340px;">
+          <div class="photo-caption">Jayden Hudgins (15) · Grandson</div>
+        </div>
+        <div>
+          <img src="Assets/images/nevaeh-bryant-accomplishments.png" alt="Nevaeh Bryant accomplishments: Helen Ruffin Reading Bowl, Cheerleader Award, Girl Scouts Bronze Award, Most Valuable Musician Award, Leader in Me Model Award, Drumline Award, Band Award, Girl Scouts Silver Award" class="photo-frame" style="height:340px;">
+          <div class="photo-caption">Nevaeh Bryant (12) · Granddaughter</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LEGACY FIGURES -->
+<section id="legacy">
+  <div class="section-label">Family Legacies</div>
+  <h2 class="section-title reveal">Those Who <em>Made History</em></h2>
+  <div class="figures-grid reveal">
+    <div class="figure-card">
+      <h3>W. Ray Hill</h3>
+      <div class="fig-role">Army · Author · AME Pastor · Aug 28, 1925</div>
+      <p>Son of Myers Hill. Served in WWII building the Alcan Highway in Alaska. Graduated City College of New York. Personal manager for comedian Redd Foxx. Authored "God's Grace and Mercy Throughout My Life" (2016). AME Church Itinerant Elder and community builder.</p>
+    </div>
+    <div class="figure-card">
+      <h3>Barbara Hill Floyd</h3>
+      <div class="fig-role">Reunion Founder · December 1935</div>
+      <p>Founded the Hill Family Reunion in 1992. First maid employed at the Wanderer Hotel (now Comfort Inn) on Jekyll Island in 1959. Started the Women's Golf Auxiliary Tournaments, held for 25 consecutive years. Poet and keeper of family stories.</p>
+    </div>
+    <div class="figure-card">
+      <h3>Earl Hill</h3>
+      <div class="fig-role">Civil Rights Pioneer · Jekyll Island</div>
+      <p>Desegregated golf in Georgia. Founded the Southeastern Golf Tournament bringing legends like Lee Elder, Calvin Peete, and Jim Thorpe. Hosted Jekyll Island's first desegregated concert. Known as one of the most impactful agents of change in the South.</p>
+    </div>
+    <div class="figure-card">
+      <h3>Kenneth Parland</h3>
+      <div class="fig-role">First African American Police Lieutenant, West Long Branch, NJ</div>
+      <p>Still owns the original tools his ancestor Page Parland used on Jekyll Island in the early 1900s — a living connection between generations. Broke racial barriers in law enforcement in New Jersey.</p>
+    </div>
+    <div class="figure-card">
+      <h3>Calvin Waye</h3>
+      <div class="fig-role">First African American Police Officer, Brunswick, GA</div>
+      <p>Pioneered racial integration in Brunswick law enforcement. Fought for better living conditions for inmates as a Jail Administrator. Was part of the team that changed the title "Jailer" to "Correctional Officer" — a term used in prisons across America today.</p>
+    </div>
+    <div class="figure-card">
+      <h3>Dr. Joseph V. Royal, PhD</h3>
+      <div class="fig-role">Professor · Wayne State University 1971</div>
+      <p>Received a Fellowship Award to complete his Doctorate in English — one of only 2 African American graduates in his class. Went on to teach at Temple University (PA), Prairie View College (TX), and Rowan University (NJ). Known by many as a great writer.</p>
+    </div>
+    <div class="figure-card">
+      <h3>Anna Hill</h3>
+      <div class="fig-role">Educator · Jekyll Island Schoolhouse 1930s</div>
+      <p>Moved to Brunswick then Atlanta for college. Returned to Jekyll Island to educate African American children to the highest standard. Her students memorized every state, capital, river, and mountain in the nation.</p>
+    </div>
+    <div class="figure-card">
+      <h3>Carolyn Hill</h3>
+      <div class="fig-role">Personal Assistant to Wilson Pickett</div>
+      <p>At age 21, became the personal assistant to legendary soul singer Wilson Pickett. Traveled with him to a concert at Jekyll Island hosted by her relative Earl Hill — bringing the family's history full circle.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MILITARY HONOR -->
+<div class="military-section" id="honor">
+  <div class="military-inner">
+    <div class="section-label">We Salute</div>
+    <h2 class="section-title reveal">Family Members Who <em>Served</em></h2>
+    <p class="reveal" style="max-width: 600px; font-size: 0.92rem; line-height: 1.9; color: #E8F8F5; margin-bottom: 0;">The Hill Family has a proud tradition of military and public service. We honor those who wore the uniform and those who served their communities.</p>
+    <div class="military-names reveal">
+      <div class="military-tag"><span>Mary Allen</span><span class="branch">Air Force</span></div>
+      <div class="military-tag"><span>Morris Cash</span><span class="branch">Army</span></div>
+      <div class="military-tag"><span>W. Ray Hill</span><span class="branch">Army</span></div>
+      <div class="military-tag"><span>Teikoa Washington</span><span class="branch">Air Force</span></div>
+      <div class="military-tag"><span>David Washington</span><span class="branch">Air Force</span></div>
+      <div class="military-tag"><span>Glynn Maxwell</span><span class="branch">Army</span></div>
+      <div class="military-tag"><span>Gary Hill</span><span class="branch">Navy</span></div>
+      <div class="military-tag"><span>Vernon Hill</span><span class="branch">Army · NYPD</span></div>
+      <div class="military-tag"><span>James Googe</span><span class="branch">Army</span></div>
+      <div class="military-tag"><span>Clinton Tucker</span><span class="branch">Army</span></div>
+      <div class="military-tag"><span>Ja'Lynn Walker</span><span class="branch">Navy</span></div>
+      <div class="military-tag"><span>Maurice Payne</span><span class="branch">Army</span></div>
+      <div class="military-tag"><span>Kenneth Parland</span><span class="branch">Police Dept.</span></div>
+      <div class="military-tag"><span>Oz Hill</span><span class="branch">Fire Dept.</span></div>
+      <div class="military-tag"><span>Calvin Waye</span><span class="branch">Police Dept.</span></div>
+      <div class="military-tag"><span>Bryce Bradford</span><span class="branch">Police Dept.</span></div>
+      <div class="military-tag"><span>Calvin Currin</span><span class="branch">Fire Dept.</span></div>
+      <div class="military-tag"><span>Deloris Googe</span><span class="branch">Civil Service</span></div>
+    </div>
+
+    <div class="gallery-grid reveal">
+      <div class="gallery-item"><img src="Assets/images/military-1.png" alt="Family member in military uniform"></div>
+      <div class="gallery-item"><img src="Assets/images/military-2.jpeg" alt="Family member in military uniform"></div>
+      <div class="gallery-item"><img src="Assets/images/military-3.jpg" alt="Family member in military uniform"></div>
+      <div class="gallery-item">
+        <img src="Assets/images/military-4-washington.jpg" alt="David Washington in Air Force uniform">
+      </div>
+      <div class="gallery-item"><img src="Assets/images/military-5.jpeg" alt="Family member in military uniform"></div>
+      <div class="gallery-item"><img src="Assets/images/military-6.jpeg" alt="Family member in military uniform"></div>
+      <div class="gallery-item"><img src="Assets/images/military-7.jpg" alt="Family member in military uniform"></div>
+      <div class="gallery-item"><img src="Assets/images/military-8.jpg" alt="Family member in military uniform"></div>
+      <div class="gallery-item"><img src="Assets/images/military-9.jpg" alt="Family member in military uniform"></div>
+    </div>
+  </div>
+</div>
+
+<!-- IN MEMORIAM -->
+<div class="memoriam">
+  <div class="memoriam-inner">
+    <div class="section-label" style="justify-content: center;">In Remembrance</div>
+    <img src="Assets/images/memoriam-doves.png" alt="Two doves in flight, a symbol of peace and remembrance" style="max-width:200px; width:100%; margin:0 auto 24px; display:block;">
+    <h2 class="section-title reveal">Always In <em>Our Hearts</em></h2>
+    <p class="reveal" style="font-size: 0.92rem; line-height: 1.9; color: #E8F8F5;">We keep our departed loved ones always in our hearts, with continued prayers for their families.</p>
+    <div class="memoriam-names reveal">
+      <div class="memoriam-name">Wilma Harrison Ware</div>
+      <div class="memoriam-name">Janine (Urma) Harrison Dunlap</div>
+      <div class="memoriam-name">Michael Lenard Burns</div>
+      <div class="memoriam-name">Michael Lee Burns</div>
+      <div class="memoriam-name">Anderson Burns</div>
+    </div>
+  </div>
+</div>
+
+<!-- JEOPARDY GAME -->
+<div id="jeopardy" style="background: linear-gradient(180deg, #041e1e 0%, #062828 100%); padding: 90px 20px; border-top: 3px solid #FF6B35;">
+  <div style="max-width: 1100px; margin: 0 auto;">
+    <div class="section-label">Family Trivia</div>
+    <h2 class="section-title reveal">Hill Family <em>Jeopardy!</em></h2>
+
+    <!-- ===== SETUP SCREEN ===== -->
+    <div id="j-setup" class="reveal">
+      <p style="max-width:600px; font-size:0.95rem; line-height:1.85; color:#E8F8F5; margin-bottom:40px;">Enter your three team names below, then start the game. Teams take turns picking questions. The team with the most money at the end wins!</p>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:20px; margin-bottom:36px;">
+        <div id="setup-team-0" class="j-setup-card">
+          <div class="j-setup-dot" style="background:#E8724A;"></div>
+          <label class="j-setup-label">Team 1 Name</label>
+          <input class="j-setup-input" id="tname-0" type="text" maxlength="20" placeholder="e.g. Team Aaron">
+        </div>
+        <div id="setup-team-1" class="j-setup-card">
+          <div class="j-setup-dot" style="background:#4ABFBF;"></div>
+          <label class="j-setup-label">Team 2 Name</label>
+          <input class="j-setup-input" id="tname-1" type="text" maxlength="20" placeholder="e.g. Team Charlie">
+        </div>
+        <div id="setup-team-2" class="j-setup-card">
+          <div class="j-setup-dot" style="background:#F5C842;"></div>
+          <label class="j-setup-label">Team 3 Name</label>
+          <input class="j-setup-input" id="tname-2" type="text" maxlength="20" placeholder="e.g. Team Barbara">
+        </div>
+      </div>
+      <div id="j-setup-err" style="color:#E88080; font-family:'Raleway',sans-serif; font-size:0.8rem; letter-spacing:0.15em; margin-bottom:16px; display:none;">Please enter a name for all three teams.</div>
+      <button onclick="startGame()"
+        style="padding:16px 48px; background:var(--gold); color:var(--dark-brown); font-family:'Raleway',sans-serif; font-size:0.82rem; letter-spacing:0.25em; text-transform:uppercase; border:none; cursor:pointer; font-weight:700; transition:opacity 0.2s;"
+        onmouseover="this.style.opacity=0.85" onmouseout="this.style.opacity=1">
+        Start Game →
+      </button>
+    </div>
+
+    <!-- ===== GAME SCREEN ===== -->
+    <div id="j-game" style="display:none;">
+
+      <!-- Team scoreboards -->
+      <div id="j-scoreboards" style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; margin-bottom:32px;"></div>
+
+      <!-- Turn indicator -->
+      <div id="j-turn-bar" style="display:flex; align-items:center; gap:14px; margin-bottom:28px; padding:14px 20px; background:rgba(255,107,53,0.1); border:1px solid rgba(255,107,53,0.3);">
+        <div id="j-turn-dot" style="width:12px; height:12px; border-radius:50%; flex-shrink:0;"></div>
+        <div id="j-turn-text" style="font-family:'Raleway',sans-serif; font-size:0.8rem; letter-spacing:0.2em; text-transform:uppercase; color:#FFFFFF;"></div>
+        <button onclick="skipTurn()" style="margin-left:auto; font-family:'Raleway',sans-serif; font-size:0.68rem; letter-spacing:0.15em; text-transform:uppercase; background:transparent; border:1px solid rgba(201,168,76,0.2); color:#1AA89A; padding:6px 14px; cursor:pointer;">Skip Turn</button>
+        <button onclick="resetJeopardy()" style="font-family:'Raleway',sans-serif; font-size:0.68rem; letter-spacing:0.15em; text-transform:uppercase; background:transparent; border:1px solid rgba(201,168,76,0.2); color:#1AA89A; padding:6px 14px; cursor:pointer;">New Game</button>
+      </div>
+
+      <!-- Board -->
+      <div style="overflow-x:auto;">
+        <table id="j-table" style="border-collapse:collapse; width:100%; min-width:700px;"></table>
+      </div>
+    </div>
+
+    <!-- ===== WINNER SCREEN ===== -->
+    <div id="j-winner" style="display:none; text-align:center; padding:60px 20px;">
+      <div style="font-family:'Raleway',sans-serif; font-size:0.75rem; letter-spacing:0.35em; text-transform:uppercase; color:var(--gold); margin-bottom:16px;">🏆 Game Over</div>
+      <div id="j-winner-name" style="font-family:'Cormorant Garamond',serif; font-size:clamp(2.5rem,7vw,5rem); font-weight:300; color:#FFFFFF; margin-bottom:8px;"></div>
+      <div id="j-winner-score" style="font-family:'Cormorant Garamond',serif; font-size:2rem; color:var(--gold); margin-bottom:40px;"></div>
+      <div id="j-final-scores" style="display:flex; justify-content:center; gap:24px; flex-wrap:wrap; margin-bottom:40px;"></div>
+      <button onclick="resetJeopardy()"
+        style="padding:16px 48px; background:var(--gold); color:var(--dark-brown); font-family:'Raleway',sans-serif; font-size:0.82rem; letter-spacing:0.25em; text-transform:uppercase; border:none; cursor:pointer; font-weight:700;">
+        Play Again
+      </button>
+    </div>
+
+    <!-- ===== QUESTION MODAL ===== -->
+    <div id="j-modal" style="display:none; position:fixed; inset:0; z-index:500; background:rgba(0,0,0,0.88); backdrop-filter:blur(6px); align-items:center; justify-content:center; padding:20px;">
+      <div style="background:#041e1e; border:1px solid #00A896; max-width:580px; width:100%; padding:44px 40px; box-shadow:0 40px 100px rgba(0,0,0,0.7); max-height:90vh; overflow-y:auto;">
+
+        <!-- Team answering -->
+        <div id="j-m-team" style="display:flex; align-items:center; gap:10px; margin-bottom:20px;">
+          <div id="j-m-team-dot" style="width:10px; height:10px; border-radius:50%; flex-shrink:0;"></div>
+          <div id="j-m-team-name" style="font-family:'Raleway',sans-serif; font-size:0.72rem; letter-spacing:0.3em; text-transform:uppercase; color:#FFFFFF;"></div>
+          <div style="font-family:'Raleway',sans-serif; font-size:0.72rem; letter-spacing:0.2em; text-transform:uppercase; color:#1AA89A;">is answering</div>
+        </div>
+
+        <div id="j-m-cat" style="font-family:'Raleway',sans-serif; font-size:0.68rem; letter-spacing:0.35em; text-transform:uppercase; color:var(--gold); margin-bottom:6px;"></div>
+        <div id="j-m-val" style="font-family:'Cormorant Garamond',serif; font-size:1.8rem; color:var(--gold); margin-bottom:20px; font-weight:300;"></div>
+        <div id="j-m-q" style="font-family:'Cormorant Garamond',serif; font-size:1.2rem; font-style:italic; color:#FFFFFF; line-height:1.65; margin-bottom:28px;"></div>
+
+        <div id="j-input-area">
+          <input id="j-answer" type="text" placeholder="Type your answer here…"
+            style="width:100%; padding:14px 16px; background:rgba(255,255,255,0.05); border:1px solid rgba(72,202,228,0.3); color:#FFF8EE; font-family:'Libre Baskerville',serif; font-size:0.95rem; margin-bottom:12px; outline:none;"
+            onkeydown="if(event.key==='Enter') submitAnswer()">
+          <button onclick="submitAnswer()"
+            style="width:100%; padding:14px; background:var(--gold); color:var(--dark-brown); font-family:'Raleway',sans-serif; font-size:0.8rem; letter-spacing:0.2em; text-transform:uppercase; border:none; cursor:pointer; font-weight:600;">
+            Submit Answer
+          </button>
+        </div>
+
+        <div id="j-result-area" style="display:none;">
+          <div id="j-result-label" style="font-family:'Raleway',sans-serif; font-size:0.82rem; letter-spacing:0.2em; text-transform:uppercase; margin-bottom:14px; padding:10px 16px;"></div>
+          <div style="font-family:'Raleway',sans-serif; font-size:0.68rem; letter-spacing:0.2em; color:#1AA89A; margin-bottom:6px; text-transform:uppercase;">The Answer:</div>
+          <div id="j-correct-ans" style="font-family:'Cormorant Garamond',serif; font-size:1.15rem; color:#FFFFFF; margin-bottom:20px; line-height:1.5;"></div>
+          <div id="j-fun-fact" style="font-family:'Libre Baskerville',serif; font-size:0.86rem; color:#E8F8F5; line-height:1.8; border-left:2px solid var(--gold); padding-left:16px; margin-bottom:28px; font-style:italic;"></div>
+          <button onclick="closeModal()"
+            style="width:100%; padding:14px; background:transparent; border:1px solid rgba(72,202,228,0.4); color:#00A896; font-family:'Raleway',sans-serif; font-size:0.78rem; letter-spacing:0.2em; text-transform:uppercase; cursor:pointer;">
+            Return to Board
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<style>
+  .j-setup-card {
+    background: rgba(0,80,100,0.4);
+    border: 1px solid rgba(72,202,228,0.25);
+    padding: 28px 24px;
+    border-radius: 2px;
+  }
+  .j-setup-dot {
+    width: 14px; height: 14px; border-radius: 50%;
+    margin-bottom: 16px;
+  }
+  .j-setup-label {
+    display: block;
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+  .j-setup-input {
+    width: 100%;
+    padding: 12px 14px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(201,168,76,0.2);
+    color: #FFFFFF;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .j-setup-input:focus { border-color: var(--gold); }
+
+  .j-scoreboard-card {
+    padding: 20px;
+    border: 2px solid transparent;
+    text-align: center;
+    transition: all 0.3s;
+    background: rgba(0,60,60,0.5);
+  }
+  .j-scoreboard-card.active-team {
+    border-color: #FF6B35;
+    background: rgba(255,107,53,0.1);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+  }
+  .j-sb-dot {
+    width: 12px; height: 12px; border-radius: 50%;
+    margin: 0 auto 10px;
+  }
+  .j-sb-name {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #E8F8F5;
+    margin-bottom: 6px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .j-sb-score {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 300;
+    color: #FFFFFF;
+  }
+  .j-sb-turn {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-top: 6px;
+    min-height: 1em;
+  }
+
+  #j-table th {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    padding: 16px 10px;
+    text-align: center;
+    background: rgba(255,184,48,0.1);
+    border: 1px solid rgba(255,184,48,0.2);
+  }
+  .j-cell {
+    text-align: center; padding: 0;
+    border: 1px solid rgba(72,202,228,0.15);
+    height: 80px;
+    width: calc(100% / 5);
+  }
+  .j-btn {
+    width: 100%; height: 100%;
+    background: rgba(0,80,100,0.7);
+    border: none; cursor: pointer;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem; font-weight: 300;
+    color: var(--gold);
+    transition: all 0.2s; padding: 16px;
+  }
+  .j-btn:hover { background: rgba(255,107,53,0.2); transform: scale(1.04); }
+  .j-btn.used { background: rgba(0,20,20,0.8); color: rgba(72,202,228,0.15); cursor: default; pointer-events: none; font-size: 1rem; }
+</style>
+
+<script>
+// ── DATA ──────────────────────────────────────────────
+const jCategories = ["Our Ancestors","Jekyll Island","Family Heroes","History & Heritage","Reunion Facts"];
+const jValues = [100,200,300,400,500];
+const jData = {
+  "Our Ancestors": {
+    100:{q:"This man, born in 1838, was the patriarch of the entire Hill Family.",a:"Aaron Hill",fact:"Aaron Hill lived on the Myers Plantation and was known as 'The Community Counselor.' When there was a dispute, neighbors would send for Aaron.",keywords:["aaron","aaron hill"]},
+    200:{q:"Aaron and Mary Ann Hill had this many children total.",a:"14 (seven sons and seven daughters)",fact:"Their seven sons were Charlie, Arnold, Willie, Wesley, Bubba, Boise, and Myers. Their seven daughters were Sarah, Anni, Ardina, Isabell, Mary, Lillie, and Rosa.",keywords:["14","fourteen"]},
+    300:{q:"Mary Ann Pickney Hill was skilled at this craft, making all of her children's clothes by hand.",a:"Seamstress (sewing)",fact:"Mary Ann was also a skilled cook who made her own healing teas when the children were sick, and helped raise chickens and cows to keep the family fed.",keywords:["seam","sew","seamstress","sewing"]},
+    400:{q:"In 1876, Aaron Hill was asked to be a witness for this document by Harriet Myers, the First Lady of the Myers property.",a:"Her Will",fact:"This was a remarkable honor — Aaron was one of only three people Harriet Myers trusted for this role, showing how deeply respected he was even by the landowners.",keywords:["will","testament","document"]},
+    500:{q:"Aaron and Mary Ann Hill were married in 1863 — the same year this major event occurred in American history.",a:"The end of slavery (Emancipation Proclamation)",fact:"Their marriage in the year of emancipation is deeply symbolic — the Hill family legacy was built entirely in freedom, rising from the very moment America changed forever.",keywords:["slavery","emancipation","civil war","freedom","abolition"]}
+  },
+  "Jekyll Island": {
+    100:{q:"Charlie Hill rowed the first millionaires to Jekyll Island using this type of boat.",a:"A rowboat",fact:"In 1886, Charlie Hill took millionaires to Jekyll Island by rowboat so they could survey the land. Shortly after, they purchased the island for $125,000.",keywords:["row","rowboat"]},
+    200:{q:"Charlie Hill worked for this wealthy family at Hollybourne Cottage for 51 years.",a:"The Maurice Family",fact:"Charlie was so beloved by the Maurices that when he brought the stagecoach he'd shout 'The Wheels are rolling at 4!' — if they weren't ready, he'd leave without them.",keywords:["maurice"]},
+    300:{q:"This is what the employee housing on Jekyll Island was called, named for the color of the rooftops.",a:"Red Row (Red Row Houses)",fact:"The millionaires built fully furnished, rent-free homes — white with green trim and red tin roofs — for their Black employees. A church, dairy barn, school, and Picallo House were nearby.",keywords:["red row","red"]},
+    400:{q:"What percentage of Jekyll Island's employees were connected to Charlie Hill in some way?",a:"77%",fact:"As the first local employee hired, Charlie got jobs for his family, in-laws, and friends. Nearly 8 in 10 workers on the island had a connection to him.",keywords:["77","seventy"]},
+    500:{q:"Earl Hill desegregated this sport in the state of Georgia, using his connections from Jekyll Island.",a:"Golf",fact:"In 1964, Earl Hill worked with Atlanta preachers and sports figures — including NFL legend Jim Brown — to desegregate golf, then created the Southeastern Golf Tournament.",keywords:["golf"]}
+  },
+  "Family Heroes": {
+    100:{q:"Barbara Hill Floyd founded the very first Hill Family Reunion in this city in 1992.",a:"Brunswick, Georgia",fact:"Barbara organized the first reunion with cousins Janie Bell Parland and Clinton Tucker. It was held August 7–9, 1992, to bring together all descendants of Aaron and Mary Ann Hill.",keywords:["brunswick","georgia"]},
+    200:{q:"W. Ray Hill served in this branch of the military and helped build the Alcan Highway in Alaska.",a:"The United States Army",fact:"Ray Hill served with the 97th Engineers Regiment in Valdez, Alaska, helping survey and construct the Alcan Highway from Alaska to the Canadian border during WWII.",keywords:["army","u.s. army","united states army"]},
+    300:{q:"After leaving Jekyll Island, W. Ray Hill became the personal manager for this famous comedian.",a:"Redd Foxx",fact:"After graduating from City College of New York, Ray Hill worked for Universal Attractions, Inc. as personal manager for Redd Foxx — one of America's most beloved comedians.",keywords:["redd foxx","foxx","redd"]},
+    400:{q:"Anna Hill taught at the Jekyll Island schoolhouse in the 1930s. What was the highest grade level offered there?",a:"Sixth grade",fact:"After sixth grade, children attended boarding school in Brunswick. Anna's students had to memorize every U.S. state, capital, mountain, valley, and river — a remarkable standard.",keywords:["sixth","6th","6"]},
+    500:{q:"This Hill family member was the first person employed as a maid at the Wanderer Hotel (now Comfort Inn) on Jekyll Island in 1959.",a:"Barbara Hill Floyd",fact:"Barbara returned to Jekyll Island in 1959 and was the very first person hired in that role. She also founded the Women's Golf Auxiliary Tournaments, which ran for 25 consecutive years.",keywords:["barbara","barbara hill","barbara hill floyd"]}
+  },
+  "History & Heritage": {
+    100:{q:"The Hill family's ancestors are connected to this cultural group of the Georgia coast, known for their unique Creole language, music, and traditions.",a:"The Gullah/Geechee Nation",fact:"The Gullah/Geechee Nation is recognized by the U.S. government as a national ethnic group. Their culture — including sweetgrass basketry — has profoundly influenced American history.",keywords:["gullah","geechee","gullah geechee"]},
+    200:{q:"This slave ship was the last vessel to illegally carry enslaved people — approximately 409 — from the Kingdom of Kongo to Jekyll Island, Georgia.",a:"The Wanderer",fact:"In 1858, The Wanderer landed at Jekyll Island carrying 409 enslaved people, 50 years after the Atlantic slave trade to the U.S. had been prohibited. No one was ultimately convicted.",keywords:["wanderer"]},
+    300:{q:"The Jekyll Island Club was founded in 1886 and purchased by the state of Georgia in 1947 for this amount.",a:"$675,000 (about $10 million today)",fact:"The club was originally purchased for $125,000. After closing in 1942 due to WWII, the state bought it. It was designated a historic landmark in 1978.",keywords:["675","675,000","10 million"]},
+    400:{q:"Sam Denegal, grandfather of Barbara Hill Floyd, held this important position among Jekyll Island's forest workers.",a:"Foreman of the Forest",fact:"Sam was so trusted by the millionaires that they named a road after him and tipped him $500 per year — equivalent to $7,840 today. He also owned the only grocery store on the island.",keywords:["foreman","forest","superintendent"]},
+    500:{q:"Kenneth Parland made history as the first African American to hold this law enforcement rank in West Long Branch, New Jersey.",a:"Police Lieutenant",fact:"Kenneth also preserves Hill family history tangibly — he still owns the original tools his ancestor Page Parland used while working on Jekyll Island in the early 1900s.",keywords:["lieutenant","police lieutenant"]}
+  },
+  "Reunion Facts": {
+    100:{q:"The 2024 Hill Family Reunion was held at this location on St. Simon's Island, Georgia.",a:"Epworth By The Sea (The Methodist Center)",fact:"St. Simon's Island has deep connections to the Hill family's history in the Georgia Golden Isles — not far from Jekyll Island where so many family members lived and worked.",keywords:["epworth","methodist","epworth by the sea"]},
+    200:{q:"This person served as President of the Hill Family for the 2024 Reunion.",a:"Ronald Hill",fact:"The 2024 committee: Ronald Hill (President), Cordilia Parrish (VP/Finance), Gregory & Millicent Maxwell (Hosts), Mikoyah Burns (Secretary), Shonda & Leslie Payne (Historians).",keywords:["ronald","ronald hill"]},
+    300:{q:"Barbara Hill Floyd's lifelong wish for the reunion was to visit this specific cottage on Jekyll Island where her Uncle Charlie worked.",a:"Hollybourne Cottage",fact:"The Maurice Family's home — Hollybourne Cottage — is where Charlie Hill served as Coachman and Caretaker for 51 years. In 2024, a VIP trolley tour was arranged for Hill Family descendants.",keywords:["hollybourne","hollybourne cottage"]},
+    400:{q:"This couple made the 2024 Reunion Program Book possible through a kind and generous donation.",a:"Delores and James Googe",fact:"The Googe family's generosity made it possible to preserve this rich family history in printed form — ensuring the Hill legacy could be passed to future generations.",keywords:["googe","delores","james googe","delores and james"]},
+    500:{q:"Barbara Hill Floyd's acrostic poem spells out HILL. What does the second 'L' stand for?",a:"Love — 'L is for LOVE to one another near and far'",fact:"The full poem: H is for Humble · I is for Ideals for our Faith · L is for Loyalty to our family · L is for Love to one another near and far.",keywords:["love"]}
+  }
+};
+
+// ── STATE ─────────────────────────────────────────────
+const TEAM_COLORS = ['#E8724A','#4ABFBF','#F5C842'];
+let teams = [];        // [{name, score}]
+let currentTeam = 0;
+let jUsed = {};
+let jCurrentCell = null;
+let gameStarted = false;
+
+// ── SETUP ─────────────────────────────────────────────
+function startGame() {
+  const names = [0,1,2].map(i => document.getElementById('tname-'+i).value.trim());
+  if (names.some(n => !n)) {
+    document.getElementById('j-setup-err').style.display = 'block';
+    return;
+  }
+  document.getElementById('j-setup-err').style.display = 'none';
+  teams = names.map(n => ({ name: n, score: 0 }));
+  currentTeam = 0;
+  jUsed = {};
+  gameStarted = true;
+  document.getElementById('j-setup').style.display = 'none';
+  document.getElementById('j-winner').style.display = 'none';
+  document.getElementById('j-game').style.display = 'block';
+  buildScoreboards();
+  buildBoard();
+  updateTurnBar();
+}
+
+function resetJeopardy() {
+  gameStarted = false;
+  document.getElementById('j-game').style.display = 'none';
+  document.getElementById('j-winner').style.display = 'none';
+  document.getElementById('j-setup').style.display = 'block';
+  [0,1,2].forEach(i => document.getElementById('tname-'+i).value = '');
+}
+
+// ── SCOREBOARDS ───────────────────────────────────────
+function buildScoreboards() {
+  const sb = document.getElementById('j-scoreboards');
+  sb.innerHTML = '';
+  teams.forEach((t, i) => {
+    const card = document.createElement('div');
+    card.className = 'j-scoreboard-card' + (i === currentTeam ? ' active-team' : '');
+    card.id = 'j-sb-' + i;
+    card.innerHTML = `
+      <div class="j-sb-dot" style="background:${TEAM_COLORS[i]};"></div>
+      <div class="j-sb-name">${t.name}</div>
+      <div class="j-sb-score" id="j-sb-score-${i}">$${t.score}</div>
+      <div class="j-sb-turn" id="j-sb-turn-${i}">${i===currentTeam?'▶ YOUR TURN':''}</div>
+    `;
+    sb.appendChild(card);
+  });
+}
+
+function refreshScoreboards() {
+  teams.forEach((t, i) => {
+    document.getElementById('j-sb-score-'+i).textContent = '$' + t.score;
+    const card = document.getElementById('j-sb-'+i);
+    const turnEl = document.getElementById('j-sb-turn-'+i);
+    if (i === currentTeam) {
+      card.classList.add('active-team');
+      turnEl.textContent = '▶ YOUR TURN';
+    } else {
+      card.classList.remove('active-team');
+      turnEl.textContent = '';
+    }
+  });
+}
+
+function updateTurnBar() {
+  const t = teams[currentTeam];
+  document.getElementById('j-turn-dot').style.background = TEAM_COLORS[currentTeam];
+  document.getElementById('j-turn-text').textContent = t.name + ' — choose a question';
+}
+
+// ── BOARD ─────────────────────────────────────────────
+function buildBoard() {
+  const table = document.getElementById('j-table');
+  table.innerHTML = '';
+  const head = table.insertRow();
+  jCategories.forEach(cat => {
+    const th = document.createElement('th');
+    th.textContent = cat;
+    head.appendChild(th);
+  });
+  jValues.forEach(val => {
+    const row = table.insertRow();
+    jCategories.forEach(cat => {
+      const td = row.insertCell();
+      td.className = 'j-cell';
+      const key = cat+'|'+val;
+      const btn = document.createElement('button');
+      btn.className = 'j-btn' + (jUsed[key] ? ' used' : '');
+      if (jUsed[key]) {
+        const color = TEAM_COLORS[jUsed[key].team] + '55';
+        btn.style.background = color;
+        btn.innerHTML = `<span style="font-size:1rem;">${jUsed[key].correct?'✓':'✗'}</span><br><span style="font-size:0.65rem;letter-spacing:0.1em;opacity:0.7;">${teams[jUsed[key].team]?.name||''}</span>`;
+      } else {
+        btn.textContent = '$'+val;
+        btn.onclick = () => openQuestion(cat, val, btn);
+      }
+      td.appendChild(btn);
+    });
+  });
+}
+
+function checkAllUsed() {
+  const total = jCategories.length * jValues.length;
+  return Object.keys(jUsed).length >= total;
+}
+
+// ── QUESTION MODAL ─────────────────────────────────────
+function openQuestion(cat, val, btn) {
+  const key = cat+'|'+val;
+  if (jUsed[key]) return;
+  jCurrentCell = { cat, val, btn, key };
+  const q = jData[cat][val];
+  const t = teams[currentTeam];
+
+  document.getElementById('j-m-team-dot').style.background = TEAM_COLORS[currentTeam];
+  document.getElementById('j-m-team-name').textContent = t.name;
+  document.getElementById('j-m-cat').textContent = cat;
+  document.getElementById('j-m-val').textContent = '$'+val;
+  document.getElementById('j-m-q').textContent = q.q;
+  document.getElementById('j-answer').value = '';
+  document.getElementById('j-input-area').style.display = 'block';
+  document.getElementById('j-result-area').style.display = 'none';
+
+  document.getElementById('j-modal').style.display = 'flex';
+  setTimeout(() => document.getElementById('j-answer').focus(), 100);
+}
+
+function submitAnswer() {
+  const userAns = document.getElementById('j-answer').value.trim().toLowerCase();
+  if (!userAns) return;
+
+  const { cat, val, btn, key } = jCurrentCell;
+  const q = jData[cat][val];
+  const correct = q.keywords.some(kw => userAns.includes(kw));
+
+  if (correct) {
+    teams[currentTeam].score += val;
+  } else {
+    teams[currentTeam].score -= Math.floor(val/2);
+  }
+
+  jUsed[key] = { correct, team: currentTeam };
+
+  const label = document.getElementById('j-result-label');
+  if (correct) {
+    label.textContent = '✓ Correct! +$'+val+' for '+teams[currentTeam].name;
+    label.style.background = 'rgba(46,100,46,0.4)';
+    label.style.color = '#7EC880';
+  } else {
+    label.textContent = '✗ Not quite. -$'+Math.floor(val/2)+' for '+teams[currentTeam].name;
+    label.style.background = 'rgba(120,30,30,0.4)';
+    label.style.color = '#E88080';
+  }
+
+  document.getElementById('j-correct-ans').textContent = q.a;
+  document.getElementById('j-fun-fact').textContent = q.fact;
+  document.getElementById('j-input-area').style.display = 'none';
+  document.getElementById('j-result-area').style.display = 'block';
+  refreshScoreboards();
+}
+
+function closeModal() {
+  document.getElementById('j-modal').style.display = 'none';
+  // Advance turn
+  currentTeam = (currentTeam + 1) % teams.length;
+  updateTurnBar();
+  refreshScoreboards();
+  // Rebuild board cell
+  buildBoard();
+  // Check if all used
+  if (checkAllUsed()) {
+    setTimeout(showWinner, 400);
+  }
+}
+
+function skipTurn() {
+  currentTeam = (currentTeam + 1) % teams.length;
+  updateTurnBar();
+  refreshScoreboards();
+}
+
+// ── WINNER ────────────────────────────────────────────
+function showWinner() {
+  document.getElementById('j-game').style.display = 'none';
+  const sorted = [...teams].sort((a,b) => b.score - a.score);
+  const winner = sorted[0];
+  const winnerIdx = teams.indexOf(winner);
+
+  document.getElementById('j-winner-name').textContent = '🏆 ' + winner.name + ' Wins!';
+  document.getElementById('j-winner-score').textContent = '$' + winner.score;
+
+  const fs = document.getElementById('j-final-scores');
+  fs.innerHTML = '';
+  sorted.forEach((t, rank) => {
+    const idx = teams.indexOf(t);
+    const el = document.createElement('div');
+    el.style.cssText = 'border:1px solid rgba(72,202,228,0.25); padding:20px 28px; text-align:center; min-width:160px;';
+    el.innerHTML = `
+      <div style="font-family:'Raleway',sans-serif;font-size:0.65rem;letter-spacing:0.25em;text-transform:uppercase;color:${TEAM_COLORS[idx]};margin-bottom:8px;">#${rank+1}</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:#FFFFFF;margin-bottom:4px;">${t.name}</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:var(--gold);font-weight:300;">$${t.score}</div>
+    `;
+    fs.appendChild(el);
+  });
+
+  document.getElementById('j-winner').style.display = 'block';
+}
+
+// Close modal on backdrop click
+document.getElementById('j-modal').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+</script>
+
+<!-- FAMILY BLESSING -->
+<div style="padding:100px 20px; text-align:center; background:linear-gradient(180deg,#031515 0%,#062828 100%); border-top:1px solid rgba(72,202,228,0.15);">
+  <div style="max-width:640px; margin:0 auto;">
+    <div class="section-label" style="justify-content:center;">A Family Blessing</div>
+    <h2 class="section-title reveal">Lord God</h2>
+    <p class="reveal" style="font-family:'Cormorant Garamond',serif; font-size:1.2rem; font-style:italic; line-height:2; color:#E8F8F5;">
+      I give you all the members of our family. You know them all so well and love them all. I ask that you would cover us with a rainbow of hope.
+      <br><br>
+      Hope that draws us together to work out our differences.<br>
+      Hope that helps us to celebrate together and care for one another.<br>
+      Hope that rides like a banner in our lives and watches over us wherever we go.<br>
+      Hope that overcomes adversity and gathers strength to overcome.<br>
+      Hope that guides us and gives us vision for our future alone and together.<br>
+      Hope filled with love.<br>
+      Hope that fuels faith.<br>
+      Hope that breathes peace.
+      <br><br>
+      May our family live in you<br>
+      Underneath your promises.
+      <br><br>
+      Amen.
+    </p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <img src="Assets/images/flourish-ornament.png" alt="" class="flourish-divider" style="margin-top:0;">
+  <div class="f-title">The Hill Family 🚢</div>
+  <p>Est. 1838 · Brunswick &amp; Jekyll Island, Georgia</p>
+  <p>Reunion Founded 1992 by Barbara Hill Floyd</p>
+  <p>Cruisin' Thru The Hills · July 16th–20th</p>
+  <p style="margin-top: 16px; color: #1AA89A;">2026 Officers: Ronald Hill · Cordilia Parrish · Gregory &amp; Millicent Maxwell · Mikoyah Burns · Shonda &amp; Leslie Payne</p>
+  <div class="motto">"H is for Humble · I is for Ideals · L is for Loyalty · L is for Love"</div>
+  <div style="margin-top: 24px; font-family: 'Raleway', sans-serif; font-size: 0.7rem; color: #1AA89A; letter-spacing: 0.2em;">
+    Special thanks to Delores and James Googe · Poem by Barbara Hill Floyd
+  </div>
+</footer>
+
+<script>
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(r => observer.observe(r));
+
+  // Tooltip
+  const tooltip = document.getElementById('tooltip');
+  const tName = document.getElementById('t-name');
+  const tDates = document.getElementById('t-dates');
+  const tInfo = document.getElementById('t-info');
+
+  document.querySelectorAll('.person-node').forEach(node => {
+    node.addEventListener('mouseenter', (e) => {
+      tName.textContent = node.dataset.name;
+      tDates.textContent = node.dataset.dates;
+      tInfo.textContent = node.dataset.info;
+      tooltip.classList.add('active');
+    });
+    node.addEventListener('mousemove', (e) => {
+      let x = e.clientX + 16;
+      let y = e.clientY + 16;
+      if (x + 280 > window.innerWidth) x = e.clientX - 296;
+      if (y + 200 > window.innerHeight) y = e.clientY - 200;
+      tooltip.style.left = x + 'px';
+      tooltip.style.top = y + 'px';
+    });
+    node.addEventListener('mouseleave', () => {
+      tooltip.classList.remove('active');
+    });
+  });
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+</script>
+
+</body>
+</html>
