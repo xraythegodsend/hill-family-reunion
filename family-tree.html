@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Hill Family Tree — Roots &amp; Branches</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #FF6B35;
+    --dark-brown: #062828;
+    --light-sepia: #E8F8F5;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background-color: #062828;
+    color: #FFFFFF;
+    font-family: 'Libre Baskerville', serif;
+  }
+  .top-bar {
+    padding: 20px 20px;
+    text-align: center;
+    border-bottom: 2px solid var(--gold);
+    background: rgba(6,40,40,0.97);
+  }
+  .top-bar a {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #1AA89A;
+    text-decoration: none;
+  }
+  .top-bar a:hover { color: var(--gold); }
+  main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 60px 20px 90px;
+  }
+  .section-label {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+    text-align: center;
+  }
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 6vw, 3.6rem);
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  h1 em { color: var(--gold); font-style: italic; }
+  .intro {
+    max-width: 700px;
+    margin: 0 auto 40px;
+    text-align: center;
+    color: var(--light-sepia);
+    font-size: 0.98rem;
+    line-height: 1.9;
+  }
+  .frame-wrap {
+    border: 1px solid rgba(72,202,228,0.3);
+    border-radius: 2px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    margin-bottom: 28px;
+  }
+  .frame-wrap iframe {
+    display: block;
+    width: 100%;
+    height: 82vh;
+    min-height: 560px;
+    border: 0;
+    background: #062828;
+  }
+  .view-links {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  .view-links a {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding-bottom: 4px;
+  }
+  .view-links a.explorer { color: var(--gold); border-bottom: 1px solid rgba(255,107,53,0.4); }
+  .view-links a.diagram  { color: #1AA89A; border-bottom: 1px solid rgba(26,168,150,0.4); }
+  .view-links a.radial   { color: #48CAE4; border-bottom: 1px solid rgba(72,202,228,0.4); }
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <a href="index.html">&larr; Back to the Reunion Site</a>
+</div>
+
+<main>
+  <div class="section-label">Roots &amp; Branches</div>
+  <h1>The Hill <em>Family Tree</em></h1>
+  <p class="intro">Over 500 documented family members across eight generations — starting with Aaron and Mary Ann Pinckney Hill, married 1863. Explore below, or open any view fullscreen.</p>
+
+  <div class="frame-wrap">
+    <iframe src="hill-family-explorer.html" title="The Hill Family Tree — interactive explorer" loading="lazy"></iframe>
+  </div>
+
+  <div class="view-links">
+    <a class="explorer" href="hill-family-explorer.html" target="_blank" rel="noopener">Open Full Screen &#8599;</a>
+    <a class="diagram" href="hill-family-tree.html" target="_blank" rel="noopener">View as Full Diagram &#8599;</a>
+    <a class="radial" href="hill-family-radial-test.html" target="_blank" rel="noopener">View as Radial Chart &#8599;</a>
+  </div>
+</main>
+
+</body>
+</html>

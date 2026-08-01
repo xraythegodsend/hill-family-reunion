@@ -379,177 +379,6 @@
   }
   .tree-inner { max-width: 1100px; margin: 0 auto; }
 
-  #familyTree {
-    width: 100%;
-    overflow-x: auto;
-    padding: 20px 0 40px;
-  }
-
-  .tree-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-width: 800px;
-    padding: 0 20px;
-  }
-
-  .tree-generation {
-    display: flex;
-    justify-content: center;
-    gap: 0;
-    position: relative;
-    width: 100%;
-    margin-bottom: 0;
-  }
-
-  .tree-gen-label {
-    font-family: 'Raleway', sans-serif;
-    font-size: 0.68rem;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: rgba(72,202,228,0.6);
-    text-align: center;
-    margin: 10px 0 30px;
-  }
-
-  .tree-connector-wrap {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    position: relative;
-    height: 50px;
-    margin: 0;
-  }
-
-  .person-node {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    padding: 0 8px;
-    cursor: pointer;
-  }
-
-  .person-card {
-    background: rgba(0,80,100,0.55);
-    border: 1px solid rgba(72,202,228,0.3);
-    border-radius: 2px;
-    padding: 12px 16px;
-    text-align: center;
-    width: 130px;
-    transition: all 0.25s ease;
-    position: relative;
-    overflow: hidden;
-  }
-  .person-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 50%; transform: translateX(-50%);
-    width: 30px; height: 2px;
-    background: var(--gold);
-    opacity: 0;
-    transition: opacity 0.25s;
-  }
-  .person-card:hover {
-    border-color: var(--gold);
-    background: rgba(255,107,53,0.15);
-    transform: translateY(-3px);
-    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
-  }
-  .person-card:hover::before { opacity: 1; }
-
-  .person-card.patriarch {
-    width: 160px;
-    border-color: rgba(255,184,48,0.6);
-    background: rgba(0,80,100,0.8);
-  }
-  .person-card.patriarch .person-name { font-size: 1rem; }
-
-  .person-initial {
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
-    background: rgba(72,202,228,0.15);
-    border: 1px solid rgba(72,202,228,0.4);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1rem;
-    color: var(--gold);
-    margin: 0 auto 8px;
-  }
-  .patriarch .person-initial {
-    width: 48px; height: 48px; font-size: 1.2rem;
-    background: rgba(255,184,48,0.2);
-    border-color: #FFB830;
-  }
-
-  .person-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 0.88rem;
-    color: #FFFFFF;
-    line-height: 1.2;
-    margin-bottom: 4px;
-  }
-
-  .person-dates {
-    font-family: 'Raleway', sans-serif;
-    font-size: 0.62rem;
-    color: #1AA89A;
-    letter-spacing: 0.1em;
-  }
-
-  .person-role {
-    font-family: 'Raleway', sans-serif;
-    font-size: 0.6rem;
-    color: var(--gold);
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    margin-top: 4px;
-  }
-
-  /* SVG connectors */
-  .tree-svg {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    pointer-events: none;
-    overflow: visible;
-  }
-
-  /* Tooltip */
-  .tooltip {
-    display: none;
-    position: fixed;
-    z-index: 200;
-    background: rgba(4,30,30,0.97);
-    border: 1px solid #00A896;
-    padding: 20px 24px;
-    max-width: 280px;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
-    pointer-events: none;
-  }
-  .tooltip.active { display: block; }
-  .tooltip h4 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.2rem;
-    color: var(--gold);
-    margin-bottom: 4px;
-  }
-  .tooltip .t-dates {
-    font-family: 'Raleway', sans-serif;
-    font-size: 0.7rem;
-    color: #1AA89A;
-    letter-spacing: 0.2em;
-    margin-bottom: 12px;
-  }
-  .tooltip p {
-    font-size: 0.85rem;
-    line-height: 1.7;
-    color: #E8F8F5;
-  }
-
   /* ===== JEKYLL ISLAND SECTION ===== */
   .jekyll-band {
     background: linear-gradient(135deg, #041e1e 0%, #0a3030 50%, #062020 100%);
@@ -823,7 +652,7 @@
     <ul class="nav-links">
       <li><a href="#history">Our Roots</a></li>
       <li><a href="#origins">Origins</a></li>
-      <li><a href="#tree">Family Tree</a></li>
+      <li><a href="family-tree.html">Family Tree</a></li>
       <li><a href="#jekyll">Jekyll Island</a></li>
       <li><a href="#stories">Stories</a></li>
       <li><a href="#accomplishments">Milestones</a></li>
@@ -992,181 +821,18 @@
   </div>
 </section>
 
-<!-- FAMILY TREE -->
+<!-- FAMILY TREE TEASER -->
 <div class="tree-section section-full" id="tree">
   <div class="tree-inner">
-    <div style="padding: 0 20px;">
-      <div class="section-label">Family Tree</div>
+    <div style="padding: 0 20px; text-align: center; max-width: 720px; margin: 0 auto;">
+      <div class="section-label" style="justify-content: center;">Family Tree</div>
       <h2 class="section-title">Roots &amp; <em>Branches</em></h2>
-      <p style="color: #E8F8F5; font-size: 0.95rem; line-height: 1.8; max-width: 600px; margin-bottom: 40px;">Hover over any family member to learn more about their story. All branches of the Hill Family trace back to Aaron and Mary Ann Pickney Hill, married 1863.</p>
-      <img src="Assets/images/family-tree-sketch.png" alt="Sketch of a tree, symbolizing the Hill family tree" style="max-width:280px; width:100%; display:block; margin:0 auto 20px; opacity:0.9;">
-    </div>
-
-    <div id="familyTree">
-      <div class="tree-container">
-
-        <!-- Gen 0: Founders -->
-        <div class="tree-gen-label">Founders · Generation I</div>
-        <div class="tree-generation" id="gen0">
-          <div class="person-node"
-               data-name="Aaron Hill"
-               data-dates="Born 1838"
-               data-info="Raftsman, Boatsman, Fisherman. Known as 'The Community Counselor.' Witness to Harriet Myers' Will in 1876. Taught his sons the river trades. Tall in stature, deeply respected.">
-            <div class="person-card patriarch">
-              <div class="person-initial">AH</div>
-              <div class="person-name">Aaron Hill</div>
-              <div class="person-dates">b. 1838</div>
-              <div class="person-role">Patriarch</div>
-            </div>
-          </div>
-          <div style="width: 60px; display: flex; align-items: center; justify-content: center; padding-bottom: 30px;">
-            <div style="font-family: 'Cormorant Garamond', serif; color: var(--gold); font-size: 1.5rem;">∞</div>
-          </div>
-          <div class="person-node"
-               data-name="Mary Ann Pickney Hill"
-               data-dates="Born 1848"
-               data-info="Housewife, Seamstress, devoted Mother. Made all her children's clothes. Raised chickens and cows. Grew rice and made butter and molasses from sugar cane. Took her children to church regularly. Made her own healing teas.">
-            <div class="person-card patriarch">
-              <div class="person-initial">MP</div>
-              <div class="person-name">Mary Ann Pickney Hill</div>
-              <div class="person-dates">b. 1848</div>
-              <div class="person-role">Matriarch</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Connector -->
-        <div style="width: 1px; height: 40px; background: rgba(72,202,228,0.4); margin: 0 auto;"></div>
-        <div style="width: 80%; height: 1px; background: rgba(72,202,228,0.2);"></div>
-
-        <!-- Gen 1: Sons -->
-        <div class="tree-gen-label" style="margin-top: 20px;">Sons · Generation II</div>
-        <div class="tree-generation" style="gap: 0; flex-wrap: wrap; justify-content: center;">
-          <div class="person-node" data-name="Charlie Fisher Hill" data-dates="Born July 1871" data-info="Patriarch of Jekyll Island employees. Worked for the Maurice family at Hollybourne Cottage for 51 years as Coachman and Caretaker. Took millionaires to Jekyll Island by rowboat in 1886. Responsible for 77% of island employees who were connected to him. Beloved by the Maurice family. Moved back to Brunswick in 1942.">
-            <div class="person-card">
-              <div class="person-initial">CH</div>
-              <div class="person-name">Charlie F. Hill</div>
-              <div class="person-dates">b. July 1871</div>
-              <div class="person-role">Jekyll Pioneer</div>
-            </div>
-          </div>
-          <div class="person-node" data-name="Earl Hill" data-dates="c. 1870s" data-info="Started as a caddie on Jekyll Island at age 9. Became a renowned caddie and bag carrier among the millionaires in the 1920s. Used his connections to desegregate golf in Georgia. Created the Southeastern Golf Tournament. Hosted the first desegregated concert at Jekyll Island's Convention Center. Gave tours of Jekyll Island in his later years.">
-            <div class="person-card">
-              <div class="person-initial">EH</div>
-              <div class="person-name">Earl Hill</div>
-              <div class="person-dates">c. 1870s</div>
-              <div class="person-role">Civil Rights Pioneer</div>
-            </div>
-          </div>
-          <div class="person-node" data-name="Myers Hill" data-dates="c. 1870s" data-info="Father of W. Ray Hill and Barbara Hill Floyd. Cleared forest roads on Jekyll Island — a road in Brunswick, Georgia was named after him. Was a great trainer of hunting dogs for the millionaire club members and served as a hunting guide.">
-            <div class="person-card">
-              <div class="person-initial">MH</div>
-              <div class="person-name">Myers Hill</div>
-              <div class="person-dates">c. 1870s</div>
-              <div class="person-role">Road Builder</div>
-            </div>
-          </div>
-          <div class="person-node" data-name="Arnold Hill" data-dates="c. 1870s" data-info="Son of Aaron and Mary Ann Hill. One of seven brothers raised on the Georgia coast.">
-            <div class="person-card">
-              <div class="person-initial">ArH</div>
-              <div class="person-name">Arnold Hill</div>
-              <div class="person-dates">c. 1870s</div>
-            </div>
-          </div>
-          <div class="person-node" data-name="Willie Hill" data-dates="c. 1870s" data-info="Son of Aaron and Mary Ann Hill. Learned boating and fishing from his father.">
-            <div class="person-card">
-              <div class="person-initial">WH</div>
-              <div class="person-name">Willie Hill</div>
-              <div class="person-dates">c. 1870s</div>
-            </div>
-          </div>
-          <div class="person-node" data-name="Wesley Hill" data-dates="c. 1870s" data-info="Son of Aaron and Mary Ann Hill.">
-            <div class="person-card">
-              <div class="person-initial">WeH</div>
-              <div class="person-name">Wesley Hill</div>
-              <div class="person-dates">c. 1870s</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Daughters row -->
-        <div style="width: 80%; height: 1px; background: rgba(72,202,228,0.12); margin-top: 16px;"></div>
-        <div class="tree-gen-label" style="margin-top: 20px;">Daughters · Generation II</div>
-        <div class="tree-generation" style="gap: 0; flex-wrap: wrap; justify-content: center;">
-          <div class="person-node" data-name="Sarah Hill" data-dates="c. 1870s" data-info="Daughter of Aaron and Mary Ann Hill.">
-            <div class="person-card"><div class="person-initial">SH</div><div class="person-name">Sarah Hill</div><div class="person-dates">c. 1870s</div></div>
-          </div>
-          <div class="person-node" data-name="Anni Hill" data-dates="c. 1870s" data-info="Daughter of Aaron and Mary Ann Hill.">
-            <div class="person-card"><div class="person-initial">AnH</div><div class="person-name">Anni Hill</div><div class="person-dates">c. 1870s</div></div>
-          </div>
-          <div class="person-node" data-name="Ardina Hill" data-dates="c. 1870s" data-info="Daughter of Aaron and Mary Ann Hill.">
-            <div class="person-card"><div class="person-initial">AdH</div><div class="person-name">Ardina Hill</div><div class="person-dates">c. 1870s</div></div>
-          </div>
-          <div class="person-node" data-name="Isabell Hill" data-dates="c. 1870s" data-info="Daughter of Aaron and Mary Ann Hill.">
-            <div class="person-card"><div class="person-initial">IH</div><div class="person-name">Isabell Hill Maxwell</div><div class="person-dates">c. 1870s</div></div>
-          </div>
-          <div class="person-node" data-name="Mary Hill" data-dates="c. 1870s" data-info="Daughter of Aaron and Mary Ann Hill.">
-            <div class="person-card"><div class="person-initial">MaH</div><div class="person-name">Mary Hill</div><div class="person-dates">c. 1870s</div></div>
-          </div>
-          <div class="person-node" data-name="Lillie Hill" data-dates="c. 1870s" data-info="Daughter of Aaron and Mary Ann Hill. Charlie Hill would regularly visit his sister Lillie Way Mitchell to check in on her and make sure she was doing well.">
-            <div class="person-card"><div class="person-initial">LH</div><div class="person-name">Lillie Hill Mitchell</div><div class="person-dates">c. 1870s</div></div>
-          </div>
-          <div class="person-node" data-name="Rosa Hill" data-dates="c. 1870s" data-info="Daughter of Aaron and Mary Ann Hill.">
-            <div class="person-card"><div class="person-initial">RH</div><div class="person-name">Rosa Hill</div><div class="person-dates">c. 1870s</div></div>
-          </div>
-        </div>
-
-        <!-- Connector to Gen 3 -->
-        <div style="width: 1px; height: 40px; background: rgba(72,202,228,0.4); margin: 20px auto 0;"></div>
-        <div style="width: 70%; height: 1px; background: rgba(72,202,228,0.18);"></div>
-
-        <!-- Gen 3: Notable grandchildren -->
-        <div class="tree-gen-label" style="margin-top: 20px;">Notable Grandchildren · Generation III</div>
-        <div class="tree-generation" style="gap: 0; flex-wrap: wrap; justify-content: center;">
-          <div class="person-node" data-name="Anna Hill" data-dates="c. 1900s" data-info="Daughter of Charlie Hill. Grew up on Jekyll Island. Moved to Brunswick then Atlanta for college. Returned to Jekyll Island in the 1930s to teach African American children at the Jekyll Island Schoolhouse. Also worked at the Club Laundry for extra income. Provided a thorough and advanced education requiring students to know every state, capital, river, mountain, and valley.">
-            <div class="person-card">
-              <div class="person-initial">AnH</div>
-              <div class="person-name">Anna Hill</div>
-              <div class="person-dates">c. 1900s</div>
-              <div class="person-role">Educator</div>
-            </div>
-          </div>
-          <div class="person-node" data-name="W. Ray (Walter) Hill" data-dates="Aug 28, 1925" data-info="Son of Myers Hill and Onnie Miller Hill. Served in the US Army (1941-1945) on the Alcan Highway in Alaska. Attended Morris Brown College, then City College of New York. Personal manager for Redd Foxx. Careers spanning Mortuary Science, Private Investigations, College Administration, and Pastoral Ministry. Author of 'God's Grace and Mercy Throughout My Life' (2016). AME Church Itinerant Elder.">
-            <div class="person-card">
-              <div class="person-initial">WR</div>
-              <div class="person-name">W. Ray Hill</div>
-              <div class="person-dates">b. Aug 28, 1925</div>
-              <div class="person-role">Army · Author · Pastor</div>
-            </div>
-          </div>
-          <div class="person-node" data-name="Barbara Hill Floyd" data-dates="Born December 1935" data-info="Daughter of Myers Hill and Matilda Denegal Hill. Lived on Jekyll Island as a young child; returned 1959–1962, becoming the first maid at the Wanderer Hotel. Founded the Hill Family Reunion in 1992. Started the Women's Golf Auxiliary Tournaments, held for 25 years. Author of the Hill Family poem 'We Are The Hill Family.'">
-            <div class="person-card">
-              <div class="person-initial">BH</div>
-              <div class="person-name">Barbara Hill Floyd</div>
-              <div class="person-dates">b. December 1935</div>
-              <div class="person-role">Reunion Founder</div>
-            </div>
-          </div>
-          <div class="person-node" data-name="Matilda Denegal Hill" data-dates="c. 1900s" data-info="Daughter of Sam Denegal, Foreman of the Forest on Jekyll Island. Married Earl Hill. Lived on Jekyll Island as a child. Worked for a Rockefeller Cottage resident as a housekeeper for many years after the resident's car broke down in front of the family store.">
-            <div class="person-card">
-              <div class="person-initial">MD</div>
-              <div class="person-name">Matilda Denegal Hill</div>
-              <div class="person-dates">c. 1900s</div>
-              <div class="person-role">Wife of Earl Hill</div>
-            </div>
-          </div>
-        </div>
-
-      </div>
+      <img src="Assets/images/family-tree-sketch.png" alt="Sketch of a tree, symbolizing the Hill family tree" style="max-width:220px; width:100%; display:block; margin:0 auto 24px; opacity:0.9;">
+      <p style="color: #E8F8F5; font-size: 0.98rem; line-height: 1.9; margin-bottom: 12px;">Aaron Hill and Mary Ann Pinkney Hill were married in 1863 and raised fourteen children on the Georgia coast. Six of those children grew into the six branches of the Hill Family — spanning as many as eight generations and hundreds of descendants.</p>
+      <p style="color: #E8F8F5; font-size: 0.98rem; line-height: 1.9; margin-bottom: 36px;">We've given the full family tree its own dedicated page — every branch, every generation, straight from the original Hill Family Tree document.</p>
+      <a href="family-tree.html" style="display: inline-block; padding: 16px 40px; background: var(--gold); color: #062828; font-family: 'Raleway', sans-serif; font-size: 0.8rem; letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none; font-weight: 600;">Explore the Full Family Tree &rarr;</a>
     </div>
   </div>
-</div>
-
-<!-- TOOLTIP -->
-<div class="tooltip" id="tooltip">
-  <h4 id="t-name"></h4>
-  <div class="t-dates" id="t-dates"></div>
-  <p id="t-info"></p>
 </div>
 
 <!-- JEKYLL ISLAND -->
@@ -2201,32 +1867,6 @@ document.getElementById('j-modal').addEventListener('click', function(e) {
     });
   }, { threshold: 0.1 });
   reveals.forEach(r => observer.observe(r));
-
-  // Tooltip
-  const tooltip = document.getElementById('tooltip');
-  const tName = document.getElementById('t-name');
-  const tDates = document.getElementById('t-dates');
-  const tInfo = document.getElementById('t-info');
-
-  document.querySelectorAll('.person-node').forEach(node => {
-    node.addEventListener('mouseenter', (e) => {
-      tName.textContent = node.dataset.name;
-      tDates.textContent = node.dataset.dates;
-      tInfo.textContent = node.dataset.info;
-      tooltip.classList.add('active');
-    });
-    node.addEventListener('mousemove', (e) => {
-      let x = e.clientX + 16;
-      let y = e.clientY + 16;
-      if (x + 280 > window.innerWidth) x = e.clientX - 296;
-      if (y + 200 > window.innerHeight) y = e.clientY - 200;
-      tooltip.style.left = x + 'px';
-      tooltip.style.top = y + 'px';
-    });
-    node.addEventListener('mouseleave', () => {
-      tooltip.classList.remove('active');
-    });
-  });
 
   // Smooth scroll
   document.querySelectorAll('a[href^="#"]').forEach(a => {

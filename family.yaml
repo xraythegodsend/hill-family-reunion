@@ -1,0 +1,3817 @@
+people:
+  - id: aaron_hill_1838
+    name: Aaron Hill
+    sex: M
+    birth:
+      date: "1838"
+      source: "HILL FAMILY TREE.pptx, slide 6; corroborated by Reunion Book 2024 working.docx (\"Aaron Hill was born in 1838\")"
+    spouses:
+      - id: mary_ann_pinckney_1848
+        marriage:
+          date: "1863"
+          source: "HILL FAMILY TREE.pptx, slide 6; corroborated by Reunion Book 2024 working.docx (\"They were married in 1863, which was the same year that slavery ended\")"
+    notes: >
+      Reunion Book 2024 working.docx adds biographical detail: lived on the Myers Plantation;
+      a Raftsman, Boatsman, and Fisherman who taught these trades to his sons; known in the
+      community as "The Community Counselor"; was one of the signed witnesses to Harriet
+      Myers's will in 1876. He and Mary Ann started their family in 1866 per the same source.
+    confidence: high
+
+  - id: mary_ann_pinckney_1848
+    name: Mary Ann Pinckney
+    married_name: Mary Ann Hill
+    sex: F
+    birth:
+      date: "1848"
+      source: "HILL FAMILY TREE.pptx, slide 6; corroborated by Reunion Book 2024 working.docx (\"his wife Mary Ann was born in 1848\")"
+    notes: >
+      Spelled "PINKNEY" on the family tree chart itself, but "Pickney"/"Pinckney" elsewhere
+      (e.g. slide 1 title, slide 33 "Extended & Loved Family on The Mary Ann Pickney Side").
+      Using "Pinckney" as the canonical spelling per slide 33; noting the chart's own spelling
+      variant here rather than silently picking one. Reunion Book 2024 working.docx adds: she
+      was a Housewife, Seamstress, and cook who made all her children's clothes and took them to
+      church regularly; the family raised chickens and cows, grew rice, and made their own
+      butter and molasses syrup from sugar cane.
+    confidence: high
+
+  - id: isabell_hill_1877
+    name: Isabell Hill
+    married_name: Isabell Maxwell
+    sex: F
+    birth:
+      date: "1877-02-15"
+      source: "HILL FAMILY TREE.pptx, slide 6 and slide 17 (both give 2/15/1877)"
+    parents: [aaron_hill_1838, mary_ann_pinckney_1848]
+    spouses:
+      - id: sheppard_maxwell
+    confidence: medium
+
+  # --- The other 13 of Aaron & Mary Ann's 14 children, stubbed from slide 6 only. ---
+  # Not yet explored beyond name + birth year - their branches (and spouses) haven't been
+  # asked about, so no confidence upgrade or descendants yet. Kept here so the tree
+  # accurately shows all 14 children rather than only the one branch worked so far.
+
+  - id: wesley_hill_1866
+    name: Wesley Hill
+    sex: M
+    birth:
+      date: "1866"
+      source: "HILL FAMILY TREE.pptx, slide 6"
+    parents: [aaron_hill_1838, mary_ann_pinckney_1848]
+    confidence: medium
+
+  - id: arnold_hill_1865
+    name: Arnold Hill
+    sex: M
+    birth:
+      date: "1865"
+      source: "HILL FAMILY TREE.pptx, slide 6"
+    parents: [aaron_hill_1838, mary_ann_pinckney_1848]
+    confidence: medium
+
+  - id: annie_hill_1868
+    name: Annie Hill
+    sex: F
+    birth:
+      date: "1868"
+      source: "HILL FAMILY TREE.pptx, slide 6"
+    parents: [aaron_hill_1838, mary_ann_pinckney_1848]
+    confidence: medium
+
+  - id: sarah_hill_1870
+    name: Sarah Hill
+    sex: F
+    birth:
+      date: "1870-12"
+      source: "HILL FAMILY TREE.pptx, slide 6 and slide 12 (both agree)"
+    parents: [aaron_hill_1838, mary_ann_pinckney_1848]
+    spouses:
+      - id: john_l_cain
+    confidence: high
+
+  - id: john_l_cain
+    name: John L. Cain
+    sex: M
+    confidence: high
+
+  - id: john_janell_cain_jr
+    name: John Janell Cain Jr.
+    sex: M
+    parents: [sarah_hill_1870, john_l_cain]
+    confidence: high
+
+  - id: almeta_cain
+    name: Almeta Cain
+    sex: F
+    parents: [sarah_hill_1870, john_l_cain]
+    confidence: high
+
+  - id: renella_cain
+    name: "Renella \"Nellie\" Cain"
+    sex: F
+    parents: [sarah_hill_1870, john_l_cain]
+    spouses:
+      - id: singleton_husband_of_renella
+    notes: "Marriage to a Singleton, and daughter Marion Singleton, inferred from chart position - not explicitly labeled. Flagged for confirmation."
+    confidence: medium
+
+  - id: singleton_husband_of_renella
+    name: Singleton
+    sex: M
+    notes: "Surname only; given name not recorded."
+    confidence: low
+
+  - id: marion_singleton
+    name: Marion Singleton
+    married_name: Marion Deveaux
+    sex: F
+    parents: [renella_cain, singleton_husband_of_renella]
+    spouses:
+      - id: richard_deveaux
+    notes: "Parentage inferred from chart position rather than an explicit label - flagged for confirmation."
+    confidence: medium
+
+  - id: richard_deveaux
+    name: Richard Deveaux
+    sex: M
+    confidence: high
+
+  - id: beatrice_cain
+    name: Beatrice Cain
+    married_name: Beatrice Martin
+    sex: F
+    parents: [sarah_hill_1870, john_l_cain]
+    spouses:
+      - id: leroy_martin
+    confidence: high
+
+  - id: leroy_martin
+    name: Leroy Martin
+    sex: M
+    confidence: high
+
+  - id: baby_louise_cain
+    name: Baby Louise Cain
+    sex: F
+    parents: [sarah_hill_1870, john_l_cain]
+    confidence: high
+
+  - id: john_martin
+    name: John Martin
+    sex: M
+    parents: [beatrice_cain, leroy_martin]
+    spouses:
+      - id: helen_martin
+    confidence: high
+
+  - id: helen_martin
+    name: Helen
+    married_name: Helen Martin
+    sex: F
+    confidence: high
+
+  - id: leroy_martin_jr
+    name: Leroy Martin Jr.
+    sex: M
+    parents: [beatrice_cain, leroy_martin]
+    spouses:
+      - id: flora_bell_martin
+    confidence: high
+
+  - id: flora_bell_martin
+    name: Flora Bell
+    married_name: Flora Bell Martin
+    sex: F
+    confidence: high
+
+  - id: denise_martin
+    name: Denise Martin
+    married_name: Denise Hankerson
+    sex: F
+    parents: [leroy_martin_jr, flora_bell_martin]
+    spouses:
+      - id: prince_john_hankerson
+    confidence: high
+
+  - id: prince_john_hankerson
+    name: Prince John Hankerson
+    sex: M
+    confidence: high
+
+  - id: lawrence_martin
+    name: Lawrence Martin
+    sex: M
+    parents: [leroy_martin_jr, flora_bell_martin]
+    confidence: high
+
+  - id: eugenia_hankerson
+    name: Eugenia Hankerson
+    sex: F
+    parents: [denise_martin, prince_john_hankerson]
+    confidence: high
+
+  - id: demetrius_hankerson
+    name: Demetrius Hankerson
+    sex: M
+    parents: [denise_martin, prince_john_hankerson]
+    confidence: high
+
+  - id: lawrence_martin_jr
+    name: Lawrence Martin Jr.
+    sex: M
+    parents: [lawrence_martin]
+    confidence: high
+
+  - id: tracy_martin
+    name: Tracy Martin
+    sex: U
+    parents: [lawrence_martin]
+    confidence: high
+
+  - id: destiny_hankerson
+    name: Destiny Hankerson
+    sex: F
+    parents: [eugenia_hankerson]
+    confidence: high
+
+  - id: charley_fisher_hill_1871
+    name: Charley Fisher Hill
+    sex: M
+    birth:
+      date: "1871-07-08"
+      source: "HILL FAMILY TREE.pptx, slide 6 and slide 15 (both agree); month/year corroborated by Reunion Book 2024 working.docx (\"born July 1871\")"
+    parents: [aaron_hill_1838, mary_ann_pinckney_1848]
+    spouses:
+      - id: angie_parland
+    notes: >
+      Reunion Book 2024 working.docx: called "the Patriarch of Jekyll Island Employees"; worked
+      for the Maurice family at Hollybourne Cottage as coachman and caretaker for 51 years,
+      starting as their hire in 1891; being the first local employee, he got jobs there for most
+      of his family, in-laws, and friends (the source claims ~77% of the island's employees were
+      connected to him in some way). Known for yelling "The Wheels are rolling at 4!" when
+      bringing the stagecoach for the Maurice family. Moved back to Brunswick with his family in
+      1942 when the Maurice family left the island.
+    confidence: high
+
+  - id: angie_parland
+    name: Angie Parland
+    married_name: Angie Hill
+    sex: F
+    notes: >
+      Marriage confirmed on both slide 6 and slide 15. Reunion Book 2024 working.docx adds: she
+      worked as the Maurice family's Laundress, and helped the Maurice daughters pack up their
+      home for their final winter on Jekyll Island when the state took over.
+    confidence: high
+
+  - id: anna_hill_charley_fisher_daughter
+    name: Anna Hill
+    married_name: Anna Arnett
+    sex: F
+    parents: [charley_fisher_hill_1871, angie_parland]
+    spouses:
+      - id: jesse_arnett
+    notes: >
+      Distinct from other people named Anna elsewhere in the tree. Reunion Book 2024
+      working.docx: grew up on Jekyll Island; moved to Brunswick then Atlanta for college;
+      returned to the island in the 1930s to teach the African American employees' children at
+      the Jekyll Island Schoolhouse, and worked part-time at the Club Laundry as well.
+    confidence: high
+
+  - id: jesse_arnett
+    name: Jesse Arnett
+    sex: M
+    confidence: high
+
+  - id: destiny_arnett
+    name: Destiny Arnett
+    sex: F
+    parents: [anna_hill_charley_fisher_daughter, jesse_arnett]
+    confidence: high
+
+  - id: aradena_hill_1873
+    name: Aradena Hill
+    sex: F
+    birth:
+      date: "1873-03-04"
+      source: "HILL FAMILY TREE.pptx, slide 6"
+    parents: [aaron_hill_1838, mary_ann_pinckney_1848]
+    confidence: medium
+
+  - id: mary_hill_1875
+    name: Mary Hill
+    sex: F
+    birth:
+      date: "1875-10"
+      source: "HILL FAMILY TREE.pptx, slide 6"
+    parents: [aaron_hill_1838, mary_ann_pinckney_1848]
+    confidence: medium
+
+  - id: william_hill_1879
+    name: William Hill
+    sex: M
+    birth:
+      date: "1879"
+      source: "HILL FAMILY TREE.pptx, slide 6"
+    parents: [aaron_hill_1838, mary_ann_pinckney_1848]
+    confidence: medium
+
+  - id: rosa_hill_1882
+    name: Rosa Hill
+    sex: F
+    birth:
+      date: "1882-02"
+      source: "HILL FAMILY TREE.pptx, slide 6"
+    parents: [aaron_hill_1838, mary_ann_pinckney_1848]
+    spouses:
+      - id: walter_everette
+    confidence: high
+
+  - id: walter_everette
+    name: Walter Everette
+    sex: M
+    confidence: high
+
+  - id: viola_everett
+    name: Viola Everett
+    sex: F
+    parents: [rosa_hill_1882, walter_everette]
+    spouses:
+      - id: carl_hawkins
+    confidence: high
+
+  - id: carl_hawkins
+    name: Carl Hawkins
+    sex: M
+    confidence: high
+
+  - id: anit_everett
+    name: Anit Everett
+    sex: F
+    parents: [rosa_hill_1882, walter_everette]
+    spouses:
+      - id: jake_walker
+    confidence: high
+
+  - id: jake_walker
+    name: Jake Walker
+    sex: M
+    confidence: high
+
+  - id: edna_everett
+    name: Edna Everett
+    sex: F
+    parents: [rosa_hill_1882, walter_everette]
+    spouses:
+      - id: jasper_irick
+    confidence: high
+
+  - id: jasper_irick
+    name: Jasper Irick
+    sex: M
+    confidence: high
+
+  - id: juanit_everett
+    name: Juanit Everett
+    sex: F
+    parents: [rosa_hill_1882, walter_everette]
+    spouses:
+      - id: curtis_thompson
+    confidence: high
+
+  - id: curtis_thompson
+    name: Curtis Thompson
+    sex: M
+    confidence: high
+
+  - id: william_everett
+    name: William Everett
+    sex: M
+    parents: [rosa_hill_1882, walter_everette]
+    confidence: high
+
+  - id: loretta_hamilton
+    name: Loretta
+    married_name: Loretta Hamilton
+    sex: F
+    birth:
+      date: "1935-09-13"
+      source: "HILL FAMILY TREE.pptx, Rosa branch slide (reunion photo caption)"
+    parents: [viola_everett, carl_hawkins]
+    spouses:
+      - id: bill_hamilton
+    notes: "Honored as the matriarch of the Rosa branch at a family reunion, age 90 (per photo caption)."
+    confidence: high
+
+  - id: bill_hamilton
+    name: Bill Hamilton
+    sex: M
+    confidence: high
+
+  - id: dr_reginald_walker
+    name: Dr. Reginald
+    sex: M
+    parents: [anit_everett, jake_walker]
+    confidence: high
+
+  - id: aaron_lynn_walker
+    name: Aaron Lynn
+    sex: M
+    parents: [anit_everett, jake_walker]
+    confidence: high
+
+  - id: rosanita_colman
+    name: Rosanita Colman
+    sex: F
+    parents: [anit_everett, jake_walker]
+    confidence: high
+
+  - id: rhonda_walker
+    name: Rhonda
+    sex: F
+    parents: [anit_everett, jake_walker]
+    spouses:
+      - id: sydney_fowler
+    notes: "Self-identified as \"Rhonda M. Fowler (Walker), Great-Granddaughter of Rosa Hill Everett\" in a Jul 2026 accomplishments email (Hill Family Accoumplishments.pdf) - corroborates her placement in this branch."
+    confidence: high
+
+  - id: sydney_fowler
+    name: Sydney Fowler
+    sex: M
+    notes: "Retired a second time (previously military-retired) as a civilian after 19 years with the U.S. Air Force, per Rhonda's Jul 2026 accomplishments email."
+    confidence: high
+
+  - id: carla_walker
+    name: Carla
+    sex: F
+    parents: [anit_everett, jake_walker]
+    notes: "Children shown with surname Harkley; father/partner not named on chart."
+    confidence: high
+
+  - id: nancy_irick
+    name: Nancy
+    sex: F
+    parents: [edna_everett, jasper_irick]
+    spouses:
+      - id: odell_hurdle
+    confidence: high
+
+  - id: odell_hurdle
+    name: Odell Hurdle
+    sex: M
+    confidence: high
+
+  - id: rosemary_atkins
+    name: Rosemary
+    sex: F
+    parents: [juanit_everett, curtis_thompson]
+    spouses:
+      - id: robert_ingram
+    notes: "Chart shows surname/bracket Atkins for this family line despite father's surname being Thompson; recorded as shown on source."
+    confidence: medium
+
+  - id: robert_ingram
+    name: Robert Ingram
+    sex: M
+    confidence: high
+
+  - id: catherine_hamilton
+    name: Catherine
+    sex: F
+    parents: [loretta_hamilton, bill_hamilton]
+    confidence: high
+
+  - id: barham_hamilton
+    name: Barham
+    sex: U
+    parents: [catherine_hamilton]
+    confidence: high
+
+  - id: tyla_hamilton
+    name: Tyla
+    sex: U
+    parents: [catherine_hamilton]
+    confidence: high
+
+  - id: annie_michelle_walker
+    name: Annie Michelle
+    sex: F
+    parents: [dr_reginald_walker]
+    confidence: high
+
+  - id: cory_walker
+    name: Cory
+    sex: M
+    parents: [aaron_lynn_walker]
+    confidence: high
+
+  - id: andre_walker
+    name: Andre
+    sex: M
+    parents: [aaron_lynn_walker]
+    confidence: high
+
+  - id: candace_fowler
+    name: Candace Fowler
+    sex: F
+    parents: [rhonda_walker, sydney_fowler]
+    confidence: high
+
+  - id: sydney_fowler_jr
+    name: Sydney Fowler
+    sex: M
+    parents: [rhonda_walker, sydney_fowler]
+    notes: "Distinct from his father, Sydney Fowler, elsewhere in this branch."
+    confidence: high
+
+  - id: shauna_harkley
+    name: Shauna Harkley
+    sex: F
+    parents: [carla_walker]
+    confidence: high
+
+  - id: shawn_harkley
+    name: Shawn Harkley
+    sex: M
+    parents: [carla_walker]
+    confidence: high
+
+  - id: shamir_harkley
+    name: Shamir Harkley
+    sex: F
+    parents: [carla_walker]
+    confidence: high
+
+  - id: james_medows
+    name: James Medows
+    sex: M
+    parents: [nancy_irick]
+    notes: "Chart shows surname Medows, distinct from Nancy's husband Odell Hurdle; father not named on chart."
+    confidence: medium
+
+  - id: chandler_medows
+    name: Chandler Medows
+    sex: M
+    parents: [nancy_irick]
+    notes: "Chart shows surname Medows, distinct from Nancy's husband Odell Hurdle; father not named on chart."
+    confidence: medium
+
+  - id: joanne_ingram
+    name: Joanne
+    sex: F
+    parents: [rosemary_atkins, robert_ingram]
+    confidence: high
+
+  - id: james_jc_atkins
+    name: James
+    sex: M
+    parents: [rosemary_atkins, robert_ingram]
+    notes: "Also known as JC."
+    confidence: high
+
+  - id: james_jr_atkins
+    name: James Jr.
+    sex: M
+    parents: [james_jc_atkins]
+    confidence: high
+
+  - id: ivn_atkins
+    name: Ivn
+    sex: U
+    parents: [james_jc_atkins]
+    confidence: high
+
+  - id: brice_bradforth
+    name: Brice Bradforth
+    sex: M
+    parents: [joanne_ingram]
+    confidence: high
+
+  - id: braeden_bradforth
+    name: Braeden Bradforth
+    sex: M
+    parents: [joanne_ingram]
+    confidence: high
+
+  - id: janya_furguson
+    name: Janya Furguson
+    sex: F
+    parents: [candace_fowler]
+    confidence: high
+
+  - id: jalynn_walker
+    name: Jalynn Walker
+    sex: F
+    parents: [candace_fowler]
+    confidence: high
+
+  - id: myers_hill_1883
+    name: Myers Hill
+    sex: M
+    birth:
+      date: "1883-08-26"
+      source: "HILL FAMILY TREE.pptx, slide 6 and slide 25 (both agree)"
+    parents: [aaron_hill_1838, mary_ann_pinckney_1848]
+    spouses:
+      - id: onie_miller
+    confidence: high
+
+  - id: onie_miller
+    name: Onie Miller
+    married_name: Onie Hill
+    sex: F
+    confidence: high
+
+  - id: dr_w_ray_hill
+    name: Dr. W. Ray Hill
+    sex: M
+    birth:
+      date: "1925-08-28"
+      source: "Reunion Book 2024 working.docx (\"W. Ray (Walter) Hill, August 28, 1925\")"
+    parents: [myers_hill_1883, onie_miller]
+    spouses:
+      - id: myldred_hill
+    notes: >
+      Full given name Walter, per Reunion Book 2024 working.docx. Author of the personal
+      testimony/memoir "God's Grace and Mercy Throughout My Life" (Hill, 2016). Served in the
+      U.S. Army during WWII (97th Engineers Regiment, Alcan Highway survey/construction from
+      Valdez, Alaska, then Oro Bay, New Guinea), discharged Dec. 26, 1945; attended Morris Brown
+      College, then City College of New York, then NY Technical Institute; worked as personal
+      manager for comedian Redd Foxx and others; had diverse later careers (mortuary science,
+      private investigation, college administration, spiritual counseling, affordable housing
+      development) before retiring into ministry as an AME Church Itinerant Elder and Pastor.
+      Known within the family as "Uncle Ray" and referred to as the family's patriarch in family
+      reunion correspondence as of 2026.
+    confidence: high
+
+  - id: myldred_hill
+    name: Myldred
+    married_name: Myldred Hill
+    sex: F
+    confidence: high
+
+  - id: evelyn_hill
+    name: Evelyn Hill
+    married_name: Evelyn Kirkland
+    sex: F
+    parents: [myers_hill_1883, onie_miller]
+    spouses:
+      - id: kirkland_husband_of_evelyn
+    notes: >
+      Shown on the chart as "Evelyn Scott," with "Kirkland" written in as a correction/update -
+      treating Kirkland as her actual married name. Corroborated by an accomplishments email
+      (Hill Family Accoumplishments.pdf, Steven Goings, Jul 2026) describing her as raised as
+      the sibling of "our patriarch Uncle Ray Hill" - consistent with her being Myers Hill's
+      daughter and Dr. W. Ray Hill's sister here.
+    confidence: high
+
+  - id: kirkland_husband_of_evelyn
+    name: Kirkland
+    sex: M
+    notes: "Surname only; given name not recorded."
+    confidence: medium
+
+  - id: earl_hill
+    name: Earl Hill
+    sex: M
+    parents: [myers_hill_1883, onie_miller]
+    spouses:
+      - id: matilda_hill
+    notes: >
+      Reunion Book 2024 working.docx: started as a caddie on Jekyll Island at age 9, becoming a
+      well-known caddie/bag carrier among the Jekyll Island Club's millionaires in the 1920s.
+      Used his sports and music connections (including Jim Brown) to connect with Atlanta
+      preachers toward desegregating golf in Georgia; after the 1964 court ruling desegregating
+      the state-owned island, he created The Southeastern Golf Tournament ("The Classic"),
+      featuring golfers Lee Elder, Calvin Peete, and Jim Thorpe, and organized the island's first
+      desegregated concerts (Jerry Butler, Wilson Pickett, Otis Redding, Percy Sledge, and
+      others).
+    confidence: high
+
+  - id: matilda_hill
+    name: Matilda
+    married_name: Matilda Hill
+    sex: F
+    notes: >
+      Reunion Book 2024 working.docx ("Matilda Denegal Hill"): lived on Jekyll Island as a
+      child; daughter of Sam Denegal, known as "the Foreman of the Forest" for overseeing 25+ men
+      clearing/maintaining roads on Jekyll Island (a road was named after him) and well liked by
+      the Jekyll Island Club's millionaire members for his dependability, earning $500/year in
+      tips. Sam was a Deacon at the black employee church and owned the island's only grocery
+      store, near his home; his brother Walter Denegal was accidentally shot and killed by a
+      Jekyll Island Club member (Mr. Clark) in the late 1920s while digging up turtle eggs on the
+      beach at night, having gone on the wrong night (turtle-egg-gathering nights were for
+      employees; hog-hunting nights were for Club members). Sam and Walter are not otherwise
+      documented in these sources and aren't given their own tree records here. Matilda herself
+      was hired as a housekeeper by an employer in the Rockefeller cottages after her car broke
+      down in front of the Denegal family's store, and worked for that family for many years.
+    confidence: high
+
+  - id: arthur_hill_myers_son
+    name: Arthur Hill
+    sex: M
+    parents: [myers_hill_1883, onie_miller]
+    spouses:
+      - id: evelyn_green
+    notes: "Distinct from other people named Arthur elsewhere in the tree."
+    confidence: high
+
+  - id: evelyn_green
+    name: Evelyn Green
+    married_name: Evelyn Hill
+    sex: F
+    notes: "Distinct from Evelyn Hill (Myers's daughter) elsewhere in this branch."
+    confidence: high
+
+  - id: charlie_hill_myers_son
+    name: Charlie Hill
+    sex: M
+    parents: [myers_hill_1883, onie_miller]
+    spouses:
+      - id: jenn_v_hill
+      - id: hazel_branch
+    notes: "Distinct from other people named Charlie elsewhere in the tree. Two wives - Jenn V. (first), Hazel Branch (second)."
+    confidence: high
+
+  - id: jenn_v_hill
+    name: Jenn V.
+    married_name: Jenn V. Hill
+    sex: F
+    confidence: high
+
+  - id: hazel_branch
+    name: Hazel Branch
+    married_name: Hazel Hill
+    sex: F
+    confidence: high
+
+  - id: dwayne_oz_hill
+    name: "Dwayne \"Oz\" Hill"
+    sex: M
+    parents: [dr_w_ray_hill, myldred_hill]
+    confidence: high
+
+  - id: tiara_hill
+    name: Tiara Hill
+    sex: F
+    parents: [dwayne_oz_hill]
+    confidence: high
+
+  - id: taylor_hill
+    name: Taylor Hill
+    sex: U
+    parents: [dwayne_oz_hill]
+    notes: "Distinct from Taylor Williams elsewhere in the tree."
+    confidence: high
+
+  - id: yvonne_kirkland
+    name: Yvonne Kirkland
+    sex: F
+    parents: [evelyn_hill, kirkland_husband_of_evelyn]
+    notes: "Referred to as \"Yvonne Kirland (maiden name Scott)\" by her son Steven Goings (Hill Family Accoumplishments.pdf, Jul 2026); recorded here as Kirkland per the chart, since the surname discrepancy likely reflects the same Scott/Kirkland naming ambiguity already flagged on her mother Evelyn's record."
+    confidence: high
+
+  - id: steven_goings
+    name: Steven Goings
+    sex: M
+    birth:
+      date: "abt 1964"
+      source: "Hill Family Accoumplishments.pdf (self-reported age 62, Jul 2026 email)"
+    parents: [yvonne_kirkland]
+    notes: >
+      Of Seaside, California. Per his own Jul 2026 accomplishments email: a Licensed Clinical
+      Social Worker (private practice since Aug 2024); received the CSU Monterey Bay (CSUMB)
+      All Black Gala "Alumni Award" (Feb 2024); named Grand Marshall of Monterey Peninsula Pride
+      in June 2024 (an organization he helped found in 2017); the "CSUMB Steven Goings
+      Perseverance Award" was established in his honor in Feb 2025.
+    confidence: high
+
+  - id: barbara_hill_floyd
+    name: Barbara Hill
+    married_name: Barbara Floyd
+    sex: F
+    birth:
+      date: "1935-12"
+      source: "Reunion Book 2024 working.docx (\"Barbara Hill Floyd was born December 1935\")"
+    parents: [earl_hill, matilda_hill]
+    spouses:
+      - id: floyd_husband_of_barbara
+    notes: >
+      Reunion Book 2024 working.docx confirms her parents as Earl Hill and Matilda Denegal Hill
+      in one passage ("her grandfather on her father's side, Myers Hill" - consistent with Earl
+      being Myers Hill's son) but a separate passage in the same document names her parents as
+      "Aaron Hill and Matilda Denegal Hill" - CONFLICT: likely an internal error in that source
+      confusing Earl with the family patriarch Aaron; kept as Earl Hill's daughter here since
+      that reading is corroborated twice in the same document. Lived on Jekyll Island as a young
+      child and returned in 1959-1962, working as the first maid hired at the Wanderer Hotel
+      (now the Comfort Inn). Started the Woman's Golf Auxiliary Tournaments, which ran for 25
+      years. Organized the first Hill Family Reunion in Brunswick, GA, Aug. 7-9 1992, with her
+      cousins Janie Bell Parland and Clinton Tucker.
+    confidence: high
+
+  - id: floyd_husband_of_barbara
+    name: Floyd
+    sex: M
+    notes: "Surname only; given name not recorded."
+    confidence: medium
+
+  - id: carolyn_hill_myers_line
+    name: Carolyn Hill
+    married_name: Carolyn Layne
+    sex: F
+    parents: [arthur_hill_myers_son, evelyn_green]
+    spouses:
+      - id: robert_layne
+    notes: "Distinct from other people named Carolyn elsewhere in the tree."
+    confidence: high
+
+  - id: david_a_layne
+    name: David A. Layne
+    sex: M
+    parents: [carolyn_hill_myers_line, robert_layne]
+    confidence: high
+
+  - id: robert_layne
+    name: Robert Layne
+    sex: M
+    confidence: high
+
+  - id: g_charlesetta_hill
+    name: G. Charlesetta Hill
+    married_name: G. Charlesetta Tucker
+    sex: F
+    parents: [charlie_hill_myers_son, jenn_v_hill]
+    notes: "Child of Charlie's first wife, Jenn V."
+    confidence: high
+
+  - id: donald_b_tucker_jr
+    name: Donald B. Tucker Jr.
+    sex: M
+    parents: [g_charlesetta_hill]
+    spouses:
+      - id: yvonne_tucker
+    confidence: high
+
+  - id: yvonne_tucker
+    name: Yvonne
+    married_name: Yvonne Tucker
+    sex: F
+    notes: "Distinct from Yvonne Kirkland elsewhere in this branch."
+    confidence: high
+
+  - id: donald_b_mitchell_jr
+    name: Donald B. Mitchell Jr.
+    sex: M
+    parents: [donald_b_tucker_jr, yvonne_tucker]
+    notes: "Chart shows surname Mitchell for this child despite father's surname being Tucker; recorded as shown on source."
+    confidence: medium
+
+  - id: destiny_mitchell
+    name: Destiny
+    sex: F
+    parents: [donald_b_mitchell_jr]
+    confidence: high
+
+  - id: twan_tucker
+    name: Twan Tucker
+    sex: M
+    parents: [donald_b_tucker_jr, yvonne_tucker]
+    confidence: high
+
+  - id: jhaquaisha_houston
+    name: Jha'Quaisha Houston
+    sex: F
+    parents: [twan_tucker]
+    confidence: high
+
+  - id: kaishawn_neufville
+    name: Kai'Shawn Neufville
+    sex: M
+    parents: [twan_tucker]
+    confidence: high
+
+  - id: dejanea_tucker
+    name: De'Janea
+    sex: F
+    parents: [twan_tucker]
+    confidence: high
+
+  - id: nykee_tucker
+    name: Ny'Kee
+    sex: F
+    parents: [twan_tucker]
+    confidence: high
+
+  - id: essence_austin
+    name: Essence Austin
+    sex: F
+    parents: [twan_tucker]
+    confidence: high
+
+  - id: anna_mitchell_myers_line
+    name: Anna Mitchell
+    sex: F
+    parents: [donald_b_tucker_jr, yvonne_tucker]
+    notes: "Chart shows surname Mitchell for this child despite father's surname being Tucker; recorded as shown on source."
+    confidence: medium
+
+  - id: david_alexander_mitchell
+    name: David Alexander
+    sex: M
+    parents: [anna_mitchell_myers_line]
+    confidence: high
+
+  - id: verdell_mitchell
+    name: Verdell Mitchell
+    sex: F
+    parents: [donald_b_tucker_jr, yvonne_tucker]
+    notes: "Chart shows surname Mitchell for this child despite father's surname being Tucker; recorded as shown on source."
+    confidence: medium
+
+  - id: ashli_mitchell
+    name: Ashli
+    sex: F
+    parents: [verdell_mitchell]
+    confidence: high
+
+  - id: jordan_crawford_mitchell
+    name: Jordan Crawford
+    sex: M
+    parents: [verdell_mitchell]
+    confidence: high
+
+  - id: aliyah_mitchell
+    name: Aliyah
+    sex: F
+    parents: [verdell_mitchell]
+    confidence: high
+
+  - id: clinton_tucker
+    name: Clinton Tucker
+    sex: M
+    parents: [g_charlesetta_hill]
+    confidence: high
+
+  - id: jenn_v_tucker
+    name: Jenn V. Tucker
+    married_name: Jenn V. Waye
+    sex: F
+    parents: [clinton_tucker]
+    spouses:
+      - id: jeffery_waye
+    notes: "Distinct from Jenn V. Hill (Charlie Hill's first wife) elsewhere in this branch."
+    confidence: high
+
+  - id: jeffery_waye
+    name: Jeffery Waye
+    sex: M
+    confidence: high
+
+  - id: jeffery_waye_jr
+    name: Jeffery Waye Jr.
+    sex: M
+    parents: [jenn_v_tucker, jeffery_waye]
+    confidence: high
+
+  - id: zhane_waye
+    name: Zhane Waye
+    sex: M
+    parents: [jenn_v_tucker, jeffery_waye]
+    confidence: high
+
+  - id: leon_hill_myers_line
+    name: Leon Hill
+    sex: M
+    parents: [charlie_hill_myers_son, jenn_v_hill]
+    spouses:
+      - id: mattie_hill
+    notes: "Child of Charlie's first wife, Jenn V. Distinct from other people named Leon elsewhere in the tree."
+    confidence: high
+
+  - id: marvin_hill
+    name: Marvin Hill
+    sex: M
+    parents: [leon_hill_myers_line, mattie_hill]
+    spouses:
+      - id: verleathea_hill
+    confidence: high
+
+  - id: verleathea_hill
+    name: Verleathea
+    married_name: Verleathea Hill
+    sex: F
+    confidence: high
+
+  - id: marvin_hill_jr
+    name: Marvin Hill Jr.
+    sex: M
+    parents: [marvin_hill, verleathea_hill]
+    spouses:
+      - id: katrina_richardson
+    confidence: high
+
+  - id: katrina_richardson
+    name: Katrina Richardson
+    married_name: Katrina Hill
+    sex: F
+    confidence: high
+
+  - id: gianna_hill_myers_line
+    name: Gianna Hill
+    sex: F
+    parents: [marvin_hill_jr, katrina_richardson]
+    confidence: high
+
+  - id: joseph_hill_myers_line
+    name: Joseph Hill
+    sex: M
+    parents: [marvin_hill, verleathea_hill]
+    notes: "Distinct from other people named Joseph elsewhere in the tree."
+    confidence: high
+
+  - id: david_hill_myers_line
+    name: David Hill
+    sex: M
+    parents: [marvin_hill, verleathea_hill]
+    confidence: high
+
+  - id: gary_hill_myers_line
+    name: Gary Hill
+    sex: M
+    parents: [leon_hill_myers_line, mattie_hill]
+    notes: "Distinct from other people named Gary elsewhere in the tree."
+    confidence: high
+
+  - id: lauren_hill_myers_line
+    name: Lauren Hill
+    sex: F
+    parents: [gary_hill_myers_line]
+    confidence: high
+
+  - id: major_hill_myers_line
+    name: Major
+    sex: M
+    parents: [lauren_hill_myers_line]
+    confidence: high
+
+  - id: ronald_hill_myers_line
+    name: Ronald Hill
+    sex: M
+    parents: [leon_hill_myers_line, mattie_hill]
+    spouses:
+      - id: chrissy_hill
+    confidence: high
+
+  - id: chrissy_hill
+    name: Chrissy
+    married_name: Chrissy Hill
+    sex: F
+    confidence: high
+
+  - id: ronald_hill_jr_myers_line
+    name: Ronald Hill Jr.
+    sex: M
+    parents: [ronald_hill_myers_line, chrissy_hill]
+    confidence: high
+
+  - id: malik_hill_myers_line
+    name: Malik Hill
+    sex: M
+    parents: [ronald_hill_myers_line, chrissy_hill]
+    spouses:
+      - id: breann_hill
+    confidence: high
+
+  - id: breann_hill
+    name: Bre'ann
+    married_name: Bre'ann Hill
+    sex: F
+    confidence: high
+
+  - id: gabrielle_leann_hill
+    name: Gabrielle Leann
+    sex: F
+    parents: [malik_hill_myers_line, breann_hill]
+    confidence: high
+
+  - id: trinity_hill_myers_line
+    name: Trinity Hill
+    sex: F
+    parents: [ronald_hill_myers_line, chrissy_hill]
+    confidence: high
+
+  - id: vernon_hill_myers_line
+    name: Vernon Hill
+    sex: M
+    parents: [leon_hill_myers_line, mattie_hill]
+    spouses:
+      - id: kim_hill
+    confidence: high
+
+  - id: kim_hill
+    name: Kim
+    married_name: Kim Hill
+    sex: F
+    confidence: high
+
+  - id: terrell_hill_myers_line
+    name: Terrell Hill
+    sex: M
+    parents: [vernon_hill_myers_line, kim_hill]
+    spouses:
+      - id: desiree_hill
+    confidence: high
+
+  - id: desiree_hill
+    name: Desiree
+    married_name: Desiree Hill
+    sex: F
+    confidence: high
+
+  - id: morgan_hill_myers_line
+    name: Morgan Hill
+    sex: F
+    parents: [terrell_hill_myers_line, desiree_hill]
+    confidence: high
+
+  - id: timothy_hill_myers_line
+    name: Timothy Hill
+    sex: M
+    parents: [terrell_hill_myers_line, desiree_hill]
+    confidence: high
+
+  - id: abrienne_hill_myers_line
+    name: Abrienne Hill
+    sex: F
+    parents: [vernon_hill_myers_line, kim_hill]
+    spouses:
+      - id: maurice_johnson
+    notes: "Partner, not confirmed as spouse by marriage."
+    confidence: high
+
+  - id: maurice_johnson
+    name: Maurice Johnson
+    sex: M
+    confidence: high
+
+  - id: lenah_rose_hill
+    name: Lenah'Rose
+    sex: F
+    parents: [abrienne_hill_myers_line, maurice_johnson]
+    confidence: high
+
+  - id: mattie_hill
+    name: Mattie
+    married_name: Mattie Hill
+    sex: F
+    confidence: high
+
+  - id: steve_hill_myers_line
+    name: Steve Hill
+    sex: M
+    parents: [charlie_hill_myers_son, hazel_branch]
+    spouses:
+      - id: sherry_hill
+    notes: "Child of Charlie's second wife, Hazel Branch."
+    confidence: high
+
+  - id: sherry_hill
+    name: Sherry
+    married_name: Sherry Hill
+    sex: F
+    confidence: high
+
+  - id: lillie_hill_1877
+    name: Lillie Hill
+    sex: F
+    birth:
+      date: "1877"
+      source: "HILL FAMILY TREE.pptx, slide 6 and slide 8 (both agree)"
+    parents: [aaron_hill_1838, mary_ann_pinckney_1848]
+    spouses:
+      - id: henry_way
+      - id: george_mitchell
+    confidence: high
+
+  - id: henry_way
+    name: Henry Way
+    notes: "First husband (H1)."
+    sex: M
+    confidence: high
+
+  - id: george_mitchell
+    name: George Mitchell
+    notes: "Second husband (H2)."
+    sex: M
+    confidence: high
+
+  - id: mary_lee_way
+    name: Mary Lee Way
+    sex: F
+    parents: [lillie_hill_1877, henry_way]
+    confidence: high
+
+  - id: parthenia_way
+    name: Parthenia Way
+    sex: F
+    parents: [lillie_hill_1877, henry_way]
+    confidence: high
+
+  - id: florie_way
+    name: Florie Way
+    married_name: Florie Hubbard
+    sex: F
+    parents: [lillie_hill_1877, henry_way]
+    spouses:
+      - id: stafford_hubbard
+    confidence: high
+
+  - id: lillian_hubbard
+    name: Lillian Hubbard
+    married_name: Lillian Armstrong
+    sex: F
+    parents: [florie_way, stafford_hubbard]
+    spouses:
+      - id: clarence_armstrong
+    confidence: high
+
+  - id: karen_a_armstrong
+    name: Karen A. Armstrong
+    married_name: Karen A. Scriven
+    sex: F
+    parents: [lillian_hubbard, clarence_armstrong]
+    spouses:
+      - id: scriven_husband_of_karen_a
+    notes: "Distinct from other people named Karen A. elsewhere in this branch."
+    confidence: high
+
+  - id: scriven_husband_of_karen_a
+    name: Scriven
+    sex: M
+    notes: "Surname only; given name not recorded."
+    confidence: medium
+
+  - id: kenneth_scriven_jr
+    name: Kenneth Scriven Jr.
+    sex: M
+    parents: [karen_a_armstrong, scriven_husband_of_karen_a]
+    confidence: high
+
+  - id: clarence_scriven
+    name: Clarence Scriven
+    sex: M
+    parents: [karen_a_armstrong, scriven_husband_of_karen_a]
+    confidence: high
+
+  - id: kaiden_rauls
+    name: "Ka'Iden Rauls"
+    sex: U
+    parents: [clarence_scriven]
+    notes: "Surnamed Rauls rather than Scriven; may reflect the other parent's surname."
+    confidence: high
+
+  - id: kezia_scriven
+    name: Kezia Scriven
+    sex: F
+    parents: [clarence_scriven]
+    confidence: high
+
+  - id: ebens_scriven
+    name: Ebens Scriven
+    sex: U
+    parents: [karen_a_armstrong, scriven_husband_of_karen_a]
+    confidence: high
+
+  - id: kaylee_scriven
+    name: "Kay'Lee Scriven"
+    sex: F
+    parents: [ebens_scriven]
+    confidence: high
+
+  - id: anthony_armstrong
+    name: Anthony Armstrong
+    sex: M
+    parents: [lillian_hubbard, clarence_armstrong]
+    spouses:
+      - id: tammy_armstrong
+    confidence: high
+
+  - id: tammy_armstrong
+    name: Tammy
+    married_name: Tammy Armstrong
+    sex: F
+    confidence: high
+
+  - id: candice_armstrong
+    name: Candice Armstrong
+    sex: F
+    parents: [anthony_armstrong, tammy_armstrong]
+    confidence: high
+
+  - id: aaleria_armstrong
+    name: Aaleria Armstrong
+    married_name: Aaleria Dudley
+    sex: F
+    parents: [candice_armstrong]
+    notes: "Distinct from the unrelated Dudley families elsewhere in this branch."
+    confidence: high
+
+  - id: jeremiah_white
+    name: Jeremiah White
+    sex: M
+    parents: [candice_armstrong]
+    notes: "Surnamed White; father not otherwise identified."
+    confidence: high
+
+  - id: joseph_white
+    name: Joseph White
+    sex: M
+    parents: [candice_armstrong]
+    notes: "Surnamed White; father not otherwise identified."
+    confidence: high
+
+  - id: joshua_armstrong
+    name: Joshua Armstrong
+    married_name: Joshua Carreker
+    sex: M
+    parents: [candice_armstrong]
+    confidence: high
+
+  - id: amoni_armstrong
+    name: Amoni Armstrong
+    sex: U
+    parents: [candice_armstrong]
+    confidence: high
+
+  - id: debra_heidt
+    name: Debra Heidt
+    sex: F
+    parents: [lillian_hubbard, clarence_armstrong]
+    spouses:
+      - id: dudley_husband_of_debra
+    confidence: high
+
+  - id: dudley_husband_of_debra
+    name: Dudley
+    sex: M
+    notes: "Surname only; given name not recorded."
+    confidence: medium
+
+  - id: lamartis_dudley
+    name: Lamartis Dudley
+    sex: M
+    parents: [debra_heidt, dudley_husband_of_debra]
+    spouses:
+      - id: shonda_dudley
+    confidence: high
+
+  - id: shonda_dudley
+    name: Shonda
+    married_name: Shonda Dudley
+    sex: F
+    notes: "Distinct from Shonda Parland elsewhere in the tree."
+    confidence: high
+
+  - id: macavious_dudley
+    name: Macavious Dudley
+    sex: M
+    parents: [lamartis_dudley, shonda_dudley]
+    confidence: high
+
+  - id: devante_dudley
+    name: Devante Dudley
+    sex: M
+    parents: [lamartis_dudley, shonda_dudley]
+    confidence: high
+
+  - id: kiera_dudley
+    name: Kiera Dudley
+    sex: F
+    parents: [lamartis_dudley, shonda_dudley]
+    confidence: high
+
+  - id: gisha_dudley
+    name: Gisha Dudley
+    sex: U
+    parents: [debra_heidt, dudley_husband_of_debra]
+    confidence: high
+
+  - id: toni_dudley
+    name: Toni Dudley
+    sex: U
+    parents: [gisha_dudley]
+    confidence: high
+
+  - id: antonia_dudley
+    name: Antonia Dudley
+    sex: F
+    parents: [gisha_dudley]
+    notes: "Distinct from Aaleria (Armstrong) Dudley elsewhere in this branch."
+    confidence: high
+
+  - id: nayla_dudley
+    name: Nayla Dudley
+    married_name: Nayla Reed
+    sex: F
+    parents: [gisha_dudley]
+    confidence: high
+
+  - id: deniece_campbell_dudley
+    name: Deniece Dudley
+    married_name: Deniece Campbell
+    sex: F
+    parents: [debra_heidt, dudley_husband_of_debra]
+    confidence: high
+
+  - id: michael_campbell_jr
+    name: Michael Campbell Jr.
+    sex: M
+    parents: [deniece_campbell_dudley]
+    confidence: high
+
+  - id: michaela_campbell
+    name: Michaela Campbell
+    sex: F
+    parents: [deniece_campbell_dudley]
+    confidence: high
+
+  - id: maya_campbell
+    name: Maya Campbell
+    sex: F
+    parents: [deniece_campbell_dudley]
+    confidence: high
+
+  - id: clarence_armstrong
+    name: Clarence Armstrong
+    sex: M
+    confidence: high
+
+  - id: stafford_hubbard_jr
+    name: Stafford Hubbard Jr.
+    sex: M
+    parents: [florie_way, stafford_hubbard]
+    confidence: high
+
+  - id: craig_hubbard
+    name: Craig Hubbard
+    sex: M
+    parents: [stafford_hubbard_jr]
+    confidence: high
+
+  - id: craig_hubbard_jr
+    name: Craig Hubbard Jr.
+    sex: M
+    parents: [craig_hubbard]
+    confidence: high
+
+  - id: crystal_hubbard
+    name: Crystal Hubbard
+    sex: F
+    parents: [craig_hubbard]
+    confidence: high
+
+  - id: jasmine_hubbard
+    name: Jasmine Hubbard
+    sex: F
+    parents: [craig_hubbard]
+    confidence: high
+
+  - id: jordan_hubbard
+    name: Jordan Hubbard
+    sex: U
+    parents: [craig_hubbard]
+    confidence: high
+
+  - id: jalia_hubbard
+    name: Jalia Hubbard
+    sex: F
+    parents: [craig_hubbard]
+    confidence: high
+
+  - id: curtis_brown_hubbard
+    name: Curtis Brown Hubbard
+    sex: M
+    parents: [stafford_hubbard_jr]
+    notes: "Shown as \"Curtis Brown\" on the chart - possibly a married/informal surname; recorded here under his birth surname Hubbard for consistency, with \"Brown\" preserved in the name."
+    confidence: medium
+
+  - id: henrietta_hubbard
+    name: Henrietta Hubbard
+    married_name: Henrietta Mells
+    sex: F
+    parents: [florie_way, stafford_hubbard]
+    spouses:
+      - id: willie_mells
+    confidence: high
+
+  - id: lisa_mells
+    name: Lisa Mells
+    married_name: Lisa Rogers
+    sex: F
+    parents: [henrietta_hubbard, willie_mells]
+    spouses:
+      - id: london_rogers
+    confidence: high
+
+  - id: london_rogers
+    name: London Rogers
+    sex: M
+    confidence: high
+
+  - id: shantel_rogers
+    name: Shantel Rogers
+    married_name: Shantel Spaulding
+    sex: F
+    parents: [lisa_mells, london_rogers]
+    confidence: high
+
+  - id: donna_mells
+    name: Donna Mells
+    married_name: Donna Baker
+    sex: F
+    parents: [henrietta_hubbard, willie_mells]
+    spouses:
+      - id: robert_baker
+    notes: "Distinct from the unrelated Baker family in the Julia Way line."
+    confidence: high
+
+  - id: robert_baker_jr
+    name: Robert Baker Jr.
+    sex: M
+    parents: [donna_mells, robert_baker]
+    confidence: high
+
+  - id: damion_baker
+    name: Damion Baker
+    sex: M
+    parents: [donna_mells, robert_baker]
+    confidence: high
+
+  - id: robert_baker
+    name: Robert Baker
+    sex: M
+    confidence: high
+
+  - id: shawnda_mells
+    name: Shawnda Mells
+    married_name: Shawnda Rhone
+    sex: F
+    parents: [henrietta_hubbard, willie_mells]
+    spouses:
+      - id: tyrone_rhone
+    confidence: high
+
+  - id: tyrone_rhone
+    name: Tyrone Rhone
+    sex: M
+    confidence: high
+
+  - id: tyshawn_rhone
+    name: Tyshawn Rhone
+    sex: M
+    parents: [shawnda_mells, tyrone_rhone]
+    confidence: high
+
+  - id: tyon_rhone
+    name: "Ty'on Rhone"
+    sex: U
+    parents: [shawnda_mells, tyrone_rhone]
+    confidence: high
+
+  - id: tyrone_rhone_jr
+    name: Tyrone Rhone Jr.
+    sex: M
+    parents: [shawnda_mells, tyrone_rhone]
+    confidence: high
+
+  - id: matasha_mells
+    name: Matasha Mells
+    married_name: Matasha Jones
+    sex: F
+    parents: [henrietta_hubbard, willie_mells]
+    spouses:
+      - id: andre_jones
+    confidence: high
+
+  - id: andre_jones
+    name: Andre Jones
+    sex: M
+    confidence: high
+
+  - id: christopher_jones
+    name: Christopher Jones
+    married_name: Christopher McDowell
+    sex: M
+    parents: [matasha_mells, andre_jones]
+    confidence: high
+
+  - id: andre_jones_jr
+    name: Andre Jones Jr.
+    sex: M
+    parents: [matasha_mells, andre_jones]
+    confidence: high
+
+  - id: andrea_jones
+    name: Andrea Jones
+    sex: F
+    parents: [matasha_mells, andre_jones]
+    confidence: high
+
+  - id: sherita_mells
+    name: Sherita Mells
+    married_name: Sherita Curry
+    sex: F
+    parents: [henrietta_hubbard, willie_mells]
+    spouses:
+      - id: henry_curry
+    confidence: high
+
+  - id: henry_curry
+    name: Henry Curry
+    sex: M
+    confidence: high
+
+  - id: willie_curry
+    name: Willie Curry
+    sex: M
+    parents: [sherita_mells, henry_curry]
+    confidence: high
+
+  - id: deashley_curry
+    name: DeAshley Curry
+    sex: U
+    parents: [sherita_mells, henry_curry]
+    confidence: high
+
+  - id: whitney_curry
+    name: Whitney Curry
+    sex: F
+    parents: [sherita_mells, henry_curry]
+    confidence: high
+
+  - id: willis_curry
+    name: Willis Curry
+    sex: M
+    parents: [sherita_mells, henry_curry]
+    confidence: high
+
+  - id: henrietta_curry
+    name: Henrietta Curry
+    sex: F
+    parents: [sherita_mells, henry_curry]
+    confidence: high
+
+  - id: willie_mells
+    name: Willie Mells
+    sex: M
+    confidence: high
+
+  - id: mary_lou_hubbard
+    name: Mary Lou Hubbard
+    married_name: Mary Lou Whitten
+    sex: F
+    parents: [florie_way, stafford_hubbard]
+    spouses:
+      - id: edward_whitten
+    confidence: high
+
+  - id: regina_whitten
+    name: Regina Whitten
+    married_name: Regina Henderson
+    sex: F
+    parents: [mary_lou_hubbard, edward_whitten]
+    spouses:
+      - id: cornelius_henderson
+    notes: "Shown as \"Regina Wilson\" on the chart, possibly reflecting an earlier marriage before Cornelius Henderson - unconfirmed."
+    confidence: medium
+
+  - id: cornelius_henderson
+    name: Cornelius Henderson
+    sex: M
+    confidence: high
+
+  - id: jennifer_henderson
+    name: Jennifer Henderson
+    married_name: Jennifer Baker
+    sex: F
+    parents: [regina_whitten, cornelius_henderson]
+    notes: "Distinct from the unrelated Baker families elsewhere in this branch."
+    confidence: high
+
+  - id: jason_henderson
+    name: Jason Henderson
+    married_name: Jason Walker
+    sex: M
+    parents: [regina_whitten, cornelius_henderson]
+    confidence: high
+
+  - id: edward_whitten
+    name: Edward Whitten
+    sex: M
+    confidence: high
+
+  - id: stafford_hubbard
+    name: Stafford Hubbard
+    sex: M
+    confidence: high
+
+  - id: maude_way
+    name: Maude Way
+    sex: F
+    parents: [lillie_hill_1877, henry_way]
+    confidence: high
+
+  - id: henrietta_way
+    name: Henrietta Way
+    sex: F
+    parents: [lillie_hill_1877, henry_way]
+    confidence: high
+
+  - id: julia_way
+    name: Julia Way
+    married_name: Julia Baker
+    sex: F
+    parents: [lillie_hill_1877, henry_way]
+    spouses:
+      - id: phillip_baker
+    confidence: high
+
+  - id: mary_baker
+    name: Mary Baker
+    married_name: Mary Allen
+    sex: F
+    birth:
+      date: "1938-12-06"
+      source: "HILL FAMILY TREE.pptx, slide 8"
+    parents: [julia_way, phillip_baker]
+    spouses:
+      - id: larry_allen
+    notes: "Honored on the chart as \"Matriarch of the Lillie Branch\" (88 years old as shown, consistent with her 1938 birth year)."
+    confidence: high
+
+  - id: larry_allen
+    name: Larry Allen
+    sex: M
+    confidence: high
+
+  - id: karen_a_allen
+    name: Karen A. Allen
+    married_name: Karen A. Currin
+    sex: F
+    parents: [mary_baker, larry_allen]
+    spouses:
+      - id: richard_currin
+    notes: "Distinct from other people named Karen A. elsewhere in this branch."
+    confidence: high
+
+  - id: richard_currin
+    name: Richard Currin
+    sex: M
+    confidence: high
+
+  - id: cavin_currin
+    name: Cavin Currin
+    sex: M
+    parents: [karen_a_allen, richard_currin]
+    confidence: high
+
+  - id: mark_allen
+    name: Mark Allen
+    sex: M
+    parents: [mary_baker, larry_allen]
+    spouses:
+      - id: mevis_hill_allen
+    confidence: high
+
+  - id: mevis_hill_allen
+    name: Mevis Hill
+    married_name: Mevis Allen
+    sex: F
+    notes: >
+      Surnamed Hill - possibly a Hill family relative marrying back into the extended family,
+      though not confirmed which line she comes from, if any.
+    confidence: medium
+
+  - id: mark_allen_jr
+    name: Mark Allen Jr.
+    sex: M
+    parents: [mark_allen, mevis_hill_allen]
+    confidence: high
+
+  - id: britney_allen
+    name: Britney Allen
+    sex: F
+    parents: [mark_allen, mevis_hill_allen]
+    confidence: high
+
+  - id: dominique_allen
+    name: Dominique Allen
+    sex: U
+    parents: [mark_allen, mevis_hill_allen]
+    confidence: high
+
+  - id: michael_allen
+    name: Michael Allen
+    sex: M
+    parents: [mary_baker, larry_allen]
+    spouses:
+      - id: kimberly_stinchcombe
+    confidence: high
+
+  - id: kimberly_stinchcombe
+    name: Kimberly Stinchcombe
+    married_name: Kimberly Allen
+    sex: F
+    confidence: high
+
+  - id: michael_allen_jr
+    name: Michael Allen Jr.
+    sex: M
+    parents: [michael_allen, kimberly_stinchcombe]
+    confidence: high
+
+  - id: phillip_baker
+    name: Phillip Baker
+    sex: M
+    confidence: high
+
+  - id: reatha_way
+    name: Reatha Way
+    sex: F
+    parents: [lillie_hill_1877, henry_way]
+    confidence: high
+
+  - id: george_mitchell_jr
+    name: George Mitchell Jr.
+    sex: M
+    parents: [lillie_hill_1877, george_mitchell]
+    confidence: high
+
+  - id: aaron_hill_jr_1884
+    name: Aaron Hill Jr.
+    sex: M
+    birth:
+      date: "1884"
+      source: "HILL FAMILY TREE.pptx, slide 6"
+    parents: [aaron_hill_1838, mary_ann_pinckney_1848]
+    confidence: medium
+
+  - id: doc_f_bubba_hill_1887
+    name: Doc F. "Bubba" Hill
+    sex: M
+    birth:
+      date: "1887"
+      source: "HILL FAMILY TREE.pptx, slide 6"
+    parents: [aaron_hill_1838, mary_ann_pinckney_1848]
+    confidence: medium
+
+  - id: sheppard_maxwell
+    name: Sheppard Maxwell
+    sex: M
+    notes: >
+      No birth/death date given anywhere in the source documents seen so far. Reunion Book 2024
+      working.docx adds: born and raised on Jekyll Island before the millionaires' era, per his
+      daughter Janie Bell's 1991 interview; worked for the Jennings Estate; kept a large garden
+      near the family's grocery store that the community drew vegetables from, since the store
+      itself did not sell groceries.
+    confidence: medium
+
+  # --- Generation 3: children of Isabell Hill & Sheppard Maxwell ---
+
+  - id: carrie_maxwell_1911
+    name: Carrie Maxwell
+    married_name: Carrie Robinson
+    sex: F
+    birth:
+      date: "1911-04-12"
+      source: "HILL FAMILY TREE.pptx, slide 17"
+    parents: [isabell_hill_1877, sheppard_maxwell]
+    spouses:
+      - id: robinson_husband_of_carrie
+    notes: >
+      Listed as "Carrie Maxwell-Robinson" family tree resource/interviewee (2004) on slide 2 -
+      corroborates the Robinson marriage independently of the chart's own H:/W: label. CONFLICT:
+      Reunion Book 2024 working.docx (headed "Carrie Maxwell Roberts Robinson (1991)") instead
+      names her first husband "Herbert Roberts," Manager of the Jekyll Island Golf Course, who
+      died of a heat stroke when Carrie was 24; that source never uses "Robinson" in the body
+      text, only in the interview heading alongside "Roberts." Recorded here as "Robinson" per
+      the chart's own H: label plus the slide-2 resource citation, but the discrepancy with
+      "Roberts" is unresolved - possibly the same man under two spellings, or two different
+      husbands. The Reunion Book also adds: at 16, after her family home burned down, she quit
+      school (against her father Sheppard's wishes) and went to work on Jekyll Island, starting
+      as a Housekeeper for J.P. Morgan and the Hotel; after Herbert's death she returned to
+      Jekyll Island at the Club president's request to help care for his niece, before leaving
+      the island in 1940.
+    confidence: medium
+
+  - id: robinson_husband_of_carrie
+    name: Robinson
+    sex: M
+    notes: "Only a surname is given (\"H:Robinson\") on slide 17 - given name not recorded. See CONFLICT note on Carrie Maxwell's record regarding \"Herbert Roberts.\""
+    confidence: low
+
+  - id: janie_bell_maxwell
+    name: Janie Bell Maxwell
+    married_name: Janie Bell Parland
+    sex: F
+    parents: [isabell_hill_1877, sheppard_maxwell]
+    spouses:
+      - id: charles_parland
+    notes: >
+      Listed as "Janie Bell Maxwell-Parland - 1996 Interview & Family Tree" on slide 2,
+      corroborating the Parland marriage. Reunion Book 2024 working.docx (1991 interview) adds:
+      remembered Jekyll Island before the millionaires arrived, via her father Sheppard's own
+      account; her sister Carrie Maxwell moved to the island for work before she did; she and
+      Charles lived on the island in 1940; held a Degree in Education and had a career as a
+      teacher in Fancy Bluff, Georgia after leaving the island.
+    confidence: high
+
+  - id: charles_parland
+    name: Charles Parland
+    sex: M
+    parents: []
+    notes: >
+      Reunion Book 2024 working.docx: a Jekyll Island Club employee 1937-1938, cleaning the home
+      of private club member Frank M. Gould and family (Chichota Cottage, later "The Villa
+      Marianna," now the Jekyll Island Archives, as of the 1991 interview). His uncle Page
+      Parland (exact side of the family not specified in the source) worked for the Goulds
+      before him, doing housekeeping and cleanup, and was caretaker/landscaper for the Gould
+      family's Chichota Cottage, Shrady Cottage, and Playhouse; the Goulds built Page and his
+      wife Aleatha a home on the island, and later a home in Fancy Bluff, GA when the island
+      closed. Page and Aleatha are not otherwise documented in these sources and aren't given
+      their own tree records here.
+    confidence: high
+
+  - id: christopher_l_maxwell
+    name: Christopher L. Maxwell
+    sex: M
+    parents: [isabell_hill_1877, sheppard_maxwell]
+    notes: "Died as a child; never married, no descendants."
+    confidence: high
+
+  - id: irene_maxwell
+    name: Irene Maxwell
+    married_name: Irene Atkinson
+    sex: F
+    parents: [isabell_hill_1877, sheppard_maxwell]
+    spouses:
+      - id: atkinson_husband_of_irene
+    confidence: high
+
+  - id: atkinson_husband_of_irene
+    name: Israel Atkinson
+    sex: M
+    confidence: high
+
+  - id: inez_maxwell
+    name: Inez Maxwell
+    married_name: Inez Harrison
+    sex: F
+    parents: [isabell_hill_1877, sheppard_maxwell]
+    spouses:
+      - id: harrison_husband_of_inez
+    notes: "Inez and Mr. Harrison had no children."
+    confidence: high
+
+  - id: harrison_husband_of_inez
+    name: Harrison
+    sex: M
+    notes: "Surname only; given name unknown. Not Frank Harrison - see armeda_maxwell's record."
+    confidence: low
+
+  - id: alvin_maxwell
+    name: Alvin Maxwell
+    sex: M
+    parents: [isabell_hill_1877, sheppard_maxwell]
+    notes: "Never married, no children."
+    confidence: high
+
+  - id: samuel_maxwell
+    name: Samuel Maxwell
+    sex: M
+    parents: [isabell_hill_1877, sheppard_maxwell]
+    notes: "Never married, no children."
+    confidence: high
+
+  - id: anna_may_maxwell
+    name: Anna May Maxwell
+    married_name: Anna May Chrysler
+    sex: F
+    parents: [isabell_hill_1877, sheppard_maxwell]
+    spouses:
+      - id: chrysler_husband_of_anna_may
+    confidence: medium
+
+  - id: chrysler_husband_of_anna_may
+    name: Chrysler
+    sex: M
+    notes: "Surname only (\"H:Chrysler\"); given name not recorded."
+    confidence: low
+
+  - id: sheppard_maxwell_jr
+    name: Sheppard Maxwell Jr.
+    sex: M
+    parents: [isabell_hill_1877, sheppard_maxwell]
+    notes: "Never married, no children."
+    confidence: high
+
+  - id: fredrick_maxwell
+    name: Fredrick Maxwell
+    sex: M
+    parents: [isabell_hill_1877, sheppard_maxwell]
+    notes: "Never married, no children."
+    confidence: high
+
+  - id: gussie_maxwell_cash
+    name: Gussie Maxwell Cash
+    married_name: Gussie Cash
+    sex: F
+    parents: [isabell_hill_1877, sheppard_maxwell]
+    spouses:
+      - id: morris_cash_sr
+    notes: >
+      Already double-surnamed on the chart itself ("GUSSIE MAXWELL CASH"), reflecting her
+      married name after marrying a Cash.
+    confidence: high
+
+  - id: morris_cash_sr
+    name: Morris Cash Sr.
+    sex: M
+    confidence: high
+
+  - id: armeda_maxwell
+    name: Armeda Maxwell
+    married_name: Armeda Harrison
+    sex: F
+    parents: [isabell_hill_1877, sheppard_maxwell]
+    spouses:
+      - id: frank_harrison
+    notes: >
+      A twelfth child of Isabell & Sheppard Maxwell, not identified in the initial slide-17
+      pass. Took her husband's surname upon marrying Frank Harrison (i.e. "Armeda Harrison"
+      married name) - listed here under her maiden name for consistency with her siblings.
+    confidence: high
+
+  - id: wilma_harrison
+    name: Wilma Harrison
+    married_name: Wilma Ware
+    sex: F
+    parents: [armeda_maxwell, frank_harrison]
+    spouses:
+      - id: charles_ware
+    notes: "Listed in the Reunion Book 2024 working.docx \"In Rememberance\" section as \"Wilma Harrison Ware\" - passed away before the 2024 reunion; no specific date given."
+    confidence: high
+
+  - id: gerry_ware
+    name: Gerry Ware
+    sex: U
+    parents: [wilma_harrison, charles_ware]
+    confidence: high
+
+  - id: gary_ware
+    name: Gary Ware
+    sex: M
+    parents: [wilma_harrison, charles_ware]
+    spouses:
+      - id: burnadette_ware
+    confidence: high
+
+  - id: burnadette_ware
+    name: Burnadette
+    married_name: Burnadette Ware
+    sex: F
+    notes: "Unclear whether either of Gary's two sons below is her biological child - not confirmed."
+    confidence: medium
+
+  - id: dion_smith
+    name: Dion Smith
+    sex: M
+    parents: [gary_ware]
+    notes: >
+      Took his mother's surname (Smith) rather than Ware; his mother isn't otherwise
+      identified, and it's unconfirmed whether she is or isn't Burnadette (Gary's wife).
+    confidence: high
+
+  - id: trevon_davis
+    name: Trevon Davis
+    sex: M
+    parents: [gary_ware]
+    notes: >
+      Took his mother's surname (Davis) rather than Ware; his mother isn't otherwise
+      identified, and it's unconfirmed whether she is or isn't Burnadette (Gary's wife).
+    confidence: high
+
+  - id: curtis_ware
+    name: Curtis Ware
+    sex: M
+    parents: [wilma_harrison, charles_ware]
+    notes: "Raised by his aunt Edweina Harrison, though biologically Wilma and Charles's son."
+    confidence: high
+
+  - id: kertasha_ware
+    name: "Kertasha (Monique)"
+    sex: F
+    parents: [curtis_ware]
+    confidence: high
+
+  - id: serra_ware
+    name: Serra Ware
+    sex: U
+    parents: [curtis_ware]
+    confidence: high
+
+  - id: curtis_ware_jr
+    name: Curtis Ware Jr.
+    sex: M
+    parents: [curtis_ware]
+    confidence: high
+
+  - id: charles_ware
+    name: Charles Ware
+    sex: M
+    confidence: high
+
+  - id: ronnie_jones
+    name: Ronnie Jones
+    sex: M
+    parents: [armeda_maxwell, frank_harrison]
+    spouses:
+      - id: pricilla_jones
+    notes: >
+      Surnamed Jones rather than Harrison - similar to how Gilbert Maxwell didn't take his
+      father's surname Cash, this doesn't seem to be an error, just a naming choice.
+    confidence: high
+
+  - id: pricilla_jones
+    name: Pricilla
+    married_name: Pricilla Jones
+    sex: F
+    confidence: high
+
+  - id: jamerson_jones
+    name: Jamerson Jones
+    sex: M
+    parents: [ronnie_jones, pricilla_jones]
+    confidence: high
+
+  - id: jason_jones
+    name: Jason Jones
+    sex: M
+    parents: [ronnie_jones, pricilla_jones]
+    confidence: high
+
+  - id: ja_meiah_jones
+    name: Ja-Meiah Jones
+    sex: U
+    parents: [jason_jones]
+    confidence: high
+
+  - id: edweina_harrison
+    name: Edweina Harrison
+    sex: F
+    parents: [armeda_maxwell, frank_harrison]
+    spouses:
+      - id: harrison_husband_of_edweina
+    notes: >
+      Listed as "Edweina Harrison" on slide 2's Isabell branch resource list. Originally
+      misattributed as Inez Maxwell's daughter before the user corrected this - Inez had no
+      children, so this is a daughter of Armeda and Frank Harrison instead (sibling of Wilma
+      and Ronnie Jones). Married a man also surnamed Harrison (per the user), so her married
+      name and birth name are the same - not a data error.
+    confidence: high
+
+  - id: harrison_husband_of_edweina
+    name: Harrison
+    sex: M
+    notes: "Surname only (coincidentally the same as Edweina's own birth surname); given name not recorded."
+    confidence: medium
+
+  - id: jackie_harrison
+    name: Jackie Harrison
+    sex: F
+    parents: [edweina_harrison, harrison_husband_of_edweina]
+    confidence: high
+
+  - id: julie_harrison
+    name: Julie Harrison
+    sex: F
+    parents: [edweina_harrison, harrison_husband_of_edweina]
+    confidence: high
+
+  - id: carolyn_harrison
+    name: Carolyn Harrison
+    sex: F
+    parents: [edweina_harrison, harrison_husband_of_edweina]
+    confidence: high
+
+  - id: lynndrill_harrison
+    name: Lynndrill Harrison
+    married_name: Lynndrill Roberts
+    sex: F
+    parents: [carolyn_harrison]
+    spouses:
+      - id: roberts_husband_of_lynndrill
+    confidence: high
+
+  - id: roberts_husband_of_lynndrill
+    name: Roberts
+    sex: M
+    notes: "Surname only; given name not recorded."
+    confidence: medium
+
+  - id: jayden_roberts
+    name: Jayden Roberts
+    married_name: Jayden Harris
+    sex: U
+    parents: [lynndrill_harrison, roberts_husband_of_lynndrill]
+    confidence: high
+
+  - id: tashara_harrison
+    name: Tashara Harrison
+    married_name: Tashara Roberts
+    sex: F
+    parents: [carolyn_harrison]
+    confidence: high
+
+  - id: de_vonere_harrison
+    name: De-Vonere Harrison
+    sex: U
+    parents: [carolyn_harrison]
+    confidence: high
+
+  - id: keyosha_harrison
+    name: Keyosha Harrison
+    sex: F
+    parents: [jackie_harrison]
+    confidence: high
+
+  - id: jason_harrison
+    name: Jason Harrison
+    married_name: Jason Larkin
+    sex: M
+    parents: [keyosha_harrison]
+    confidence: high
+
+  - id: madison_harrison
+    name: Madison Harrison
+    married_name: Madison Paige
+    sex: U
+    parents: [keyosha_harrison]
+    confidence: high
+
+  - id: landis_harrison
+    name: Landis Harrison
+    married_name: Landis Rollins
+    sex: U
+    parents: [jackie_harrison]
+    confidence: high
+
+  - id: irma_harrison
+    name: Irma Harrison
+    married_name: Irma Dunlap
+    sex: F
+    parents: [armeda_maxwell, frank_harrison]
+    spouses:
+      - id: joseph_dunlap
+    notes: >
+      Listed as "Irma Harrison-Dunlap" on slide 2's Isabell branch resource list, confirming
+      the Dunlap marriage (using the no-hyphen married_name convention per the project rule).
+      Reunion Book 2024 working.docx "In Rememberance" section instead lists her as "Janine
+      (Urma) Harrison Dunlap" - possibly her legal first name is Janine with "Irma"/"Urma" as a
+      nickname; kept as "Irma" here per the chart's own resource-list citation. Passed away
+      before the 2024 reunion; no specific date given.
+    confidence: high
+
+  - id: joseph_dunlap
+    name: Joseph Dunlap
+    sex: M
+    confidence: high
+
+  - id: gary_dunlap
+    name: Gary Dunlap
+    sex: M
+    parents: [irma_harrison, joseph_dunlap]
+    spouses:
+      - id: nicky_dunlap
+    confidence: high
+
+  - id: joseph_dunlap_iii
+    name: Joseph Dunlap III
+    sex: M
+    parents: [irma_harrison, joseph_dunlap]
+    confidence: high
+
+  - id: donna_hill
+    name: Donna Dunlap
+    married_name: Donna Hill
+    sex: F
+    parents: [irma_harrison, joseph_dunlap]
+    spouses:
+      - id: bernard_hill
+    notes: "Sister of Gary Dunlap and Joseph Dunlap III; \"Hill\" is her married name, from husband Bernard Hill."
+    confidence: high
+
+  - id: bernard_hill
+    name: Bernard Hill
+    sex: M
+    confidence: high
+
+  - id: terence_hill
+    name: Terence Hill
+    sex: M
+    parents: [donna_hill]
+    confidence: high
+
+  - id: ashley_hill
+    name: Ashley Hill
+    married_name: Ashley Lewinsky
+    sex: F
+    parents: [donna_hill]
+    spouses:
+      - id: pete_lewinsky
+    confidence: high
+
+  - id: donnivan_lewinsky
+    name: Donnivan Lewinsky
+    sex: U
+    parents: [ashley_hill, pete_lewinsky]
+    confidence: high
+
+  - id: gabriel_lewinsky
+    name: Gabriel Lewinsky
+    sex: M
+    parents: [ashley_hill, pete_lewinsky]
+    confidence: high
+
+  - id: pete_lewinsky
+    name: Pete Lewinsky
+    sex: M
+    confidence: high
+
+  - id: michael_hill
+    name: Michael Hill
+    sex: M
+    parents: [donna_hill]
+    spouses:
+      - id: lana_hill
+    confidence: high
+
+  - id: lana_hill
+    name: Lana
+    married_name: Lana Hill
+    sex: F
+    confidence: high
+
+  - id: shevon_dunlap
+    name: Shevon Dunlap
+    sex: U
+    parents: [joseph_dunlap_iii]
+    confidence: high
+
+  - id: joseph_dunlap_iv
+    name: Joseph Dunlap IV
+    sex: M
+    parents: [joseph_dunlap_iii]
+    confidence: high
+
+  - id: aric_dunlap
+    name: Aric Dunlap
+    sex: M
+    parents: [joseph_dunlap_iii]
+    confidence: high
+
+  - id: nicky_dunlap
+    name: Nicky
+    married_name: Nicky Dunlap
+    sex: F
+    confidence: high
+
+  - id: aaron_dunlap
+    name: Aaron Dunlap
+    sex: M
+    parents: [gary_dunlap, nicky_dunlap]
+    confidence: high
+
+  - id: christian_dunlap
+    name: Christian Dunlap
+    sex: M
+    parents: [gary_dunlap, nicky_dunlap]
+    confidence: high
+
+  - id: frank_harrison
+    name: Frank Harrison
+    sex: M
+    confidence: medium
+
+  # --- Generation 5: children of Kenneth Parland & Rosa Turnage ---
+
+  - id: shonda_parland
+    name: Shonda Parland
+    married_name: Shonda Payne
+    sex: F
+    parents: [kenneth_parland_1941, rosa_turnage]
+    spouses:
+      - id: leslie_payne
+    confidence: high
+
+  - id: leslie_payne
+    name: Leslie Payne
+    sex: M
+    confidence: medium
+
+  - id: marcus_payne
+    name: Marcus Payne
+    sex: M
+    parents: [shonda_parland, leslie_payne]
+    spouses:
+      - id: jinel_gray
+    confidence: high
+
+  - id: jinel_gray
+    name: Jinel Gray
+    married_name: Jinel Payne
+    sex: F
+    confidence: high
+
+  - id: timothy_m_payne
+    name: Timothy M. Payne
+    sex: M
+    parents: [marcus_payne, jinel_gray]
+    confidence: high
+
+  - id: maurice_payne
+    name: Maurice Payne
+    sex: M
+    parents: [shonda_parland, leslie_payne]
+    spouses:
+      - id: destiny_softa
+    confidence: high
+
+  - id: destiny_softa
+    name: Destiny Softa
+    married_name: Destiny Payne
+    sex: F
+    confidence: high
+
+  - id: norah_j_payne
+    name: Norah J. Payne
+    sex: F
+    parents: [maurice_payne, destiny_softa]
+    confidence: high
+
+  - id: lincoln_e_payne
+    name: Lincoln E. Payne
+    sex: M
+    parents: [maurice_payne, destiny_softa]
+    confidence: high
+
+  - id: cordelia_parland
+    name: Cordelia Parland
+    married_name: Cordelia Parrish
+    sex: F
+    parents: [kenneth_parland_1941, rosa_turnage]
+    spouses:
+      - id: rodinal_parrish
+    notes: "Spelled \"CORDILIA\" on the chart itself; using \"Cordelia\" per the user."
+    confidence: high
+
+  - id: rodinal_parrish
+    name: Rodinal Parrish
+    sex: M
+    confidence: medium
+
+  - id: rodinal_parrish_jr
+    name: Rodinal Parrish Jr.
+    sex: M
+    parents: [cordelia_parland, rodinal_parrish]
+    spouses:
+      - id: solita_johnson
+    confidence: high
+
+  - id: solita_johnson
+    name: Solita Johnson
+    married_name: Solita Parrish
+    sex: F
+    confidence: high
+
+  - id: amira_parrish
+    name: Amira Parrish
+    sex: F
+    parents: [rodinal_parrish_jr, solita_johnson]
+    confidence: high
+
+  - id: zenaya_parrish
+    name: Zenaya Parrish
+    sex: F
+    parents: [rodinal_parrish_jr, solita_johnson]
+    confidence: high
+
+  - id: desera_parrish
+    name: Desera Parrish
+    sex: F
+    parents: [cordelia_parland, rodinal_parrish]
+    spouses:
+      - id: deonte_mcclinton
+    confidence: high
+
+  - id: deonte_mcclinton
+    name: Deonte McClinton
+    sex: M
+    confidence: high
+
+  - id: luna_ray_mcclinton
+    name: Luna Ray McClinton
+    sex: F
+    parents: [desera_parrish, deonte_mcclinton]
+    confidence: high
+
+  - id: liam_mcclinton
+    name: Liam McClinton
+    sex: M
+    parents: [desera_parrish, deonte_mcclinton]
+    confidence: high
+
+  - id: sharelle_ortega
+    name: Sharelle Ortega
+    sex: F
+    parents: [cordelia_parland, rodinal_parrish]
+    notes: "Married name Ortega; maiden name Parrish."
+    confidence: high
+
+  - id: carter_henderson
+    name: Carter Henderson
+    sex: M
+    parents: [sharelle_ortega]
+    confidence: high
+
+  - id: evan_ortega
+    name: Evan Ortega
+    sex: M
+    parents: [sharelle_ortega]
+    confidence: high
+
+  - id: christopher_parland
+    name: Christopher Parland
+    sex: M
+    parents: [kenneth_parland_1941, unknown_partner_of_kenneth]
+    confidence: high
+
+  - id: christopher_parland_jr
+    name: Christopher Parland Jr.
+    sex: M
+    parents: [christopher_parland]
+    confidence: high
+
+  - id: donnell_parland
+    name: Donnell Parland
+    sex: M
+    parents: [kenneth_parland_1941, unknown_partner_of_kenneth]
+    confidence: high
+
+  - id: tahaj_parland
+    name: Tahaj Parland
+    sex: M
+    parents: [donnell_parland]
+    confidence: high
+
+  - id: princeton_parland
+    name: Princeton Parland
+    sex: M
+    parents: [donnell_parland]
+    confidence: high
+
+  - id: eloise_morris
+    name: Eloise Parland
+    married_name: Eloise Morris
+    sex: F
+    birth:
+      date: "abt 1995"
+      source: "Hill Family Accoumplishments.pdf (self-reported age 31, Jul 2026 email)"
+    parents: [kenneth_parland_1941, unknown_partner_of_kenneth]
+    spouses:
+      - id: rashawn_morris
+    notes: >
+      Per her Jul 2026 accomplishments email: she and her husband Rashawn are both in college
+      (she is studying Criminal Justice, hoping to become a police officer; he is studying
+      Sports Management), and together they own Boss Bounce Party Rentals.
+    confidence: high
+
+  - id: rashawn_morris
+    name: Rashawn Morris
+    sex: M
+    confidence: high
+
+  - id: rashawn_morris_jr
+    name: Rashawn Morris Jr.
+    sex: M
+    parents: [eloise_morris, rashawn_morris]
+    confidence: high
+
+  - id: eliana_morris
+    name: Eliana Morris
+    sex: F
+    parents: [eloise_morris, rashawn_morris]
+    confidence: high
+
+  - id: amir_morris
+    name: Amir Morris
+    sex: M
+    parents: [eloise_morris, rashawn_morris]
+    notes: "Described as having \"joined our family last year\" in the Jul 2026 email alongside his siblings Rashawn Jr. and Eliana; exact circumstances (birth vs. adoption/fostering) not specified."
+    confidence: medium
+
+  - id: aziza_bryd
+    name: Aziza Parland
+    married_name: Aziza Bryd
+    sex: F
+    birth:
+      date: "abt 1992"
+      source: "Hill Family Accoumplishments.pdf (self-reported age 34 via her sister Eloise's Jul 2026 email)"
+    parents: [kenneth_parland_1941, unknown_partner_of_kenneth]
+    spouses:
+      - id: ravon_bryd
+    notes: "Eldest of Kenneth's children with this partner, per Eloise Morris's Jul 2026 email. She and her husband Ravon own Blow It Up Productions (bounce houses, balloon twisting, face painting). Will represent this side of the family at the reunion, per Eloise."
+    confidence: high
+
+  - id: ravon_bryd
+    name: Ravon Bryd
+    sex: M
+    confidence: high
+
+  - id: ravon_bryd_jr
+    name: Ravon Bryd Jr.
+    sex: M
+    parents: [aziza_bryd, ravon_bryd]
+    confidence: high
+
+  - id: arielle_parland
+    name: Arielle Parland
+    sex: F
+    birth:
+      date: "abt 1996"
+      source: "Hill Family Accoumplishments.pdf (self-reported age 30, Jul 2026 email)"
+    parents: [kenneth_parland_1941, unknown_partner_of_kenneth]
+    spouses:
+      - id: jonathan_coley
+    notes: "Engaged to Jonathan Coley as of Jul 2026, per her sister Eloise Morris's accomplishments email; starting a new career in the insurance industry."
+    confidence: high
+
+  - id: jonathan_coley
+    name: Jonathan Coley
+    sex: M
+    confidence: high
+
+  - id: jonathan_coley_jr
+    name: Jonathan Coley Jr.
+    sex: M
+    parents: [arielle_parland, jonathan_coley]
+    confidence: high
+
+  - id: amelia_coley
+    name: Amelia Coley
+    sex: F
+    parents: [arielle_parland, jonathan_coley]
+    confidence: high
+
+  - id: kamden_coley
+    name: Kamden Coley
+    sex: U
+    parents: [arielle_parland, jonathan_coley]
+    confidence: high
+
+  - id: braden_coley
+    name: Braden Coley
+    sex: M
+    parents: [arielle_parland, jonathan_coley]
+    confidence: high
+
+  - id: asmahani_parland
+    name: Asmahani Parland
+    sex: F
+    birth:
+      date: "abt 1997"
+      source: "Hill Family Accoumplishments.pdf (self-reported age 29, Jul 2026 email)"
+    parents: [kenneth_parland_1941, unknown_partner_of_kenneth]
+    spouses:
+      - id: isaac_fiance_of_asmahani
+    notes: "Engaged to Isaac as of Jul 2026, per her sister Eloise Morris's accomplishments email; owns a beauty business, Kiya Styles."
+    confidence: high
+
+  - id: isaac_fiance_of_asmahani
+    name: Isaac
+    sex: M
+    notes: "Surname not given."
+    confidence: medium
+
+  - id: andre_bernard_parland
+    name: Andre Bernard Parland
+    sex: M
+    birth:
+      date: "abt 2000"
+      source: "Hill Family Accoumplishments.pdf (self-reported age 26, Jul 2026 email)"
+    parents: [kenneth_parland_1941, unknown_partner_of_kenneth]
+    notes: "Also known as \"Kenneth II\"; has built a career in automotive sales, per his sister Eloise Morris's Jul 2026 accomplishments email."
+    confidence: high
+
+  - id: unknown_partner_of_kenneth
+    name: Unknown
+    sex: F
+    notes: >
+      Kenneth Parland's other partner (mother of Christopher, Donnell, Eloise, Aziza, Arielle,
+      Asmahani, and Andre Bernard, per the user); identity not yet known.
+    confidence: low
+
+  # --- Generation 4: children of Janie Bell Maxwell & Charles Parland ---
+
+  - id: joseph_royal
+    name: Dr. Joseph Van Royal
+    sex: M
+    parents: [janie_bell_maxwell, charles_parland]
+    spouses:
+      - id: essie_davis
+    notes: >
+      Per family account: born with no name given at birth, and given away to sharecroppers;
+      the family that raised him had the surname Royal and named him Joe. Biological child of
+      Janie Bell Maxwell and Charles Parland, raised as Joseph Royal rather than under the
+      Parland name.
+    confidence: high
+
+  - id: essie_davis
+    name: Essie Davis
+    married_name: Essie Royal
+    sex: F
+    confidence: high
+
+  - id: martin_royal
+    name: Martin Royal
+    sex: M
+    parents: [joseph_royal, essie_davis]
+    spouses:
+      - id: alicia_robertson
+      - id: janet_tisdale
+    notes: "No children with second wife Janet Tisdale."
+    confidence: high
+
+  - id: alicia_robertson
+    name: Alicia Robertson
+    married_name: Alicia Royal
+    sex: F
+    confidence: high
+
+  - id: janet_tisdale
+    name: Janet Tisdale
+    married_name: Janet Royal
+    sex: F
+    notes: "No children with Martin."
+    confidence: high
+
+  - id: d_mitri_stanley
+    name: D'Mitri Stanley
+    sex: M
+    parents: [janet_tisdale]
+    confidence: high
+
+  - id: d_mitri_stanley_child_placeholder
+    name: Unknown
+    sex: U
+    parents: [d_mitri_stanley]
+    notes: "Placeholder - D'Mitri's child, name to be filled in later."
+    confidence: low
+
+  - id: dan_royal
+    name: Dan Royal
+    sex: M
+    parents: [martin_royal, alicia_robertson]
+    confidence: high
+
+  - id: noelle_royal
+    name: Noelle Royal
+    sex: F
+    parents: [martin_royal, alicia_robertson]
+    confidence: high
+
+  - id: nolan_royal
+    name: Nolan Royal
+    sex: M
+    parents: [noelle_royal]
+    notes: "Father's name not yet known - to be added later."
+    confidence: high
+
+  - id: gabrielle_royal
+    name: Gabrielle Royal
+    sex: F
+    parents: [martin_royal, alicia_robertson]
+    confidence: high
+
+  - id: leslie_royal
+    name: Leslie Royal
+    married_name: Leslie Williams
+    sex: F
+    parents: [joseph_royal, essie_davis]
+    spouses:
+      - id: michael_williams_sr
+    confidence: high
+
+  - id: michael_williams_sr
+    name: Michael Williams Sr.
+    sex: M
+    confidence: high
+
+  - id: michael_williams_jr
+    name: Michael Williams Jr.
+    sex: M
+    parents: [leslie_royal, michael_williams_sr]
+    notes: "This is the person who requested and helped build this family tree."
+    confidence: high
+
+  - id: taylor_williams
+    name: Taylor Williams
+    sex: F
+    parents: [leslie_royal, michael_williams_sr]
+    confidence: high
+
+  - id: everleigh_williams
+    name: Everleigh Williams
+    sex: F
+    parents: [michael_williams_jr]
+    confidence: high
+
+  - id: kenneth_parland_1941
+    name: Kenneth Parland
+    sex: M
+    birth:
+      date: "abt 1941"
+      source: "HILL FAMILY TREE.pptx, slide 17 - \"Honoring the Patriarch of the Hill Family, Kenneth Parland 85, 1-1-1941\" (age/DOB given directly)"
+    parents: [janie_bell_maxwell, charles_parland]
+    spouses:
+      - id: rosa_turnage
+      - id: unknown_partner_of_kenneth
+    confidence: high
+
+  - id: rosa_turnage
+    name: Rosa Turnage
+    married_name: Rosa Parland
+    sex: F
+    confidence: medium
+
+  - id: louise_parland
+    name: Louise Parland
+    sex: F
+    parents: [janie_bell_maxwell, charles_parland]
+    confidence: high
+
+  - id: charleszetta_parland_1942
+    name: Charleszetta Parland
+    sex: F
+    birth:
+      date: "abt 1942"
+      source: "HILL FAMILY TREE.pptx, slide 17 - \"Honoring the Matriarch of the Maxwell Family, Charleszetta Parland 84, 3-19-1942\""
+    parents: [janie_bell_maxwell, charles_parland]
+    notes: >
+      Listed as "Charleszetta Parland & Irene Parland-Hudgins - 2011 Family Tree" resource
+      contributor on slide 2.
+    confidence: high
+
+  - id: martha_jane_parland
+    name: Martha Jane Parland
+    married_name: Martha Jane Burns
+    sex: F
+    parents: [janie_bell_maxwell, charles_parland]
+    spouses:
+      - id: anderson_burns
+    confidence: high
+
+  - id: anderson_burns
+    name: Anderson Burns
+    sex: M
+    notes: "Listed in the Reunion Book 2024 working.docx \"In Rememberance\" section - passed away before the 2024 reunion; no specific date given."
+    confidence: medium
+
+  - id: michael_burns
+    name: Michael Burns
+    sex: M
+    parents: [martha_jane_parland, anderson_burns]
+    notes: >
+      Martha Jane's only child. CONFLICT/unresolved: the Reunion Book 2024 working.docx "In
+      Rememberance" section lists two separate people, "Michael Lenard Burns" and "Michael Lee
+      Burns" - unclear which (if either) is this record, or whether one is an unconnected Burns
+      relative not otherwise documented in these sources.
+    confidence: high
+
+  - id: mikoyah_burns
+    name: Mikoyah Burns
+    sex: F
+    parents: [michael_burns]
+    confidence: high
+
+  - id: chavious_burns
+    name: Chavious Burns
+    sex: M
+    parents: [michael_burns]
+    confidence: high
+
+  - id: carrie_perry_parland
+    name: Carrie Perry
+    sex: F
+    parents: [janie_bell_maxwell, charles_parland]
+    spouses:
+      - id: perry_husband_of_carrie
+    notes: "Married name Perry; maiden name Parland."
+    confidence: high
+
+  - id: perry_husband_of_carrie
+    name: Perry
+    sex: M
+    notes: "Surname only; given name not recorded."
+    confidence: low
+
+  - id: james_perry_jr
+    name: James Perry Jr.
+    sex: M
+    parents: [carrie_perry_parland, perry_husband_of_carrie]
+    confidence: high
+
+  - id: angela_perry
+    name: Angela Perry
+    sex: F
+    parents: [carrie_perry_parland, perry_husband_of_carrie]
+    confidence: high
+
+  - id: darold_perry
+    name: Darold Perry
+    sex: M
+    parents: [carrie_perry_parland, perry_husband_of_carrie]
+    spouses:
+      - id: awilda_perry
+    confidence: high
+
+  - id: awilda_perry
+    name: Awilda
+    married_name: Awilda Perry
+    sex: F
+    confidence: high
+
+  - id: josiah_perry
+    name: Josiah Perry
+    sex: M
+    parents: [darold_perry, awilda_perry]
+    notes: "Darold and Awilda's only child."
+    confidence: high
+
+  - id: parlette_perry
+    name: Parlette Perry
+    married_name: Parlette Wakefield
+    sex: F
+    parents: [carrie_perry_parland, perry_husband_of_carrie]
+    spouses:
+      - id: wayne_wakefield
+    notes: "Chart shows a repeated \"Carrie\" name near this cluster - corrected per the user, the fourth child is Parlette, not a second Carrie."
+    confidence: high
+
+  - id: wayne_wakefield
+    name: Wayne Wakefield
+    sex: M
+    confidence: high
+
+  - id: wayne_wakefield_jr
+    name: Wayne Wakefield Jr.
+    sex: M
+    parents: [parlette_perry, wayne_wakefield]
+    confidence: high
+
+  - id: kyaire_wakefield
+    name: Kyaire Wakefield
+    sex: M
+    parents: [parlette_perry, wayne_wakefield]
+    confidence: high
+
+  - id: sydnee_wakefield
+    name: Sydnee Wakefield
+    sex: F
+    parents: [parlette_perry, wayne_wakefield]
+    confidence: high
+
+  - id: irene_parland_gen4
+    name: Irene Parland
+    married_name: Irene Hudgins
+    sex: F
+    parents: [janie_bell_maxwell, charles_parland]
+    spouses:
+      - id: robert_hudgins
+    notes: >
+      Distinct from her aunt (also named Irene - Isabell & Sheppard's daughter, Irene Maxwell).
+      Matches the "Irene Parland-Hudgins" credited alongside Charleszetta Parland as a 2011
+      Family Tree resource contributor on slide 2 - confirmed married name Hudgins.
+    confidence: high
+
+  - id: robert_hudgins
+    name: Robert Hudgins
+    sex: M
+    confidence: medium
+
+  - id: danielle_hudgins
+    name: Danielle Hudgins
+    sex: F
+    parents: [irene_parland_gen4, robert_hudgins]
+    confidence: high
+
+  - id: jayden_hudgins
+    name: Jayden Hudgins
+    sex: M
+    parents: [danielle_hudgins]
+    confidence: high
+
+  - id: janelle_hudgins
+    name: Janelle Hudgins
+    sex: F
+    parents: [danielle_hudgins]
+    notes: >
+      Possibly the "Danielle Bryant" and other accomplishments images in the Assets/images
+      folder (danielle-bryant-accomplishments.png, janelle-hudgins-accomplishments.png) - not
+      yet cross-referenced.
+    confidence: high
+
+  # --- Generation 4: children of Irene Maxwell & (unnamed) Atkinson ---
+
+  - id: curtis_atkinson
+    name: Curtis Atkinson
+    sex: M
+    parents: [irene_maxwell, atkinson_husband_of_irene]
+    spouses:
+      - id: melvis_atkinson
+    notes: "No children."
+    confidence: high
+
+  - id: melvis_atkinson
+    name: Melvis
+    married_name: Melvis Atkinson
+    sex: F
+    confidence: medium
+
+  - id: russell_atkinson
+    name: Russell Atkinson
+    sex: M
+    parents: [irene_maxwell, atkinson_husband_of_irene]
+    notes: "Never married, as far as the family knows."
+    confidence: high
+
+  - id: michael_atkinson
+    name: Rev. Dr. F. Michael Atkinson
+    sex: M
+    parents: [irene_maxwell, atkinson_husband_of_irene]
+    spouses:
+      - id: teresa_atkinson
+    notes: >
+      Listed as "Rev. Dr. F. Michael Atkinson" on slide 2's Isabell branch resource list.
+    confidence: high
+
+  - id: stephanie_atkinson
+    name: Stephanie Atkinson
+    married_name: Stephanie Smith
+    sex: F
+    parents: [michael_atkinson, teresa_atkinson]
+    spouses:
+      - id: breon_smith
+    confidence: high
+
+  - id: breon_smith
+    name: Breon Smith
+    sex: M
+    confidence: high
+
+  - id: aubreon_smith
+    name: Aubreon Smith
+    sex: U
+    parents: [stephanie_atkinson, breon_smith]
+    confidence: high
+
+  - id: breland_smith
+    name: Breland Smith
+    sex: U
+    parents: [stephanie_atkinson, breon_smith]
+    confidence: high
+
+  - id: michael_atkinson_tony
+    name: Michael Atkinson
+    notes: "Goes by \"Tony.\""
+    sex: M
+    parents: [michael_atkinson, teresa_atkinson]
+    confidence: high
+
+  - id: michaela_atkinson
+    name: Michaela Atkinson
+    sex: F
+    parents: [michael_atkinson_tony]
+    confidence: high
+
+  - id: corey_atkinson
+    name: Corey Atkinson
+    sex: M
+    parents: [michaela_atkinson]
+    confidence: high
+
+  - id: lakeisha_atkinson
+    name: Lakeisha Atkinson
+    sex: F
+    parents: [michael_atkinson_tony]
+    confidence: high
+
+  - id: teresa_atkinson
+    name: Teresa
+    married_name: Teresa Atkinson
+    sex: F
+    confidence: medium
+
+  - id: sheppard_gerald_atkinson
+    name: Sheppard Gerald Atkinson
+    sex: M
+    parents: [irene_maxwell, atkinson_husband_of_irene]
+    spouses:
+      - id: maxine_atkinson
+    confidence: high
+
+  - id: maxine_atkinson
+    name: Maxine
+    married_name: Maxine Atkinson
+    sex: F
+    confidence: medium
+
+  - id: sheree_atkinson
+    name: Sheree Atkinson
+    sex: F
+    parents: [sheppard_gerald_atkinson, maxine_atkinson]
+    notes: >
+      Listed as "Sheree Atkinson" on slide 2's Isabell branch resource list, confirming this
+      identification.
+    confidence: high
+
+  - id: johnny_atkinson
+    name: Johnny Atkinson
+    sex: M
+    parents: [sheree_atkinson]
+    confidence: high
+
+  - id: geraldine_atkinson
+    name: Geraldine Atkinson
+    sex: F
+    parents: [sheppard_gerald_atkinson, maxine_atkinson]
+    confidence: high
+
+  - id: sheppard_gerald_atkinson_jr
+    name: Sheppard Gerald Atkinson Jr.
+    sex: M
+    parents: [sheppard_gerald_atkinson, maxine_atkinson]
+    confidence: high
+
+  - id: sheppard_g_atkinson_iii
+    name: Sheppard G. Atkinson III
+    sex: M
+    parents: [sheppard_gerald_atkinson_jr]
+    confidence: high
+
+  - id: kristoffer_atkinson
+    name: Kristoffer Atkinson
+    sex: M
+    parents: [sheppard_gerald_atkinson_jr]
+    confidence: high
+
+  - id: shanta_atkinson
+    name: Shanta Atkinson
+    sex: F
+    parents: [sheppard_gerald_atkinson_jr]
+    confidence: high
+
+  - id: shantell_atkinson
+    name: Shantell Atkinson
+    sex: F
+    parents: [sheppard_gerald_atkinson_jr]
+    confidence: high
+
+  - id: sherie_atkinson
+    name: Sherie Atkinson
+    sex: F
+    parents: [sheppard_gerald_atkinson_jr]
+    confidence: high
+
+  - id: m_claudette_atkinson
+    name: M. Claudette Atkinson
+    sex: F
+    parents: [sheppard_gerald_atkinson, maxine_atkinson]
+    spouses:
+      - id: stephenson_husband_of_claudette
+    confidence: high
+
+  - id: stephenson_husband_of_claudette
+    name: Stephenson
+    sex: M
+    notes: "Surname only; given name not recorded."
+    confidence: medium
+
+  - id: masarine_stephenson
+    name: "Masarine Stephenson (Monique)"
+    sex: F
+    parents: [m_claudette_atkinson, stephenson_husband_of_claudette]
+    notes: "\"Monique\" shown alongside her name on the chart - possibly a nickname or married name, unconfirmed."
+    confidence: high
+
+  - id: irin_stephenson
+    name: Irin Stephenson
+    sex: U
+    parents: [masarine_stephenson]
+    confidence: high
+
+  - id: eve_stephenson
+    name: Eve Stephenson
+    sex: F
+    parents: [masarine_stephenson]
+    confidence: high
+
+  - id: izeah_stephenson
+    name: Izeah Stephenson
+    sex: U
+    parents: [masarine_stephenson]
+    confidence: high
+
+  - id: olivia_stephenson
+    name: Olivia Stephenson
+    sex: F
+    parents: [masarine_stephenson]
+    confidence: high
+
+  - id: uriah_stephenson
+    name: Uriah Stephenson
+    sex: U
+    parents: [masarine_stephenson]
+    confidence: high
+
+  - id: aaron_stephenson
+    name: Aaron Stephenson
+    sex: M
+    parents: [m_claudette_atkinson, stephenson_husband_of_claudette]
+    confidence: high
+
+  - id: victor_stephenson
+    name: Victor Stephenson
+    sex: M
+    parents: [aaron_stephenson]
+    confidence: high
+
+  - id: amauri_stephenson
+    name: Amauri Stephenson
+    sex: U
+    parents: [aaron_stephenson]
+    confidence: high
+
+  - id: a_steven_pabon
+    name: A. Steven Pabon
+    sex: M
+    parents: [sheppard_gerald_atkinson, maxine_atkinson]
+    notes: >
+      Surnamed Pabon rather than Atkinson, similar to how Gilbert Maxwell and Ronnie Jones
+      didn't take their father's surname - not treating this as an error.
+    confidence: high
+
+  - id: aaron_atkinson
+    name: Aaron Atkinson
+    sex: M
+    parents: [irene_maxwell, atkinson_husband_of_irene]
+    notes: "Did not marry, as far as the family knows."
+    confidence: high
+
+  - id: clara_atkinson
+    name: Clara Atkinson
+    married_name: Clara Coley
+    sex: F
+    parents: [irene_maxwell, atkinson_husband_of_irene]
+    spouses:
+      - id: rufus_coley
+    notes: "No children."
+    confidence: high
+
+  - id: rufus_coley
+    name: Rufus Coley
+    sex: M
+    confidence: medium
+
+  # --- Generation 4: children of Gussie Maxwell Cash & (Mr.) Cash ---
+
+  - id: gilbert_maxwell
+    name: Gilbert Maxwell
+    sex: M
+    parents: [gussie_maxwell_cash, morris_cash_sr]
+    spouses:
+      - id: gertrude_maxwell
+    notes: >
+      Son of Gussie and her husband (surname Cash), but did not take the surname Cash -
+      kept "Maxwell" instead. Listed as connected to "Gertrude Maxwell" on slide 2's Isabell
+      branch resource list.
+    confidence: high
+
+  - id: gertrude_maxwell
+    name: Gertrude Maxwell
+    sex: F
+    confidence: medium
+
+  - id: leon_maxwell
+    name: Leon Maxwell
+    sex: M
+    parents: [gilbert_maxwell, gertrude_maxwell]
+    confidence: high
+
+  - id: aundra_maxwell
+    name: Aundra Maxwell
+    sex: U
+    parents: [leon_maxwell]
+    confidence: high
+
+  - id: andrew_maxwell
+    name: Andrew Maxwell
+    sex: M
+    parents: [leon_maxwell]
+    confidence: high
+
+  - id: jerome_maxwell
+    name: Jerome Maxwell
+    sex: M
+    parents: [leon_maxwell]
+    confidence: high
+
+  - id: christopher_maxwell_jerome_son
+    name: Christopher Maxwell
+    sex: M
+    parents: [jerome_maxwell]
+    notes: "Distinct from Christopher Parland Jr. and other same-named relatives elsewhere in the tree."
+    confidence: high
+
+  - id: jekayla_maxwell
+    name: Jekayla Maxwell
+    sex: F
+    parents: [jerome_maxwell]
+    confidence: high
+
+  - id: leon_maxwell_j
+    name: Leon Maxwell J.
+    sex: M
+    parents: [jerome_maxwell]
+    confidence: high
+
+  - id: marcus_maxwell
+    name: Marcus Maxwell
+    sex: M
+    parents: [leon_maxwell]
+    confidence: high
+
+  - id: dion_maxwell
+    name: Dion Maxwell
+    sex: M
+    parents: [leon_maxwell]
+    confidence: high
+
+  - id: shemeika_maxwell
+    name: Shemeika Maxwell
+    sex: F
+    parents: [dion_maxwell]
+    confidence: high
+
+  - id: lamar_simmons
+    name: Lamar Simmons
+    sex: M
+    parents: [shemeika_maxwell]
+    confidence: high
+
+  - id: tyrone_maxwell
+    name: Tyrone Maxwell
+    sex: M
+    parents: [leon_maxwell]
+    confidence: high
+
+  - id: gregory_maxwell
+    name: Gregory Maxwell
+    sex: M
+    parents: [gilbert_maxwell, gertrude_maxwell]
+    spouses:
+      - id: millicent_maxwell
+    confidence: high
+
+  - id: millicent_maxwell
+    name: Millicent
+    married_name: Millicent Maxwell
+    sex: F
+    confidence: high
+
+  - id: corey_maxwell
+    name: Corey Maxwell
+    sex: M
+    parents: [gregory_maxwell]
+    confidence: high
+
+  - id: jordan_maxwell
+    name: Jordan Maxwell
+    sex: U
+    parents: [corey_maxwell]
+    confidence: high
+
+  - id: tyson_maxwell
+    name: Tyson Maxwell
+    sex: M
+    parents: [corey_maxwell]
+    confidence: high
+
+  - id: timothy_maxwell
+    name: Timothy Maxwell
+    sex: M
+    parents: [corey_maxwell]
+    confidence: high
+
+  - id: tiffany_maxwell
+    name: Tiffany Maxwell
+    sex: F
+    parents: [gregory_maxwell]
+    confidence: high
+
+  - id: selina_maxwell
+    name: Selina Maxwell
+    sex: F
+    parents: [gregory_maxwell]
+    confidence: high
+
+  - id: glenn_maxwell_sr
+    name: Glenn Maxwell Sr.
+    sex: M
+    parents: [gilbert_maxwell, gertrude_maxwell]
+    confidence: high
+
+  - id: glenn_maxwell_jr
+    name: Glenn Maxwell Jr.
+    sex: M
+    parents: [glenn_maxwell_sr]
+    confidence: high
+
+  - id: shelinia_maxwell
+    name: Shelinia Maxwell
+    sex: F
+    parents: [glenn_maxwell_sr]
+    confidence: high
+
+  - id: lonnie_maxwell
+    name: Lonnie Maxwell
+    sex: U
+    parents: [glenn_maxwell_sr]
+    confidence: high
+
+  - id: kymanda_maxwell
+    name: Kymanda Maxwell
+    sex: F
+    parents: [glenn_maxwell_sr]
+    confidence: high
+
+  - id: andy_maxwell
+    name: Andy Maxwell
+    sex: M
+    parents: [gilbert_maxwell, gertrude_maxwell]
+    spouses:
+      - id: patrell_maxwell
+    confidence: high
+
+  - id: patrell_maxwell
+    name: "Patrell \"Niecey\""
+    married_name: "Patrell \"Niecey\" Maxwell"
+    sex: F
+    confidence: high
+
+  - id: aundre_maxwell
+    name: Aundre Maxwell
+    sex: M
+    parents: [andy_maxwell]
+    confidence: high
+
+  - id: sherry_lynn_mcquinney
+    name: Sherry Lynn McQuinney
+    sex: F
+    parents: [gilbert_maxwell, gertrude_maxwell]
+    notes: >
+      Listed as "Sherry Lynn McQuinney" on slide 2's Isabell branch resource list; McQuinney
+      is presumably a married name. Her own spouse isn't recorded/known.
+    confidence: high
+
+  - id: christopher_frank
+    name: Christopher Frank
+    sex: M
+    confidence: high
+
+  - id: destini_mcquinney
+    name: Destini McQuinney
+    married_name: Destini Frank
+    sex: F
+    parents: [sherry_lynn_mcquinney]
+    spouses:
+      - id: christopher_frank
+    confidence: high
+
+  - id: kinsey_frank
+    name: Kinsey Frank
+    sex: U
+    parents: [destini_mcquinney, christopher_frank]
+    confidence: high
+
+  - id: malcolm_frank
+    name: Malcolm Frank
+    sex: M
+    parents: [destini_mcquinney, christopher_frank]
+    confidence: high
+
+  - id: jacquelyn_mcquinney
+    name: Jacquelyn McQuinney
+    sex: F
+    parents: [sherry_lynn_mcquinney, christopher_frank]
+    confidence: high
+
+  - id: morris_cash_jr
+    name: Morris Cash Jr.
+    sex: M
+    parents: [gussie_maxwell_cash, morris_cash_sr]
+    confidence: high
+
+  - id: michael_cash
+    name: Michael Cash
+    sex: M
+    parents: [morris_cash_jr]
+    spouses:
+      - id: emma_cash
+    confidence: high
+
+  - id: emma_cash
+    name: Emma
+    married_name: Emma Cash
+    sex: F
+    confidence: high
+
+  - id: alberta_cash
+    name: Alberta Cash
+    sex: F
+    parents: [morris_cash_jr]
+    spouses:
+      - id: gerald_mceachin
+    married_name: Alberta McEachin
+    confidence: high
+
+  - id: gerald_mceachin
+    name: Gerald McEachin
+    sex: M
+    confidence: high
+
+  - id: shawana_mceachin
+    name: Shawana McEachin
+    sex: F
+    parents: [alberta_cash, gerald_mceachin]
+    confidence: high
+
+  - id: gerald_mceachin_jr
+    name: Gerald McEachin Jr.
+    sex: M
+    parents: [alberta_cash, gerald_mceachin]
+    spouses:
+      - id: candy_mceachin
+    confidence: high
+
+  - id: keyera_mceachin
+    name: Keyera McEachin
+    sex: F
+    parents: [gerald_mceachin_jr, candy_mceachin]
+    confidence: high
+
+  - id: candy_mceachin
+    name: Candy
+    married_name: Candy McEachin
+    sex: F
+    confidence: high
+
+  - id: delores_cash
+    name: Delores Cash
+    sex: F
+    parents: [morris_cash_jr]
+    spouses:
+      - id: james_googe
+    married_name: Delores Googe
+    confidence: high
+
+  - id: james_googe
+    name: James Googe
+    sex: M
+    confidence: high
+
+  - id: james_googe_jr
+    name: James Googe Jr.
+    sex: M
+    parents: [delores_cash, james_googe]
+    spouses:
+      - id: tacaria_googe
+    confidence: high
+
+  - id: shakara_googe
+    name: Shakara Googe
+    sex: F
+    parents: [james_googe_jr, tacaria_googe]
+    confidence: high
+
+  - id: sierra_googe
+    name: Sierra Googe
+    sex: F
+    parents: [james_googe_jr, tacaria_googe]
+    confidence: high
+
+  - id: solia_googe
+    name: Solia Googe
+    sex: U
+    parents: [james_googe_jr, tacaria_googe]
+    confidence: high
+
+  - id: jaylin_googe
+    name: Jaylin Googe
+    sex: U
+    parents: [james_googe_jr, tacaria_googe]
+    confidence: high
+
+  - id: tacaria_googe
+    name: Tacaria
+    married_name: Tacaria Googe
+    sex: F
+    confidence: high
+
+  - id: quincy_googe
+    name: Quincy Googe
+    sex: M
+    parents: [delores_cash, james_googe]
+    confidence: high
+
+  - id: samyia_googe
+    name: Samyia Googe
+    sex: F
+    parents: [quincy_googe]
+    confidence: high
+
+  - id: quincy_googe_jr
+    name: Quincy Googe Jr.
+    sex: M
+    parents: [quincy_googe]
+    confidence: high
+
+  - id: colbi_googe
+    name: Colbi Googe
+    sex: U
+    parents: [quincy_googe]
+    confidence: high
+
+  - id: morris_cash_iii
+    name: Morris Cash III
+    sex: M
+    parents: [morris_cash_jr]
+    confidence: high
+
+  - id: michael_barkley
+    name: Michael Barkley
+    sex: M
+    parents: [morris_cash_iii]
+    notes: "Took his mother's maiden name (Barkley) rather than Cash; his mother isn't otherwise identified."
+    confidence: high
+
+  - id: michael_barkley_jr
+    name: Michael Barkley Jr.
+    sex: M
+    parents: [michael_barkley]
+    confidence: high
+
+  - id: savannah_barkley
+    name: Savannah Barkley
+    sex: F
+    parents: [michael_barkley]
+    confidence: high
+
+  - id: zaniya_barkley
+    name: Zaniya Barkley
+    sex: F
+    parents: [michael_barkley]
+    confidence: high
+
+  - id: antonio_fredrick
+    name: Antonio Fredrick
+    sex: M
+    parents: [morris_cash_iii]
+    notes: "Took his mother's maiden name (Fredrick) rather than Cash; his mother isn't otherwise identified."
+    confidence: high
+
+  - id: marrissa_fuller
+    name: Marrissa Fuller
+    sex: F
+    parents: [morris_cash_iii]
+    notes: "Took her mother's maiden name (Fuller) rather than Cash; her mother isn't otherwise identified."
+    confidence: high
+
+  - id: teresa_cash
+    name: Teresa Cash
+    married_name: Teresa Williams
+    sex: F
+    parents: [morris_cash_jr]
+    spouses:
+      - id: joe_williams_husband_of_teresa
+    notes: >
+      Matches "Teresa Cash-Williams" on slide 2's Isabell branch resource list, confirming
+      her married name Williams.
+    confidence: high
+
+  - id: joe_williams_husband_of_teresa
+    name: Joe Williams
+    sex: M
+    confidence: medium
+
+  - id: teikoa_williams
+    name: Teikoa Williams
+    married_name: Teikoa Washington
+    sex: F
+    parents: [teresa_cash, joe_williams_husband_of_teresa]
+    spouses:
+      - id: david_washington
+    confidence: high
+
+  - id: kierra_washington
+    name: Kierra Washington
+    sex: F
+    parents: [teikoa_williams, david_washington]
+    confidence: high
+
+  - id: zavier_washington
+    name: Zavier Washington
+    sex: M
+    parents: [teikoa_williams, david_washington]
+    confidence: high
+
+  - id: david_washington
+    name: David Washington
+    sex: M
+    confidence: high
+
+  - id: joe_williams_jr
+    name: Joe Williams Jr.
+    sex: M
+    parents: [teresa_cash, joe_williams_husband_of_teresa]
+    confidence: high
+
+  - id: jominite_williams
+    name: Jominite Williams
+    sex: U
+    parents: [joe_williams_jr]
+    confidence: high
+
+  - id: prince_williams
+    name: Prince Williams
+    sex: M
+    parents: [joe_williams_jr]
+    confidence: high
+
+  - id: melissa_williams
+    name: Melissa Williams
+    sex: F
+    parents: [teresa_cash, joe_williams_husband_of_teresa]
+    confidence: high
+
+  - id: aniah_williams
+    name: Aniah Williams
+    married_name: Aniah Brown
+    sex: F
+    parents: [melissa_williams]
+    confidence: high
+
+  - id: sanan_williams
+    name: "Sanan' Williams"
+    married_name: "Sanan' Newton"
+    sex: U
+    parents: [melissa_williams]
+    confidence: high
+
+  - id: michael_williams_teresa_son
+    name: Michael Williams
+    sex: M
+    parents: [teresa_cash, joe_williams_husband_of_teresa]
+    notes: >
+      Distinct from Michael Williams Sr. and Michael Williams Jr. in the Leslie Royal line -
+      same common name, unrelated branch.
+    confidence: high
+
+  - id: samaj_williams
+    name: Samaj Williams
+    sex: M
+    parents: [michael_williams_teresa_son]
+    confidence: high
+
+  - id: mahki_williams
+    name: Mahki Williams
+    married_name: Mahki Barns
+    sex: U
+    parents: [michael_williams_teresa_son]
+    confidence: high
+
+  - id: tanja_kayser
+    name: Tanja Kayser
+    sex: F
+    parents: [morris_cash_jr]
+    notes: "Only mother listed on the chart is Morris Cash; only one parent recorded intentionally (per schema, this doesn't imply a single-parent household - the other parent, presumably Morris's wife, just isn't named on the chart)."
+    confidence: high
