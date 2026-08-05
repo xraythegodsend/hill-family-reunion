@@ -2053,22 +2053,33 @@ people:
 
   - id: wilma_harrison
     name: Wilma Harrison
-    married_name: Wilma Ware
     sex: F
     parents: [armeda_maxwell, frank_harrison]
     spouses:
       - id: charles_ware
-    notes: "Listed in the Reunion Book 2024 working.docx \"In Rememberance\" section as \"Wilma Harrison Ware\" - passed away before the 2024 reunion; no specific date given."
+    notes: >
+      Never married Charles Ware, despite being listed in the Reunion Book 2024
+      working.docx "In Rememberance" section as "Wilma Harrison Ware" - she and her
+      children by him kept the Harrison surname rather than taking his. Passed away
+      before the 2024 reunion; no specific date given.
     confidence: high
 
   - id: gerry_ware
-    name: Gerry Ware
+    name: Gerry Harrison
     sex: U
     parents: [wilma_harrison, charles_ware]
+    notes: "Died as a child."
+    confidence: high
+
+  - id: gairy_harrison
+    name: Gairy Harrison
+    sex: U
+    parents: [wilma_harrison, charles_ware]
+    notes: "Died as a child. Distinct from his brother Gary Harrison."
     confidence: high
 
   - id: gary_ware
-    name: Gary Ware
+    name: Gary Harrison
     sex: M
     parents: [wilma_harrison, charles_ware]
     spouses:
@@ -2077,7 +2088,7 @@ people:
 
   - id: burnadette_ware
     name: Burnadette
-    married_name: Burnadette Ware
+    married_name: Burnadette Harrison
     sex: F
     notes: "Unclear whether either of Gary's two sons below is her biological child - not confirmed."
     confidence: medium
@@ -2101,7 +2112,7 @@ people:
     confidence: high
 
   - id: curtis_ware
-    name: Curtis Ware
+    name: Curtis Harrison
     sex: M
     parents: [wilma_harrison, charles_ware]
     notes: "Raised by his aunt Edweina Harrison, though biologically Wilma and Charles's son."
@@ -2114,13 +2125,13 @@ people:
     confidence: high
 
   - id: serra_ware
-    name: Serra Ware
+    name: Serra Harrison
     sex: U
     parents: [curtis_ware]
     confidence: high
 
   - id: curtis_ware_jr
-    name: Curtis Ware Jr.
+    name: Curtis Harrison Jr.
     sex: M
     parents: [curtis_ware]
     confidence: high
@@ -2225,6 +2236,12 @@ people:
     parents: [lynndrill_harrison, roberts_husband_of_lynndrill]
     confidence: high
 
+  - id: jada_roberts
+    name: Jada Roberts
+    sex: F
+    parents: [lynndrill_harrison, roberts_husband_of_lynndrill]
+    confidence: high
+
   - id: tashara_harrison
     name: Tashara Harrison
     married_name: Tashara Roberts
@@ -2258,11 +2275,29 @@ people:
     parents: [keyosha_harrison]
     confidence: high
 
+  - id: chance_harrison
+    name: Chance Harrison
+    sex: U
+    parents: [keyosha_harrison]
+    confidence: high
+
   - id: landis_harrison
     name: Landis Harrison
     married_name: Landis Rollins
     sex: U
     parents: [jackie_harrison]
+    confidence: high
+
+  - id: kingston_rollins
+    name: Kingston Rollins
+    sex: M
+    parents: [landis_harrison]
+    confidence: high
+
+  - id: cameron_rollins
+    name: Cameron Rollins
+    sex: U
+    parents: [landis_harrison]
     confidence: high
 
   - id: irma_harrison
@@ -2292,12 +2327,40 @@ people:
     parents: [irma_harrison, joseph_dunlap]
     spouses:
       - id: nicky_dunlap
+    notes: >
+      UNRESOLVED: the original chart shows his children as Aaron and Christian (below); an
+      updated version of the chart (HILL FAMILY Update.pptx, slide 19, seen 2026-08) instead
+      shows Meleke, Terrence, Johnny, and Trent, with no Aaron or Christian - unclear whether
+      these are additional children, replacements, or a mix-up with a different Gary. Left
+      as-is pending confirmation from a family member.
     confidence: high
 
   - id: joseph_dunlap_iii
     name: Joseph Dunlap III
     sex: M
     parents: [irma_harrison, joseph_dunlap]
+    spouses:
+      - id: monica_dunlap
+    confidence: high
+
+  - id: monica_dunlap
+    name: Monica
+    married_name: Monica Dunlap
+    sex: F
+    confidence: high
+
+  - id: terry_dunlap
+    name: Terry Dunlap
+    sex: U
+    parents: [irma_harrison, joseph_dunlap]
+    notes: "Died as a child."
+    confidence: high
+
+  - id: lisa_dunlap
+    name: Lisa Dunlap
+    sex: F
+    parents: [irma_harrison, joseph_dunlap]
+    notes: "Died as a child."
     confidence: high
 
   - id: donna_hill
@@ -2353,6 +2416,12 @@ people:
     parents: [donna_hill]
     spouses:
       - id: lana_hill
+    confidence: high
+
+  - id: camdyn_hill
+    name: Camdyn Hill
+    sex: U
+    parents: [michael_hill, lana_hill]
     confidence: high
 
   - id: lana_hill
@@ -2621,7 +2690,7 @@ people:
 
   - id: aziza_bryd
     name: Aziza Parland
-    married_name: Aziza Bryd
+    married_name: Aziza Byrd
     sex: F
     birth:
       date: "abt 1992"
@@ -2633,12 +2702,13 @@ people:
     confidence: high
 
   - id: ravon_bryd
-    name: Ravon Bryd
+    name: Ravon Byrd
     sex: M
+    notes: "Chart shows surname Byrd; the Accomplishments email spelled it \"Bryd\" - kept the id stable, using Byrd as the display spelling per the chart."
     confidence: high
 
   - id: ravon_bryd_jr
-    name: Ravon Bryd Jr.
+    name: Ravon Byrd Jr.
     sex: M
     parents: [aziza_bryd, ravon_bryd]
     confidence: high
@@ -2697,10 +2767,9 @@ people:
     confidence: high
 
   - id: isaac_fiance_of_asmahani
-    name: Isaac
+    name: Isaac Siaw
     sex: M
-    notes: "Surname not given."
-    confidence: medium
+    confidence: high
 
   - id: andre_bernard_parland
     name: Andre Bernard Parland
@@ -2802,6 +2871,12 @@ people:
     parents: [martin_royal, alicia_robertson]
     confidence: high
 
+  - id: danielle_royal
+    name: Danielle Royal
+    sex: F
+    parents: [martin_royal, alicia_robertson]
+    confidence: high
+
   - id: leslie_royal
     name: Leslie Royal
     married_name: Leslie Williams
@@ -2891,10 +2966,11 @@ people:
     sex: M
     parents: [martha_jane_parland, anderson_burns]
     notes: >
-      Martha Jane's only child. CONFLICT/unresolved: the Reunion Book 2024 working.docx "In
-      Rememberance" section lists two separate people, "Michael Lenard Burns" and "Michael Lee
-      Burns" - unclear which (if either) is this record, or whether one is an unconnected Burns
-      relative not otherwise documented in these sources.
+      Was recorded as Martha Jane's only child before HILL FAMILY Update.pptx (seen 2026-08)
+      added a third child, Michael Burns Jr., below. CONFLICT/unresolved: the Reunion Book
+      2024 working.docx "In Rememberance" section lists two separate people, "Michael Lenard
+      Burns" and "Michael Lee Burns" - unclear which (if either) is this record, or whether
+      one is an unconnected Burns relative not otherwise documented in these sources.
     confidence: high
 
   - id: mikoyah_burns
@@ -2907,6 +2983,13 @@ people:
     name: Chavious Burns
     sex: M
     parents: [michael_burns]
+    confidence: high
+
+  - id: michael_burns_jr
+    name: Michael Burns Jr.
+    sex: M
+    parents: [michael_burns]
+    notes: "Distinct from his father, Michael Burns, elsewhere in this branch."
     confidence: high
 
   - id: carrie_perry_parland
@@ -2928,6 +3011,14 @@ people:
     name: James Perry Jr.
     sex: M
     parents: [carrie_perry_parland, perry_husband_of_carrie]
+    spouses:
+      - id: linda_perry
+    confidence: high
+
+  - id: linda_perry
+    name: Linda
+    married_name: Linda Perry
+    sex: F
     confidence: high
 
   - id: angela_perry
@@ -3030,6 +3121,13 @@ people:
       yet cross-referenced.
     confidence: high
 
+  - id: nevaeh_bryant
+    name: Nevaeh Bryant
+    sex: F
+    parents: [danielle_hudgins]
+    notes: "Chart shows surname Bryant rather than Hudgins; father not named on chart."
+    confidence: high
+
   # --- Generation 4: children of Irene Maxwell & (unnamed) Atkinson ---
 
   - id: curtis_atkinson
@@ -3095,6 +3193,14 @@ people:
     notes: "Goes by \"Tony.\""
     sex: M
     parents: [michael_atkinson, teresa_atkinson]
+    spouses:
+      - id: michelle_atkinson
+    confidence: high
+
+  - id: michelle_atkinson
+    name: Michelle
+    married_name: Michelle Atkinson
+    sex: F
     confidence: high
 
   - id: michaela_atkinson
