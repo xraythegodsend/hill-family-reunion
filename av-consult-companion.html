@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AV Consult Companion</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- Versions are pinned on purpose: Babel 8 switched preset-react to the automatic
+     JSX runtime, which emits bare `import` statements that a plain <script> can't run. -->
+<script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.8/babel.min.js"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+      }
+    }
+  };
+</script>
+<style>
+  html { -webkit-font-smoothing: antialiased; }
+  body { font-family: 'Inter', system-ui, sans-serif; }
+  /* Hide the un-rendered JSX flash while Babel compiles. */
+  #root:empty::after {
+    content: 'Loading AV Consult Companion…';
+    display: block;
+    padding: 4rem;
+    text-align: center;
+    color: #64748b;
+    font-size: 0.875rem;
+  }
+  input[type=number]::-webkit-outer-spin-button,
+  input[type=number]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+  input[type=number] { -moz-appearance: textfield; }
+</style>
+</head>
+<body class="bg-slate-100 text-slate-900">
+<div id="root"></div>
+
+<script type="text/babel" data-presets="react">
+const { useState, useEffect, useMemo, useRef, useCallback } = React;
+
+/* ------------------------------------------------------------------ *
+ * Constants
+ * ------------------------------------------------------------------ */
+
+const CATEGORIES = ["Audio", "Visual", "Lighting", "Staging", "Hybrid/Streaming", "Interactive"];
+
+// One accent per category, used consistently on pills, cards and list markers
+// so the same item reads the same way in every view during a screen share.
+const CATEGORY_STYLE = {
+  "Audio":            { dot: "bg-sky-500",     chip: "bg-sky-50 text-sky-700 ring-sky-200",         on: "bg-sky-600 text-white ring-sky-600" },
+  "Visual":           { dot: "bg-violet-500",  chip: "bg-violet-50 text-violet-700 ring-violet-200", on: "bg-violet-600 text-white ring-violet-600" },
+  "Lighting":         { dot: "bg-amber-500",   chip: "bg-amber-50 text-amber-700 ring-amber-200",   on: "bg-amber-600 text-white ring-amber-600" },
+  "Staging":          { dot: "bg-rose-500",    chip: "bg-rose-50 text-rose-700 ring-rose-200",      on: "bg-rose-600 text-white ring-rose-600" },
+  "Hybrid/Streaming": { dot: "bg-teal-500",    chip: "bg-teal-50 text-teal-700 ring-teal-200",      on: "bg-teal-600 text-white ring-teal-600" },
+  "Interactive":      { dot: "bg-fuchsia-500", chip: "bg-fuchsia-50 text-fuchsia-700 ring-fuchsia-200", on: "bg-fuchsia-600 text-white ring-fuchsia-600" },
+};
+const FALLBACK_STYLE = { dot: "bg-slate-400", chip: "bg-slate-100 text-slate-600 ring-slate-200", on: "bg-slate-600 text-white ring-slate-600" };
+const catStyle = (c) => CATEGORY_STYLE[c] || FALLBACK_STYLE;
+
+const STORAGE_KEY = "avcc.catalog.v1";
+const META_KEY = "avcc.meta.v1";
+
+/* Placeholder catalog — replace via the Catalog screen with the real price book. */
+const DEFAULT_CATALOG = [
+  { name: "Wireless Handheld Mic (each)", category: "Audio", price: 85, pitch: "Roaming mic so questions from the floor are heard by everyone, including remote guests.", contracted: true, added: false },
+  { name: "Lavalier / Countryman Headset", category: "Audio", price: 125, pitch: "Frees the presenter's hands and keeps levels even as they move across the stage.", contracted: false, added: false },
+  { name: "Line Array Speaker System", category: "Audio", price: 1450, pitch: "Even coverage front to back — no hot spots up front, no dead zones in the rear.", contracted: true, added: false },
+  { name: "Audio Engineer (per day)", category: "Audio", price: 750, pitch: "A dedicated set of ears on the board so feedback and dropouts never reach the room.", contracted: true, added: false },
+  { name: "Speaker Timer & Confidence Monitor", category: "Audio", price: 240, pitch: "Presenters stay on schedule without you signalling from the back of the room.", contracted: false, added: false },
+
+  { name: "10' x 6' Fast-Fold Screen + Dress Kit", category: "Visual", price: 495, pitch: "Clean dressed edges so the screen reads as part of the set, not rented equipment.", contracted: true, added: false },
+  { name: "12,000 Lumen Laser Projector", category: "Visual", price: 1200, pitch: "Holds contrast even with house lights up, so the room stays warm and awake.", contracted: false, added: false },
+  { name: "Dual Side Screens (pair)", category: "Visual", price: 1650, pitch: "Sightlines for the wide seats — nobody in the back corners is squinting.", contracted: false, added: false },
+  { name: "98\" LED Wall Panel", category: "Visual", price: 2800, pitch: "A brighter, higher-impact centerpiece than projection for photos and video.", contracted: false, added: false },
+  { name: "Presentation Tech / Show Caller", category: "Visual", price: 700, pitch: "Someone owns the cue stack, so slide changes and video rolls land on the beat.", contracted: true, added: false },
+
+  { name: "LED Uplighting (12 fixtures)", category: "Lighting", price: 640, pitch: "Washes bare walls in your brand color — the single biggest change per dollar.", contracted: false, added: false },
+  { name: "Stage Wash Package", category: "Lighting", price: 880, pitch: "Even, flattering light on faces so presenters photograph and stream well.", contracted: true, added: false },
+  { name: "Custom Gobo Projection", category: "Lighting", price: 320, pitch: "Your logo or monogram on the dance floor or wall — an easy photo moment.", contracted: false, added: false },
+  { name: "Pin Spots for Centerpieces", category: "Lighting", price: 380, pitch: "Makes the tables pop in photos once the room dims for the program.", contracted: false, added: false },
+
+  { name: "16' x 24' Stage Deck (16\" high)", category: "Staging", price: 1150, pitch: "Raises the presenter so the back half of the room sees more than the head.", contracted: true, added: false },
+  { name: "Pipe & Drape Backdrop (24' run)", category: "Staging", price: 560, pitch: "Hides back-of-house clutter and gives the stage a finished frame.", contracted: false, added: false },
+  { name: "Branded Step & Repeat Wall", category: "Staging", price: 890, pitch: "A dedicated photo backdrop that puts your logo in every guest's social post.", contracted: false, added: false },
+  { name: "Acrylic Podium with Logo Plate", category: "Staging", price: 275, pitch: "Sharpens the front-of-room look versus a house podium.", contracted: false, added: false },
+
+  { name: "Two-Camera Live Switch", category: "Hybrid/Streaming", price: 2400, pitch: "Wide plus close-up cuts, so the stream looks produced instead of static.", contracted: false, added: false },
+  { name: "Zoom / Teams Bridge & Producer", category: "Hybrid/Streaming", price: 1100, pitch: "A producer runs the remote room so virtual attendees are never forgotten.", contracted: false, added: false },
+  { name: "Program Recording & Edited File", category: "Hybrid/Streaming", price: 650, pitch: "A clean recording you can reuse for marketing long after the event.", contracted: false, added: false },
+  { name: "Live Captioning (CART)", category: "Hybrid/Streaming", price: 950, pitch: "Accessibility for the room and the stream — often an easy budget approval.", contracted: false, added: false },
+
+  { name: "Audience Response / Live Polling", category: "Interactive", price: 780, pitch: "Turns a presentation into a conversation and gives you data afterward.", contracted: false, added: false },
+  { name: "Social Media Wall", category: "Interactive", price: 690, pitch: "Guest posts on screen between sessions — keeps the room energized on breaks.", contracted: false, added: false },
+  { name: "Photo Booth with Branded Prints", category: "Interactive", price: 1250, pitch: "A takeaway with your logo on it that guests keep on the fridge.", contracted: false, added: false },
+];
+
+/* ------------------------------------------------------------------ *
+ * Helpers
+ * ------------------------------------------------------------------ */
+
+const uid = () => "it_" + Math.random().toString(36).slice(2, 9) + Date.now().toString(36).slice(-3);
+
+const money = (n) =>
+  (Number(n) || 0).toLocaleString("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
+
+function normalize(raw) {
+  return {
+    id: raw && raw.id ? String(raw.id) : uid(),
+    name: raw && raw.name ? String(raw.name) : "Untitled item",
+    category: raw && CATEGORIES.includes(raw.category) ? raw.category : CATEGORIES[0],
+    price: Number(raw && raw.price) || 0,
+    pitch: raw && raw.pitch ? String(raw.pitch) : "",
+    contracted: !!(raw && raw.contracted),
+    added: !!(raw && raw.added),
+  };
+}
+
+function loadCatalog() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return DEFAULT_CATALOG.map(normalize);
+    const parsed = JSON.parse(raw);
+    if (!Array.isArray(parsed) || parsed.length === 0) return DEFAULT_CATALOG.map(normalize);
+    return parsed.map(normalize);
+  } catch (e) {
+    return DEFAULT_CATALOG.map(normalize);
+  }
+}
+
+function loadMeta() {
+  try {
+    const raw = localStorage.getItem(META_KEY);
+    const parsed = raw ? JSON.parse(raw) : {};
+    return { client: parsed.client || "", eventDate: parsed.eventDate || "" };
+  } catch (e) {
+    return { client: "", eventDate: "" };
+  }
+}
+
+const sum = (list) => list.reduce((t, i) => t + (Number(i.price) || 0), 0);
+
+/** Group items into [category, items[]] pairs in canonical category order. */
+function groupByCategory(items) {
+  return CATEGORIES
+    .map((c) => [c, items.filter((i) => i.category === c)])
+    .filter(([, list]) => list.length > 0);
+}
+
+/** Clipboard write with a fallback for non-secure contexts (file:// in some browsers). */
+async function copyText(text) {
+  try {
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(text);
+      return true;
+    }
+  } catch (e) { /* fall through to the textarea path */ }
+  try {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.opacity = "0";
+    document.body.appendChild(ta);
+    ta.select();
+    const ok = document.execCommand("copy");
+    document.body.removeChild(ta);
+    return ok;
+  } catch (e) {
+    return false;
+  }
+}
+
+/* ------------------------------------------------------------------ *
+ * Small shared UI pieces
+ * ------------------------------------------------------------------ */
+
+function CategoryChip({ category, className = "" }) {
+  const s = catStyle(category);
+  return (
+    <span className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-medium ring-1 ring-inset ${s.chip} ${className}`}>
+      <span className={`h-1.5 w-1.5 rounded-full ${s.dot}`} />
+      {category}
+    </span>
+  );
+}
+
+function SectionHeading({ eyebrow, title, children }) {
+  return (
+    <div className="flex flex-wrap items-end justify-between gap-4 mb-6">
+      <div>
+        {eyebrow && (
+          <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-indigo-600 mb-1.5">{eyebrow}</div>
+        )}
+        <h2 className="text-2xl font-semibold tracking-tight text-slate-900">{title}</h2>
+      </div>
+      {children}
+    </div>
+  );
+}
+
+function EmptyState({ title, hint }) {
+  return (
+    <div className="rounded-xl border border-dashed border-slate-300 bg-white/60 px-6 py-14 text-center">
+      <p className="text-slate-700 font-medium">{title}</p>
+      {hint && <p className="mt-1 text-sm text-slate-500">{hint}</p>}
+    </div>
+  );
+}
+
+/* ------------------------------------------------------------------ *
+ * 1. Contracted plan
+ * ------------------------------------------------------------------ */
+
+function ContractedView({ items, onToggleContracted }) {
+  const [mode, setMode] = useState("present"); // 'present' during the call, 'edit' to mark items
+  const [query, setQuery] = useState("");
+
+  const contracted = useMemo(() => items.filter((i) => i.contracted), [items]);
+  const total = sum(contracted);
+
+  const editList = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    const filtered = q
+      ? items.filter((i) =>
+          i.name.toLowerCase().includes(q) ||
+          i.category.toLowerCase().includes(q) ||
+          i.pitch.toLowerCase().includes(q))
+      : items;
+    return groupByCategory(filtered);
+  }, [items, query]);
+
+  return (
+    <div>
+      <SectionHeading eyebrow="Section 1" title="What's already in your contract">
+        <div className="inline-flex rounded-lg bg-slate-200 p-1 text-sm font-medium">
+          <button
+            onClick={() => setMode("present")}
+            className={`rounded-md px-3.5 py-1.5 transition ${mode === "present" ? "bg-white text-slate-900 shadow-sm" : "text-slate-600 hover:text-slate-900"}`}>
+            Presentation
+          </button>
+          <button
+            onClick={() => setMode("edit")}
+            className={`rounded-md px-3.5 py-1.5 transition ${mode === "edit" ? "bg-white text-slate-900 shadow-sm" : "text-slate-600 hover:text-slate-900"}`}>
+            Mark items
+          </button>
+        </div>
+      </SectionHeading>
+
+      {mode === "present" ? (
+        <div className="rounded-2xl border border-slate-200 bg-white shadow-sm overflow-hidden">
+          <div className="flex flex-wrap items-baseline justify-between gap-3 border-b border-slate-200 bg-slate-50/80 px-7 py-5">
+            <div>
+              <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">Included in signed contract</div>
+              <div className="mt-1 text-lg font-semibold text-slate-900">
+                {contracted.length} {contracted.length === 1 ? "item" : "items"}
+              </div>
+            </div>
+            <div className="text-right">
+              <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">Contracted total</div>
+              <div className="text-2xl font-semibold tabular-nums text-slate-900">{money(total)}</div>
+            </div>
+          </div>
+
+          {contracted.length === 0 ? (
+            <div className="px-7 py-14 text-center text-slate-500">
+              Nothing marked as contracted yet — switch to <span className="font-medium text-slate-700">Mark items</span> to check off what's in the signed contract.
+            </div>
+          ) : (
+            <div className="divide-y divide-slate-100">
+              {groupByCategory(contracted).map(([category, list]) => (
+                <section key={category} className="px-7 py-6">
+                  <div className="mb-4 flex items-center gap-3">
+                    <span className={`h-2.5 w-2.5 rounded-full ${catStyle(category).dot}`} />
+                    <h3 className="text-sm font-semibold uppercase tracking-[0.14em] text-slate-500">{category}</h3>
+                    <span className="text-sm tabular-nums text-slate-400">{money(sum(list))}</span>
+                  </div>
+                  <ul className="space-y-3">
+                    {list.map((item) => (
+                      <li key={item.id} className="flex items-start justify-between gap-6">
+                        <div className="flex items-start gap-3">
+                          <svg className="mt-0.5 h-5 w-5 flex-none text-emerald-500" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" />
+                          </svg>
+                          <div>
+                            <p className="text-base font-medium leading-6 text-slate-900">{item.name}</p>
+                            {item.pitch && <p className="mt-0.5 text-sm leading-6 text-slate-500">{item.pitch}</p>}
+                          </div>
+                        </div>
+                        <div className="flex-none pt-0.5 text-base tabular-nums text-slate-600">{money(item.price)}</div>
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+              ))}
+            </div>
+          )}
+        </div>
+      ) : (
+        <div>
+          <input
+            type="search"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Filter the catalog…"
+            className="mb-5 w-full rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm shadow-sm outline-none placeholder:text-slate-400 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200"
+          />
+          {editList.length === 0 ? (
+            <EmptyState title="No catalog items match that filter." />
+          ) : (
+            <div className="space-y-6">
+              {editList.map(([category, list]) => (
+                <section key={category} className="rounded-2xl border border-slate-200 bg-white shadow-sm">
+                  <div className="flex items-center gap-3 border-b border-slate-100 px-5 py-3">
+                    <span className={`h-2.5 w-2.5 rounded-full ${catStyle(category).dot}`} />
+                    <h3 className="text-sm font-semibold uppercase tracking-[0.14em] text-slate-500">{category}</h3>
+                  </div>
+                  <ul className="divide-y divide-slate-100">
+                    {list.map((item) => (
+                      <li key={item.id}>
+                        <label className="flex cursor-pointer items-center gap-4 px-5 py-3.5 hover:bg-slate-50">
+                          <input
+                            type="checkbox"
+                            checked={item.contracted}
+                            onChange={() => onToggleContracted(item.id)}
+                            className="h-5 w-5 flex-none rounded border-slate-300 text-indigo-600 focus:ring-indigo-500"
+                          />
+                          <span className="min-w-0 flex-1">
+                            <span className="block truncate text-base font-medium text-slate-900">{item.name}</span>
+                            {item.pitch && <span className="block truncate text-sm text-slate-500">{item.pitch}</span>}
+                          </span>
+                          <span className="flex-none text-sm tabular-nums text-slate-500">{money(item.price)}</span>
+                        </label>
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
+/* ------------------------------------------------------------------ *
+ * 2. Enhancement menu
+ * ------------------------------------------------------------------ */
+
+function EnhancementCard({ item, onToggleAdded }) {
+  const s = catStyle(item.category);
+  return (
+    <article
+      className={`flex flex-col rounded-2xl border bg-white p-5 shadow-sm transition ${
+        item.added ? "border-indigo-400 ring-2 ring-indigo-200" : "border-slate-200 hover:border-slate-300 hover:shadow-md"
+      }`}>
+      <div className="mb-3 flex items-start justify-between gap-3">
+        <CategoryChip category={item.category} />
+        <span className="text-lg font-semibold tabular-nums text-slate-900">{money(item.price)}</span>
+      </div>
+      <h3 className="text-base font-semibold leading-6 text-slate-900">{item.name}</h3>
+      {item.pitch && <p className="mt-1.5 flex-1 text-sm leading-6 text-slate-500">{item.pitch}</p>}
+      <button
+        onClick={() => onToggleAdded(item.id)}
+        aria-pressed={item.added}
+        className={`mt-4 inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-sm font-semibold transition ${
+          item.added
+            ? "bg-indigo-600 text-white hover:bg-indigo-700"
+            : "bg-slate-100 text-slate-700 hover:bg-slate-200"
+        }`}>
+        {item.added ? (
+          <>
+            <svg className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" />
+            </svg>
+            Added to package
+          </>
+        ) : (
+          <>
+            <svg className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <path d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z" />
+            </svg>
+            Add to package
+          </>
+        )}
+      </button>
+    </article>
+  );
+}
+
+function TallySidebar({ added, onToggleAdded, contractedTotal }) {
+  const total = sum(added);
+  return (
+    <aside className="lg:sticky lg:top-24">
+      <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+        <div className="border-b border-slate-200 bg-slate-900 px-5 py-4 text-white">
+          <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-indigo-300">Enhanced package</div>
+          <div className="mt-1 text-sm text-slate-300">
+            {added.length} {added.length === 1 ? "enhancement" : "enhancements"} selected
+          </div>
+        </div>
+
+        {added.length === 0 ? (
+          <p className="px-5 py-8 text-center text-sm leading-6 text-slate-500">
+            Nothing added yet. Click <span className="font-medium text-slate-700">Add to package</span> on a card and it lands here.
+          </p>
+        ) : (
+          <ul className="max-h-[46vh] divide-y divide-slate-100 overflow-y-auto">
+            {added.map((item) => (
+              <li key={item.id} className="group flex items-start gap-3 px-5 py-3">
+                <span className={`mt-1.5 h-2 w-2 flex-none rounded-full ${catStyle(item.category).dot}`} />
+                <div className="min-w-0 flex-1">
+                  <p className="text-sm font-medium leading-5 text-slate-900">{item.name}</p>
+                  <p className="text-xs text-slate-400">{item.category}</p>
+                </div>
+                <div className="flex flex-none items-center gap-2">
+                  <span className="text-sm tabular-nums text-slate-700">{money(item.price)}</span>
+                  <button
+                    onClick={() => onToggleAdded(item.id)}
+                    title="Remove"
+                    aria-label={`Remove ${item.name}`}
+                    className="rounded p-0.5 text-slate-300 transition hover:bg-slate-100 hover:text-slate-600">
+                    <svg className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                      <path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z" />
+                    </svg>
+                  </button>
+                </div>
+              </li>
+            ))}
+          </ul>
+        )}
+
+        <div className="space-y-2 border-t border-slate-200 bg-slate-50 px-5 py-4">
+          <div className="flex items-baseline justify-between">
+            <span className="text-sm text-slate-500">Enhancements</span>
+            <span className="text-xl font-semibold tabular-nums text-slate-900">{money(total)}</span>
+          </div>
+          <div className="flex items-baseline justify-between text-sm text-slate-400">
+            <span>Contracted</span>
+            <span className="tabular-nums">{money(contractedTotal)}</span>
+          </div>
+          <div className="flex items-baseline justify-between border-t border-slate-200 pt-2">
+            <span className="text-sm font-medium text-slate-600">Combined</span>
+            <span className="text-base font-semibold tabular-nums text-slate-900">{money(contractedTotal + total)}</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+  );
+}
+
+function EnhancementView({ items, onToggleAdded, contractedTotal }) {
+  const [query, setQuery] = useState("");
+  const [activeCats, setActiveCats] = useState([]);
+
+  const available = useMemo(() => items.filter((i) => !i.contracted), [items]);
+  const added = useMemo(() => available.filter((i) => i.added), [available]);
+
+  const visible = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    return available.filter((i) => {
+      if (activeCats.length && !activeCats.includes(i.category)) return false;
+      if (!q) return true;
+      return (
+        i.name.toLowerCase().includes(q) ||
+        i.pitch.toLowerCase().includes(q) ||
+        i.category.toLowerCase().includes(q)
+      );
+    });
+  }, [available, query, activeCats]);
+
+  const toggleCat = (c) =>
+    setActiveCats((prev) => (prev.includes(c) ? prev.filter((x) => x !== c) : [...prev, c]));
+
+  const countFor = (c) => available.filter((i) => i.category === c).length;
+
+  return (
+    <div>
+      <SectionHeading eyebrow="Section 2" title="Enhancement menu">
+        <p className="text-sm text-slate-500">
+          {available.length} {available.length === 1 ? "option" : "options"} beyond the contract
+        </p>
+      </SectionHeading>
+
+      <div className="grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1fr)_20rem]">
+        <div>
+          <div className="mb-5 space-y-4">
+            <div className="relative">
+              <svg className="pointer-events-none absolute left-3.5 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path fillRule="evenodd" d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z" clipRule="evenodd" />
+              </svg>
+              <input
+                type="search"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                placeholder="Search enhancements — name, category, or pitch…"
+                className="w-full rounded-xl border border-slate-300 bg-white py-3 pl-11 pr-4 text-base shadow-sm outline-none placeholder:text-slate-400 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200"
+              />
+            </div>
+
+            <div className="flex flex-wrap gap-2">
+              <button
+                onClick={() => setActiveCats([])}
+                className={`rounded-full px-3.5 py-1.5 text-sm font-medium ring-1 ring-inset transition ${
+                  activeCats.length === 0
+                    ? "bg-slate-900 text-white ring-slate-900"
+                    : "bg-white text-slate-600 ring-slate-300 hover:bg-slate-50"
+                }`}>
+                All
+              </button>
+              {CATEGORIES.map((c) => {
+                const on = activeCats.includes(c);
+                const s = catStyle(c);
+                return (
+                  <button
+                    key={c}
+                    onClick={() => toggleCat(c)}
+                    aria-pressed={on}
+                    className={`inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-sm font-medium ring-1 ring-inset transition ${
+                      on ? s.on : "bg-white text-slate-600 ring-slate-300 hover:bg-slate-50"
+                    }`}>
+                    <span className={`h-1.5 w-1.5 rounded-full ${on ? "bg-white/80" : s.dot}`} />
+                    {c}
+                    <span className={on ? "text-white/70" : "text-slate-400"}>{countFor(c)}</span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {visible.length === 0 ? (
+            <EmptyState
+              title="No enhancements match."
+              hint="Clear the search or pick a different category pill."
+            />
+          ) : (
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
+              {visible.map((item) => (
+                <EnhancementCard key={item.id} item={item} onToggleAdded={onToggleAdded} />
+              ))}
+            </div>
+          )}
+        </div>
+
+        <TallySidebar added={added} onToggleAdded={onToggleAdded} contractedTotal={contractedTotal} />
+      </div>
+    </div>
+  );
+}
+
+/* ------------------------------------------------------------------ *
+ * 3. Summary
+ * ------------------------------------------------------------------ */
+
+function buildRecap(contracted, added, meta) {
+  const lines = [];
+  lines.push("AV CONSULT RECAP");
+  if (meta.client) lines.push("Client: " + meta.client);
+  if (meta.eventDate) lines.push("Event date: " + meta.eventDate);
+  lines.push("Prepared: " + new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" }));
+  lines.push("");
+
+  lines.push("INCLUDED IN YOUR CURRENT CONTRACT");
+  if (contracted.length === 0) {
+    lines.push("  (none marked)");
+  } else {
+    groupByCategory(contracted).forEach(([category, list]) => {
+      lines.push("  " + category);
+      list.forEach((i) => lines.push("    - " + i.name + " — " + money(i.price)));
+    });
+  }
+  lines.push("  Contracted subtotal: " + money(sum(contracted)));
+  lines.push("");
+
+  lines.push("RECOMMENDED ENHANCEMENTS");
+  if (added.length === 0) {
+    lines.push("  (none selected)");
+  } else {
+    groupByCategory(added).forEach(([category, list]) => {
+      lines.push("  " + category);
+      list.forEach((i) => {
+        lines.push("    - " + i.name + " — " + money(i.price));
+        if (i.pitch) lines.push("      " + i.pitch);
+      });
+    });
+  }
+  lines.push("  Enhancements subtotal: " + money(sum(added)));
+  lines.push("");
+
+  lines.push("TOTAL (contracted + enhancements): " + money(sum(contracted) + sum(added)));
+  return lines.join("\n");
+}
+
+function SummaryView({ items, meta, onMetaChange }) {
+  const contracted = useMemo(() => items.filter((i) => i.contracted), [items]);
+  const added = useMemo(() => items.filter((i) => i.added && !i.contracted), [items]);
+  const recap = useMemo(() => buildRecap(contracted, added, meta), [contracted, added, meta]);
+
+  const [copied, setCopied] = useState(null); // null | 'ok' | 'fail'
+  useEffect(() => {
+    if (!copied) return;
+    const t = setTimeout(() => setCopied(null), 2500);
+    return () => clearTimeout(t);
+  }, [copied]);
+
+  const handleCopy = async () => setCopied((await copyText(recap)) ? "ok" : "fail");
+
+  const Block = ({ title, list, accent, subtotal, showPitch }) => (
+    <div className="rounded-2xl border border-slate-200 bg-white shadow-sm">
+      <div className="flex items-baseline justify-between border-b border-slate-200 px-6 py-4">
+        <h3 className="text-sm font-semibold uppercase tracking-[0.14em] text-slate-500">{title}</h3>
+        <span className={`text-lg font-semibold tabular-nums ${accent}`}>{money(subtotal)}</span>
+      </div>
+      {list.length === 0 ? (
+        <p className="px-6 py-8 text-sm text-slate-400">Nothing selected.</p>
+      ) : (
+        <div className="divide-y divide-slate-100">
+          {groupByCategory(list).map(([category, group]) => (
+            <div key={category} className="px-6 py-4">
+              <div className="mb-2 flex items-center gap-2">
+                <span className={`h-2 w-2 rounded-full ${catStyle(category).dot}`} />
+                <span className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-400">{category}</span>
+              </div>
+              <ul className="space-y-2">
+                {group.map((i) => (
+                  <li key={i.id} className="flex items-start justify-between gap-6">
+                    <div>
+                      <p className="text-sm font-medium text-slate-900">{i.name}</p>
+                      {showPitch && i.pitch && <p className="text-xs leading-5 text-slate-500">{i.pitch}</p>}
+                    </div>
+                    <span className="flex-none text-sm tabular-nums text-slate-600">{money(i.price)}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+
+  return (
+    <div>
+      <SectionHeading eyebrow="Wrap up" title="Consult summary">
+        <button
+          onClick={handleCopy}
+          className="inline-flex items-center gap-2 rounded-lg bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-indigo-700">
+          <svg className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path d="M7 3.5A1.5 1.5 0 018.5 2h3.879a1.5 1.5 0 011.06.44l3.122 3.12A1.5 1.5 0 0117 6.622V12.5a1.5 1.5 0 01-1.5 1.5h-1v-3.379a3 3 0 00-.879-2.121L10.5 5.379A3 3 0 008.379 4.5H7v-1z" />
+            <path d="M4.5 6A1.5 1.5 0 003 7.5v9A1.5 1.5 0 004.5 18h7a1.5 1.5 0 001.5-1.5v-5.879a1.5 1.5 0 00-.44-1.06L9.44 6.439A1.5 1.5 0 008.378 6H4.5z" />
+          </svg>
+          {copied === "ok" ? "Copied!" : copied === "fail" ? "Copy failed — select the text below" : "Copy recap to clipboard"}
+        </button>
+      </SectionHeading>
+
+      <div className="mb-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <label className="block">
+          <span className="mb-1.5 block text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">Client / event</span>
+          <input
+            type="text"
+            value={meta.client}
+            onChange={(e) => onMetaChange({ ...meta, client: e.target.value })}
+            placeholder="e.g. Meridian Health — Leadership Summit"
+            className="w-full rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm shadow-sm outline-none placeholder:text-slate-400 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200"
+          />
+        </label>
+        <label className="block">
+          <span className="mb-1.5 block text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">Event date</span>
+          <input
+            type="text"
+            value={meta.eventDate}
+            onChange={(e) => onMetaChange({ ...meta, eventDate: e.target.value })}
+            placeholder="e.g. October 14, 2026"
+            className="w-full rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm shadow-sm outline-none placeholder:text-slate-400 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200"
+          />
+        </label>
+      </div>
+
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+        <Block title="In your contract" list={contracted} accent="text-slate-900" subtotal={sum(contracted)} />
+        <Block title="Recommended enhancements" list={added} accent="text-indigo-600" subtotal={sum(added)} showPitch />
+      </div>
+
+      <div className="mt-6 flex flex-wrap items-baseline justify-between gap-4 rounded-2xl bg-slate-900 px-7 py-6 text-white">
+        <div>
+          <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-indigo-300">Combined investment</div>
+          <div className="mt-1 text-sm text-slate-300">
+            {contracted.length} contracted + {added.length} enhancement{added.length === 1 ? "" : "s"}
+          </div>
+        </div>
+        <div className="text-3xl font-semibold tabular-nums">{money(sum(contracted) + sum(added))}</div>
+      </div>
+
+      <div className="mt-8">
+        <h3 className="mb-2 text-sm font-semibold uppercase tracking-[0.14em] text-slate-500">Plain-text recap</h3>
+        <textarea
+          readOnly
+          value={recap}
+          rows={16}
+          onFocus={(e) => e.target.select()}
+          className="w-full rounded-2xl border border-slate-200 bg-white p-5 font-mono text-xs leading-6 text-slate-700 shadow-sm outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200"
+        />
+      </div>
+    </div>
+  );
+}
+
+/* ------------------------------------------------------------------ *
+ * 4. Catalog settings
+ * ------------------------------------------------------------------ */
+
+const inputCls =
+  "w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm shadow-sm outline-none placeholder:text-slate-400 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200";
+
+function SettingsView({ items, setItems, onResetSelections, onRestoreSamples }) {
+  const [draft, setDraft] = useState({ name: "", category: CATEGORIES[0], price: "", pitch: "" });
+  const fileRef = useRef(null);
+  const [notice, setNotice] = useState("");
+
+  useEffect(() => {
+    if (!notice) return;
+    const t = setTimeout(() => setNotice(""), 3000);
+    return () => clearTimeout(t);
+  }, [notice]);
+
+  const patch = (id, changes) =>
+    setItems((prev) => prev.map((i) => (i.id === id ? { ...i, ...changes } : i)));
+
+  const remove = (id) => {
+    const item = items.find((i) => i.id === id);
+    if (item && !window.confirm(`Remove "${item.name}" from the catalog?`)) return;
+    setItems((prev) => prev.filter((i) => i.id !== id));
+  };
+
+  const addItem = () => {
+    if (!draft.name.trim()) return;
+    setItems((prev) => [
+      ...prev,
+      normalize({ ...draft, name: draft.name.trim(), price: Number(draft.price) || 0, pitch: draft.pitch.trim() }),
+    ]);
+    setDraft({ name: "", category: draft.category, price: "", pitch: "" });
+  };
+
+  const exportJson = () => {
+    const blob = new Blob([JSON.stringify(items, null, 2)], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "av-catalog.json";
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
+  const importJson = (file) => {
+    const reader = new FileReader();
+    reader.onload = () => {
+      try {
+        const parsed = JSON.parse(String(reader.result));
+        if (!Array.isArray(parsed) || parsed.length === 0) throw new Error("empty");
+        if (!window.confirm(`Replace the current catalog with ${parsed.length} imported items?`)) return;
+        setItems(parsed.map(normalize));
+        setNotice("Catalog imported.");
+      } catch (e) {
+        setNotice("That file isn't a valid catalog export.");
+      }
+    };
+    reader.readAsText(file);
+  };
+
+  return (
+    <div>
+      <SectionHeading eyebrow="Master list" title="Catalog & pricing">
+        <p className="text-sm text-slate-500">{items.length} items — saved to this browser automatically</p>
+      </SectionHeading>
+
+      {notice && (
+        <div className="mb-4 rounded-lg bg-indigo-50 px-4 py-2.5 text-sm text-indigo-700 ring-1 ring-inset ring-indigo-200">{notice}</div>
+      )}
+
+      <div className="mb-6 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+        <h3 className="mb-4 text-sm font-semibold uppercase tracking-[0.14em] text-slate-500">Add a new item</h3>
+        <div className="grid grid-cols-1 gap-3 md:grid-cols-12">
+          <div className="md:col-span-4">
+            <input
+              className={inputCls}
+              placeholder="Item name"
+              value={draft.name}
+              onChange={(e) => setDraft({ ...draft, name: e.target.value })}
+              onKeyDown={(e) => e.key === "Enter" && addItem()}
+            />
+          </div>
+          <div className="md:col-span-3">
+            <select className={inputCls} value={draft.category} onChange={(e) => setDraft({ ...draft, category: e.target.value })}>
+              {CATEGORIES.map((c) => <option key={c} value={c}>{c}</option>)}
+            </select>
+          </div>
+          <div className="md:col-span-2">
+            <input
+              className={inputCls}
+              type="number"
+              min="0"
+              step="1"
+              placeholder="Price"
+              value={draft.price}
+              onChange={(e) => setDraft({ ...draft, price: e.target.value })}
+              onKeyDown={(e) => e.key === "Enter" && addItem()}
+            />
+          </div>
+          <div className="md:col-span-3">
+            <button
+              onClick={addItem}
+              disabled={!draft.name.trim()}
+              className="w-full rounded-lg bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:bg-slate-300">
+              Add to catalog
+            </button>
+          </div>
+          <div className="md:col-span-12">
+            <input
+              className={inputCls}
+              placeholder="One-line pitch (what this does for the client)"
+              value={draft.pitch}
+              onChange={(e) => setDraft({ ...draft, pitch: e.target.value })}
+              onKeyDown={(e) => e.key === "Enter" && addItem()}
+            />
+          </div>
+        </div>
+      </div>
+
+      <div className="space-y-3">
+        {items.map((item) => (
+          <div key={item.id} className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+            <div className="grid grid-cols-1 gap-3 md:grid-cols-12">
+              <div className="md:col-span-4">
+                <input className={inputCls} value={item.name} onChange={(e) => patch(item.id, { name: e.target.value })} />
+              </div>
+              <div className="md:col-span-3">
+                <select className={inputCls} value={item.category} onChange={(e) => patch(item.id, { category: e.target.value })}>
+                  {CATEGORIES.map((c) => <option key={c} value={c}>{c}</option>)}
+                </select>
+              </div>
+              <div className="md:col-span-2">
+                <div className="relative">
+                  <span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-sm text-slate-400">$</span>
+                  <input
+                    className={inputCls + " pl-7 tabular-nums"}
+                    type="number"
+                    min="0"
+                    step="1"
+                    value={item.price}
+                    onChange={(e) => patch(item.id, { price: Number(e.target.value) || 0 })}
+                  />
+                </div>
+              </div>
+              <div className="flex items-center gap-4 md:col-span-3">
+                <label className="inline-flex items-center gap-2 text-sm text-slate-600">
+                  <input
+                    type="checkbox"
+                    checked={item.contracted}
+                    onChange={(e) => patch(item.id, { contracted: e.target.checked, added: e.target.checked ? false : item.added })}
+                    className="h-4 w-4 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500"
+                  />
+                  Contracted
+                </label>
+                <button
+                  onClick={() => remove(item.id)}
+                  className="ml-auto rounded-lg px-3 py-2 text-sm font-medium text-rose-600 transition hover:bg-rose-50">
+                  Remove
+                </button>
+              </div>
+              <div className="md:col-span-12">
+                <input
+                  className={inputCls}
+                  placeholder="One-line pitch"
+                  value={item.pitch}
+                  onChange={(e) => patch(item.id, { pitch: e.target.value })}
+                />
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className="mt-8 flex flex-wrap gap-3 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+        <button onClick={onResetSelections} className="rounded-lg bg-slate-100 px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-200">
+          Start a new consult
+        </button>
+        <button onClick={exportJson} className="rounded-lg bg-slate-100 px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-200">
+          Export catalog (.json)
+        </button>
+        <button onClick={() => fileRef.current && fileRef.current.click()} className="rounded-lg bg-slate-100 px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-200">
+          Import catalog
+        </button>
+        <input
+          ref={fileRef}
+          type="file"
+          accept="application/json,.json"
+          className="hidden"
+          onChange={(e) => {
+            const f = e.target.files && e.target.files[0];
+            if (f) importJson(f);
+            e.target.value = "";
+          }}
+        />
+        <button onClick={onRestoreSamples} className="rounded-lg px-4 py-2 text-sm font-medium text-slate-500 transition hover:bg-slate-100">
+          Restore sample catalog
+        </button>
+      </div>
+      <p className="mt-3 text-xs leading-5 text-slate-500">
+        “Start a new consult” clears the contracted and added checkmarks but keeps every item and price.
+        Export before clearing browser data — localStorage is per-browser and isn't synced anywhere.
+      </p>
+    </div>
+  );
+}
+
+/* ------------------------------------------------------------------ *
+ * Shell
+ * ------------------------------------------------------------------ */
+
+const TABS = [
+  { id: "contract",    label: "Contracted Plan" },
+  { id: "enhancement", label: "Enhancement Menu" },
+  { id: "summary",     label: "Summary" },
+  { id: "catalog",     label: "Catalog" },
+];
+
+function App() {
+  const [items, setItems] = useState(loadCatalog);
+  const [meta, setMeta] = useState(loadMeta);
+  const [tab, setTab] = useState("contract");
+
+  useEffect(() => {
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(items)); } catch (e) { /* quota / private mode */ }
+  }, [items]);
+
+  useEffect(() => {
+    try { localStorage.setItem(META_KEY, JSON.stringify(meta)); } catch (e) { /* quota / private mode */ }
+  }, [meta]);
+
+  // Land at the top of each section — mid-scroll tab switches look broken on a shared screen.
+  useEffect(() => { window.scrollTo(0, 0); }, [tab]);
+
+  // Contracting an item removes it from the enhancement menu, so drop its added flag too.
+  const toggleContracted = useCallback((id) => {
+    setItems((prev) => prev.map((i) =>
+      i.id === id ? { ...i, contracted: !i.contracted, added: !i.contracted ? false : i.added } : i));
+  }, []);
+
+  const toggleAdded = useCallback((id) => {
+    setItems((prev) => prev.map((i) => (i.id === id ? { ...i, added: !i.added } : i)));
+  }, []);
+
+  const resetSelections = useCallback(() => {
+    if (!window.confirm("Clear all contracted and added checkmarks for a fresh consult? Items and prices are kept.")) return;
+    setItems((prev) => prev.map((i) => ({ ...i, contracted: false, added: false })));
+    setMeta({ client: "", eventDate: "" });
+  }, []);
+
+  const restoreSamples = useCallback(() => {
+    if (!window.confirm("Replace the current catalog with the built-in sample items? This can't be undone.")) return;
+    setItems(DEFAULT_CATALOG.map(normalize));
+  }, []);
+
+  const contracted = useMemo(() => items.filter((i) => i.contracted), [items]);
+  const added = useMemo(() => items.filter((i) => i.added && !i.contracted), [items]);
+  const grandTotal = sum(contracted) + sum(added);
+
+  return (
+    <div className="min-h-screen">
+      <header className="sticky top-0 z-20 border-b border-slate-200 bg-white/90 backdrop-blur">
+        <div className="mx-auto flex max-w-[1400px] flex-wrap items-center gap-x-8 gap-y-3 px-6 py-4">
+          <div className="flex items-center gap-3">
+            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-slate-900 text-white">
+              <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path d="M2 5.5A2.5 2.5 0 014.5 3h11A2.5 2.5 0 0118 5.5v6a2.5 2.5 0 01-2.5 2.5h-11A2.5 2.5 0 012 11.5v-6zM6 16.25a.75.75 0 01.75-.75h6.5a.75.75 0 010 1.5h-6.5a.75.75 0 01-.75-.75z" />
+              </svg>
+            </div>
+            <div>
+              <h1 className="text-base font-semibold leading-5 tracking-tight text-slate-900">AV Consult Companion</h1>
+              <p className="text-xs text-slate-500">{meta.client || "Client consultation walkthrough"}</p>
+            </div>
+          </div>
+
+          <nav className="flex flex-wrap gap-1">
+            {TABS.map((t) => (
+              <button
+                key={t.id}
+                onClick={() => setTab(t.id)}
+                className={`rounded-lg px-4 py-2 text-sm font-medium transition ${
+                  tab === t.id ? "bg-slate-900 text-white" : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
+                }`}>
+                {t.label}
+                {t.id === "enhancement" && added.length > 0 && (
+                  <span className={`ml-2 rounded-full px-1.5 py-0.5 text-xs ${tab === t.id ? "bg-white/20" : "bg-indigo-100 text-indigo-700"}`}>
+                    {added.length}
+                  </span>
+                )}
+              </button>
+            ))}
+          </nav>
+
+          <div className="ml-auto text-right">
+            <div className="text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-400">Running total</div>
+            <div className="text-lg font-semibold tabular-nums leading-6 text-slate-900">{money(grandTotal)}</div>
+          </div>
+        </div>
+      </header>
+
+      <main className="mx-auto max-w-[1400px] px-6 py-10">
+        {tab === "contract" && <ContractedView items={items} onToggleContracted={toggleContracted} />}
+        {tab === "enhancement" && (
+          <EnhancementView items={items} onToggleAdded={toggleAdded} contractedTotal={sum(contracted)} />
+        )}
+        {tab === "summary" && <SummaryView items={items} meta={meta} onMetaChange={setMeta} />}
+        {tab === "catalog" && (
+          <SettingsView
+            items={items}
+            setItems={setItems}
+            onResetSelections={resetSelections}
+            onRestoreSamples={restoreSamples}
+          />
+        )}
+      </main>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+</body>
+</html>
